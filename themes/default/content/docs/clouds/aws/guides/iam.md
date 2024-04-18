@@ -65,13 +65,13 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
 
 Pulumi Crosswalk for AWS in TypeScript defines [the `aws.iam.PolicyDocument` interface](
 /registry/packages/aws/api-docs/iam) to add strong type checking to your policy documents. By using
-this type, we will know at compile time whether we've mistyped an attribute:
+this type, you will know at compile time whether you've mistyped an attribute:
 
 ```typescript
 {{< example-program-snippet path="aws-iam-strongly-typed" language="typescript" from="1" to="15" >}}
 ```
 
-This policy object can then be used to configure a variety of IAM objects, as we will see below. For example, we can
+This policy object can then be used to configure a variety of IAM objects, as you will see below. For example, you can
 use the above policy to configure an IAM role that permits an assume role action for a given principal:
 
 ```typescript
@@ -84,7 +84,7 @@ An AWS managed policy is a standalone policy that is created and administered by
 the policy has its own Amazon Resource Name (ARN) that includes the policy name. For example,
 `arn:aws:iam::aws:policy/IAMReadOnlyAccess` is an AWS managed policy.
 
-In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string, but that requires that you either memorize or look up the ARN each time. Instead, you can use the strongly typed `ManagedPolicy` enum, which exports a collection of constants for all available managed policies. For example, instead of typing out the ARN by hand, we can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
+In places that accept a policy ARN, such as the `RolePolicyAttachment` resource, you can pass the ARN as a string, but that requires that you either memorize or look up the ARN each time. Instead, you can use the strongly typed `ManagedPolicy` enum, which exports a collection of constants for all available managed policies. For example, instead of typing out the ARN by hand, you can just reference `ManagedPolicy`'s `IAMReadOnlyAccess`
 enum value:
 
 {{< example-program path="aws-iam-role-policyattachment-managedpolicy" >}}

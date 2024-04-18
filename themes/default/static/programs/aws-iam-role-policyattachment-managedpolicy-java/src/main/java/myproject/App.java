@@ -7,6 +7,8 @@ import com.pulumi.aws.iam.RoleArgs;
 import com.pulumi.aws.iam.RolePolicyAttachment;
 import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
 import static com.pulumi.codegen.internal.Serialization.*;
+import com.pulumi.aws.iam.enums.ManagedPolicy;
+import com.pulumi.core.Output;
 
 public class App {
     public static void main(String[] args) {
@@ -31,7 +33,7 @@ public class App {
 
         new RolePolicyAttachment("my-rpa", RolePolicyAttachmentArgs.builder()        
             .role(role.name())
-            .policyArn(Output.format(ManagedPolicy.ReadOnlyAccess.getValue())))
+            .policyArn(Output.format(ManagedPolicy.ReadOnlyAccess.getValue()))
             .build());
     }
 }
