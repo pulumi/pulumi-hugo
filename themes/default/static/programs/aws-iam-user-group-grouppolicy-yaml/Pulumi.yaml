@@ -39,6 +39,6 @@ resources:
     properties:
       name: dev-team
       users:
-        - ${jane.name}
-        - ${mary.name}
+        - ${jane.id}
+        - ${mary.id}
       group: ${devs.name}
