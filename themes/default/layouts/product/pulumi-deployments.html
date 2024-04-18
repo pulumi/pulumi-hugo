@@ -5,26 +5,28 @@
 {{ define "main" }}
     {{ $pageContext := . }}
 
-
-    <section id="overview" class="max-w-5xl mx-auto text-center my-16 px-6">
-        {{ with .Params.overview }}
-            <h2>{{ .title }}</h2>
-            <p class="text-left">{{ .description | markdownify }}</p>
-            <div class="mt-8">
-                <a href="https://app.pulumi.com/signup/" class="btn-secondary">Get Started with Deployments</a>
+    <section id="overview" class="container mx-auto my-16 lg:mt-16 lg:mb-8 px-6">
+        <div class="lg:flex">
+            <div class="lg:w-1/2 lg:order-last mb-8 lg:mb-0 relative h-full">
+                <div class="rounded-xl shadow-2xl relative h-0 overflow-hidden" style="padding-bottom: 50.25%;">
+                    <iframe
+                        src="{{ .Params.preview.youtube_url }}"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+                        allowfullscreen=""
+                        title="Pulumi Deploy - Unlock Automation for Every Enterprise"
+                    ></iframe>
+                </div>
             </div>
-        {{ end }}
-    </section>
-
-    <section id="deployments-graphic" class="max-w-4xl mx-auto text-center relative mb-16 px-6 lg:px-0">
-        <div class="shape-background pulumi-service-screenshot">
-            <div class="shape-container">
-                <div class="circle-right"></div>
-                <div class="circle-left"></div>
+            <div class="lg:w-1/2 lg:pr-16">
+                {{ with .Params.overview }}
+                    <h3>{{ .title }}</h3>
+                    <p>{{ .description | markdownify }}</p>
+                    <div class="mt-8">
+                        <a href="https://app.pulumi.com/signup/" class="btn-secondary">Get Started with Deployments</a>
+                    </div>
+                {{ end }}
             </div>
         </div>
-
-        <img class="card mx-auto bg-white" src="/images/product/pulumi-deployments-graphic.png" alt="Pulumi Deployments Architecture Screenshot" />
     </section>
 
     <section id="quotes" class="w-full my-16">
@@ -58,9 +60,7 @@
     </section>
 
     <section id="preview" class="max-w-5xl mx-auto text-center my-8 px-6">
-        <div class="card bg-white w-3/4 mx-auto" style="position: relative; padding-bottom: 40.25%; height: 0; overflow: hidden;">
-            <iframe src="{{ .Params.preview.youtube_url }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen=""></iframe>
-        </div>
+        <img class="card mx-auto bg-white" src="/images/product/pulumi-deployments-graphic.png" alt="Pulumi Deployments Architecture Screenshot" />
         <div class="mt-16">
             <a href="https://app.pulumi.com/signup/" class="btn-secondary">Get Started with Deployments</a>
         </div>

@@ -47,6 +47,18 @@ options:
           icon_color: blue
           title: REST API
           description: Deploy infrastructure by calling the Pulumi Service REST API. You can also use the API to run [Remote Automation API](/docs/pulumi-cloud/deployments/reference/#rest-api) code.
+        - icon: eye
+          icon_color: fuchsia
+          title: Drift Detection
+          description: new copy from Aaron
+        - icon: lightning
+          icon_color: violet
+          title: TTL Stacks
+          description: new copy from Aaron
+        - icon: clock
+          icon_color: yellow
+          title: Scheduled Deployments
+          description: new copy from Aaron
 
 form:
     hubspot_form_id: 35baf46c-fd6e-4321-a75f-fc9319e31efb
@@ -68,7 +80,7 @@ learn:
               action: Pulumi Deployments Docs
             - link: /docs/reference/deployments-rest-api
               type: secondary
-              action: Pulumi Deployments REST API Docs
+              action: REST API Docs
 
 aliases:
     - /deployments
