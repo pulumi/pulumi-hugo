@@ -136,8 +136,6 @@ group, and adds a couple users into it, thereby granting them permissions from t
 
 {{< example-program path="aws-iam-user-group-grouppolicy" >}}
 
-[WIP - Troubleshooting Java code]
-
 For more information, refer to the API documentation for [groups](
 /registry/packages/aws/api-docs/iam/group), [group membership](
 /registry/packages/aws/api-docs/iam/groupmembership), and [group policies](
