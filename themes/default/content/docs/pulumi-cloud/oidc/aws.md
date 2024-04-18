@@ -107,11 +107,13 @@ The subject always contains the prefix `pulumi:environments:pulumi.organization.
 * `pulumi.user.login`: the login identifier of the user opening the environment
 * `pulumi.organization.login`: the login identifier of the organization
 
+When importing multiple environments into Pulumi IaC Stack Config, each environment is resolved separately. For example, if you import multiple environments into your Pulumi Stack with `rootEnvironment.name` attribute defined in all of them, then each `rootEnvironment.name` will resolve to the environment name where it is defined.
+
 The default format of the subject claim when subjectAttributes are not used is `pulumi:environments:org:<organization name>:env:<environment name>`
 
 {{< notes type="info" >}}
 
-We recommend using `subjectAttributes`. If you are integrating Pulumi ESC with Pulumi IaC, the default subject identifier of the environment will be `pulumi:environments:org:contoso:env:<yaml>`.  The literal value of `<yaml>` need to be used and will be the same for all environments. Hence, for best security practices we recommend using `subjectAttributes`.
+If you are integrating Pulumi ESC with Pulumi IaC, the default subject identifier of the environment will be `pulumi:environments:org:contoso:env:<yaml>`.  The literal value of `<yaml>` need to be used and will be the same for all environments. Hence, for best security practices we recommend using `subjectAttributes`. If you want to set environment level or even granular permissions in your trust policy, then we recommend using `subjectAttributes` property
 
 {{< /notes >}}
 

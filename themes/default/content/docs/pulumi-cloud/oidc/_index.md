@@ -31,7 +31,7 @@ The token contains the standard audience, issuer, and subject claims:
 
 ### Pulumi ESC
 
-The token contains the standard audience, issuer, and subject claims:
+The token contains the following claims:
 
 | Claim         | Description |
 |:--------------|:------------|
@@ -70,7 +70,7 @@ The default format of the subject claim for this service is:
 
 `pulumi:environments:org:<organization name>:env:<environment name>`
 
-However, we recommend using `subjectAttributes` property to customize the OIDC subject claims if you plan to use subject claims in your cloud provider trust policy. The default prefix when using `subjectAttributes` will be
+If you want to have granular permissions, then we recommend using `subjectAttributes` property to customize the OIDC subject claims if you plan to use subject claims in your cloud provider trust policy. The default prefix when using `subjectAttributes` will be
 
 `pulumi:environments:pulumi.organization.login:{ORGANIZATION_NAME}`
 
@@ -80,6 +80,37 @@ Additional options for customization include:
 * `currentEnvironment.name`: the name of the environment where the ESC login provider and `subjectAttributes` are defined
 * `pulumi.user.login`: the login identifier of the user opening the environment
 * `pulumi.organization.login`: the login identifier of the organization
+
+Let's explain how `rootEnvironment.name` and `currentEnvironment.name` work with an example. Consider the following definitions for two environments, `Environment-A` and `Environment-B`:
+
+```yaml
+#Environment-A
+values:
+  enva-rootEnv: ${context.rootEnvironment.name}
+  enva-currentEnv: ${context.currentEnvironment.name}
+
+#Environment-B
+imports:
+- EnvironmentA
+values:
+  envb-rootEnv: ${context.rootEnvironment.name}
+  envb-currentEnv: ${context.currentEnvironment.name}
+```
+
+If you open `Environment-B`, the output would be:
+
+```
+{
+  "enva-currentEnv-name": "Environment-A",
+  "enva-rootEnv-name": "Environment-B",
+  "envb-currentEnv": "Environment-B",
+  "envb-rootEnv": "Environment-B"
+}
+```
+
+Notice how `enva-rootEnv-name` is resolved to `Environment-B`. That's because Environment-A is opened from Environment-B which is the root, i.e. the top-level environment to be opened.
+
+When importing multiple environments into Pulumi IaC Stack Config, each environment is resolved separately. For example, if you import multiple environments into your Pulumi Stack with `rootEnvironment.name` attribute defined in all of them, then each `rootEnvironment.name` will resolve to the environment name where it is defined.
 
 ## Configuring trust relationships
 
