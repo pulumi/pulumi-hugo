@@ -344,6 +344,22 @@
         </div>
     </section>
 
+    <section id="faq" class="container mx-auto my-16">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2>Frequently asked questions</h2>
+        </div>
+        <ul class="list-none p-0 mx-5 xl:ml-12" data-faq-type="faq-deployments">
+            {{ range $item := .Params.faq.items }}
+                <li class="accordion-item text-2xl py-3">
+                    {{ partial "accordian-header" (dict "text" $item.header "large_header" true) }}
+                    <div class="accordion-item-body-no-animation text-base">
+                        {{ $item.content | markdownify }}
+                    </div>
+                </li>
+            {{ end }}
+        </ul>
+    </section>
+
     <section id="learn" class="container mx-auto text-center mt-16 px-6">
         <div class="max-w-5xl mx-auto text-center px-6">
             <h2>{{ .Params.learn.title }}</h2>

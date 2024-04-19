@@ -63,6 +63,24 @@ options:
 form:
     hubspot_form_id: 35baf46c-fd6e-4321-a75f-fc9319e31efb
 
+faq:
+    items:
+      - header: Question 1
+        content: |
+          Pulumi ESC (Environments, Secrets and Configuration), is an [open source project](https://github.com/pulumi/esc) and managed service of Pulumi Cloud that enables teams to manage hierarchical collections of configuration and secrets and consume them from a variety of different infrastructure and application services.
+
+          Pulumi ESC integrates with Pulumi Cloud identity and RBAC to provide rich control over access to secret configuration within an organization. Pulumi ESC supports multiple configuration providers, enabling static key/value configuration as well as dynamically retrieved configuration and secrets via OIDC and additional providers like 1Password and Vault.  Pulumi ESC is available via the new `esc` CLI, Pulumi Cloud, the Pulumi Cloud REST API, and Pulumi IaC stack configuration.
+      - header: Question 2
+        content: |
+          An environment describes a collection of secrets and configuration values. It is typically intended to capture the configuration needed to work with a particular environment - for example the production environment for your key customer or line of business service.
+
+          An environment is represented by a YAML document. This document has two top level entries:  
+
+          - `imports`: An optional set of other environments that this environment derives from, enabling composition of environments and avoiding repetition across environments.  
+
+          - `values`: An arbitrary nested collection of key/value pairs representing top level configuration values.
+
+
 learn:
     title: Get Started
     items:
