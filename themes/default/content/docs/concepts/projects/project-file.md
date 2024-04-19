@@ -85,7 +85,7 @@ New Python projects created with `pulumi new` have this option set by default. I
 
 #### About `typechecker`
 
-This option can be set to `mypy` or `pyright` (for other type checkers raise an issue at https://github.com/pulumi/pulumi/issues). If set the given type checker will be invoked to check the python code before running the Pulumi program.
+This option can be set to `mypy` or `pyright`. (For additional type checkers, file an issue at [https://github.com/pulumi/pulumi/issues](https://github.com/pulumi/pulumi/issues).). If set, the given type checker will be invoked to check the Python code before running the Pulumi program.
 
 ### `config` options
 
