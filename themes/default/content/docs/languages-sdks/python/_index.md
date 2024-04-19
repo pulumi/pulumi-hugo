@@ -113,7 +113,7 @@ runtime:
     typechecker: mypy
 ```
 
-When set Pulumi will invoke the type checker before running your program. This can be used to ensure your program is always type safe when running `pulumi up` without you having to remember to run a separate checking command beforehand.
+When set, Pulumi will invoke the type checker before running your program. This can be used to ensure your program is always type safe when running `pulumi up` without you having to remember to run a separate checking command beforehand.
 
 ### Adding a new dependency {#packages}
 
