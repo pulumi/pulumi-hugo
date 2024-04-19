@@ -2,12 +2,12 @@
 title: Pulumi Deployments
 layout: pulumi-deployments
 
-meta_desc: Pulumi Deployments is a new feature that automates the execution of Pulumi programs on your behalf.
+meta_desc: Pulumi Deployments is an infrastructure lifecycle management service that automates infrastructure operations.
 
 overview:
     title: The fastest way to go from code to cloud
     description: |
-        [Pulumi Deployments](/docs/pulumi-cloud/deployments/) is a fast and flexible way to deploy infrastructure on any cloud and at any scale, using GitHub pull requests, API calls, and console. No CLI setup needed since [Pulumi Cloud](/product/pulumi-cloud/) manages deployments.
+        Pulumi Deployments is a fast and flexible way to deploy infrastructure on any cloud and at any scale, using GitHub pull requests, API calls, and console. No CLI setup needed since [Pulumi Cloud](/product/pulumi-cloud/) manages deployments.
 
 quotes:
     items:
@@ -49,16 +49,16 @@ options:
           description: Deploy infrastructure by calling the Pulumi Service REST API. You can also use the API to run [Remote Automation API](/docs/pulumi-cloud/deployments/reference/#rest-api) code.
         - icon: eye
           icon_color: fuchsia
-          title: Drift Detection
-          description: new copy from Aaron
+          title: Review Stacks
+          description: Automate creation and deletion of dedicated cloud environments for every pull request, enabling cost-effective reviews.
         - icon: lightning
           icon_color: violet
           title: TTL Stacks
-          description: new copy from Aaron
+          description: Automatically cleanup infrastructure with self-destroying (automatic deletion) stacks. 
         - icon: clock
           icon_color: yellow
           title: Scheduled Deployments
-          description: new copy from Aaron
+          description: Automate cloud operations (update, refresh, destroy) on defined schedules using cron expressions. 
 
 form:
     hubspot_form_id: 35baf46c-fd6e-4321-a75f-fc9319e31efb
