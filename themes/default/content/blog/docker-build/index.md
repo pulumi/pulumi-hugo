@@ -43,9 +43,7 @@ tags:
 
 We are thrilled to introduce the latest addition to the Pulumi Ecosystem -- the new _Docker-Build_ provider, designed to streamline and enhance Docker container builds. This addition builds on the solid foundation of our widly utilized Docker Provider. By embracing the power of Docker's [BuildKit] technology, this provider enhances your building experience, allowing you to modernize your container builds. This launch signifies our ongoing commitment to advancing technology and empowering developers to achieve new heights in container management.
 
-The Docker-Build provider is crafted to optimize the efficiency and versatility of Docker builds, integrating modern capabilities such as multi-platform image support, advanced caching options, and comprehensive build configurations. It offers developers a more potent and flexible approach to building Docker images, ensuring that they can achieve high performance and scalability in their deployment workflows.
-
-The new provider exposes the full power of Docker's next-gen [buildx](https://docs.docker.com/reference/cli/docker/buildx/build/) functionality and includes key features such as,
+The Docker-Build provider is crafted to optimize the efficiency and versatility of Docker builds and offers developers a more potent and flexible approach to building Docker images, ensuring that they can achieve high performance and scalability in their deployment workflows. The new provider exposes the full power of Docker's next-gen [buildx](https://docs.docker.com/reference/cli/docker/buildx/build/) functionality and includes key features such as,
 
 * __Multi-Platform Image Support__: Build and manage images that run seamlessly across different hardware architectures.
 
