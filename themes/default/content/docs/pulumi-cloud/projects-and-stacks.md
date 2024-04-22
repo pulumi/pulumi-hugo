@@ -20,6 +20,8 @@ search:
     - delete a stack
     - deleting a stack
     - delete a stack in Pulumi cloud
+    - resource graph view
+    - stack resource visualization
 ---
 
 Projects group stacks together and contain a Pulumi.yaml file.
