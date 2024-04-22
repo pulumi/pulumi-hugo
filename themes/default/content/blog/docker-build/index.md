@@ -449,8 +449,6 @@ public class App {
 }
 ```
 
-{{% /choosable %}}
-
 The exported `ref` value provides a convenient way to reference the pushed
 image in downstream Pulumi resources like ECS
 [TaskDefinitions](https://www.pulumi.com/registry/packages/aws/api-docs/ecs/taskdefinition/)
@@ -480,8 +478,8 @@ whether you are doing anything related to `docker build`.
 
 | Provider               | Use cases                                                                                                                                                |
 | ----------------       | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@pulumi/docker-build` | Anything related to building images with `docker build`.                                                                                                 |
-| `@pulumi/docker`       | Everything else -- including running containers and creating networks.                                                                                   |
+| `@pulumi/docker-build` | Use this provider primarily for building Docker images. Ideal for scenarios requiring automation of image creation with Docker, including setting up CI/CD pipelines for Docker image generation.                                                                                                 |
+| `@pulumi/docker`       | Suitable for broader Docker operations beyond just building images. This includes running Docker containers, managing container lifecycles, orchestrating Docker networks, and handling volumes. Recommended for general Docker management within Pulumi projects.                                                                                   |
 
 ## Migrating Docker images to Docker-Build
 
