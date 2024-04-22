@@ -19,4 +19,3 @@ Every Platform Team is familiar with the challenge of managing infrastructure th
 ### REST API
 
 ### Pulumi Cloud Service provider
-
