@@ -449,6 +449,8 @@ public class App {
 }
 ```
 
+{{% /choosable %}}
+
 The exported `ref` value provides a convenient way to reference the pushed
 image in downstream Pulumi resources like ECS
 [TaskDefinitions](https://www.pulumi.com/registry/packages/aws/api-docs/ecs/taskdefinition/)
