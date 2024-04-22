@@ -278,68 +278,68 @@ return await Deployment.RunAsync(() =>
 package main
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
-	"github.com/pulumi/pulumi-docker-build/sdk/go/dockerbuild"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+    "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+    "github.com/pulumi/pulumi-docker-build/sdk/go/dockerbuild"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		ecrRepository, err := ecr.NewRepository(ctx, "ecr-repository", nil)
-		if err != nil {
-			return err
-		}
-		authToken := ecr.GetAuthorizationTokenOutput(ctx, ecr.GetAuthorizationTokenOutputArgs{
-			RegistryId: ecrRepository.RegistryId,
-		}, nil)
-		myImage, err := dockerbuild.NewImage(ctx, "my-image", &dockerbuild.ImageArgs{
-			CacheFrom: dockerbuild.CacheFromArray{
-				&dockerbuild.CacheFromArgs{
-					Registry: &dockerbuild.CacheFromRegistryArgs{
-						Ref: ecrRepository.RepositoryUrl.ApplyT(func(repositoryUrl string) (string, error) {
-							return fmt.Sprintf("%v:cache", repositoryUrl), nil
-						}).(pulumi.StringOutput),
-					},
-				},
-			},
-			CacheTo: dockerbuild.CacheToArray{
-				&dockerbuild.CacheToArgs{
-					Inline: nil,
-				},
-			},
-			Context: &dockerbuild.BuildContextArgs{
-				Location: pulumi.String("./app"),
-			},
-			Platforms: dockerbuild.PlatformArray{
-				dockerbuild.Platform_Linux_amd64,
-				dockerbuild.Platform_Linux_arm64,
-			},
-			Push: pulumi.Bool(true),
-			Registries: dockerbuild.RegistryArray{
-				&dockerbuild.RegistryArgs{
-					Address: ecrRepository.RepositoryUrl,
-					Password: authToken.ApplyT(func(authToken ecr.GetAuthorizationTokenResult) (*string, error) {
-						return &authToken.Password, nil
-					}).(pulumi.StringPtrOutput),
-					Username: authToken.ApplyT(func(authToken ecr.GetAuthorizationTokenResult) (*string, error) {
-						return &authToken.UserName, nil
-					}).(pulumi.StringPtrOutput),
-				},
-			},
-			Tags: pulumi.StringArray{
-				ecrRepository.RepositoryUrl.ApplyT(func(repositoryUrl string) (string, error) {
-					return fmt.Sprintf("%v:latest", repositoryUrl), nil
-				}).(pulumi.StringOutput),
-			},
-		})
-		if err != nil {
-			return err
-		}
-		ctx.Export("ref", myImage.Ref)
-		return nil
-	})
+    pulumi.Run(func(ctx *pulumi.Context) error {
+        ecrRepository, err := ecr.NewRepository(ctx, "ecr-repository", nil)
+        if err != nil {
+            return err
+        }
+        authToken := ecr.GetAuthorizationTokenOutput(ctx, ecr.GetAuthorizationTokenOutputArgs{
+            RegistryId: ecrRepository.RegistryId,
+        }, nil)
+        myImage, err := dockerbuild.NewImage(ctx, "my-image", &dockerbuild.ImageArgs{
+            CacheFrom: dockerbuild.CacheFromArray{
+                &dockerbuild.CacheFromArgs{
+                    Registry: &dockerbuild.CacheFromRegistryArgs{
+                        Ref: ecrRepository.RepositoryUrl.ApplyT(func(repositoryUrl string) (string, error) {
+                            return fmt.Sprintf("%v:cache", repositoryUrl), nil
+                        }).(pulumi.StringOutput),
+                    },
+                },
+            },
+            CacheTo: dockerbuild.CacheToArray{
+                &dockerbuild.CacheToArgs{
+                    Inline: nil,
+                },
+            },
+            Context: &dockerbuild.BuildContextArgs{
+                Location: pulumi.String("./app"),
+            },
+            Platforms: dockerbuild.PlatformArray{
+                dockerbuild.Platform_Linux_amd64,
+                dockerbuild.Platform_Linux_arm64,
+            },
+            Push: pulumi.Bool(true),
+            Registries: dockerbuild.RegistryArray{
+                &dockerbuild.RegistryArgs{
+                    Address: ecrRepository.RepositoryUrl,
+                    Password: authToken.ApplyT(func(authToken ecr.GetAuthorizationTokenResult) (*string, error) {
+                        return &authToken.Password, nil
+                    }).(pulumi.StringPtrOutput),
+                    Username: authToken.ApplyT(func(authToken ecr.GetAuthorizationTokenResult) (*string, error) {
+                        return &authToken.UserName, nil
+                    }).(pulumi.StringPtrOutput),
+                },
+            },
+            Tags: pulumi.StringArray{
+                ecrRepository.RepositoryUrl.ApplyT(func(repositoryUrl string) (string, error) {
+                    return fmt.Sprintf("%v:latest", repositoryUrl), nil
+                }).(pulumi.StringOutput),
+            },
+        })
+        if err != nil {
+            return err
+        }
+        ctx.Export("ref", myImage.Ref)
+        return nil
+    })
 }
 ```
 
@@ -670,6 +670,6 @@ const v4Migrated = new dockerbuild.Image("v4-to-buildx", {
 
 The launch of the new Docker-Build provider marks a significant milestone in enhancing container management for developers. Leveraging the latest BuildKit technology, this tool is a testament to our commitment to innovation and user-driven development.
 
-Your feedback is crucial to our ongoing improvement efforts. As we look ahead, we are dedicated to incorporating your insights to further enhance the Docker-Build provider. Let’s continue to refine and advance our tools together.
+Your feedback is crucial to our ongoing improvement efforts. As we look ahead, we are dedicated to incorporating your insights to further enhance the Docker-Build provider. Letâ€™s continue to refine and advance our tools together.
 
 For more details on how to utilize the Docker-Build provider, check out our documentation. Together, we can redefine the possibilities in container technology.
