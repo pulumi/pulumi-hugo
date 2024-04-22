@@ -2,12 +2,12 @@
 title: Pulumi Deployments
 layout: pulumi-deployments
 
-meta_desc: Pulumi Deployments is an infrastructure lifecycle management service that automates infrastructure operations.
+meta_desc: Pulumi Deployments is an infrastructure lifecycle management service for automating the deployment and management of cloud infrastructure
 
 overview:
-    title: The fastest way to go from code to cloud
+    title: Infrastructure lifecycle management
     description: |
-        Pulumi Deployments is a fast and flexible way to deploy infrastructure on any cloud and at any scale, using GitHub pull requests, API calls, and console. No CLI setup needed since [Pulumi Cloud](/product/pulumi-cloud/) manages deployments.
+        Pulumi Deployments is an infrastructure lifecycle management service. It provides automation of deployment and operational workflows for cloud infrastructure. With Pulumi Deployments, you can orchestrate with ease the at-scale complexities of production infrastructure.
 
 quotes:
     items:
@@ -23,10 +23,16 @@ quotes:
           quote: |
             “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi. I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
 
+        - company: bestow
+          name: Christopher Holmak
+          name_title: Director of Infrastructure at Bestow Insurance
+          quote: |
+            “We manage a lot of infrastructure and need to do so reliably, securely, and in a cost-effective manner. Infrastructure as code helps do that, and we’ve now fully migrated everything from Terraform to Pulumi. There are still many operational processes, however, that can lead to drift or stale infrastructure. We are so happy to see Pulumi expanding to tackle these adjacent areas of infrastructure management.”
+
 benefits:
     title: How will Pulumi Deployments benefit me?
     description: |
-        Pulumi Deployments makes it easier for you and engineers on your team to collaborate on infrastructure changes and deploy changes automatically through your existing GitHub pull request workflow. There is minimal setup and you can standardize your deployment workflow through GitHub and Pulumi. In addition, you can build your own custom deployment workflows with [Automation API](/docs/using-pulumi/automation-api/) code and offload the deployment workload to Pulumi Deployments instead of running it locally with the Pulumi CLI. Pulumi Deployments is based on the same technology as [Pulumi Automation API](/docs/using-pulumi/automation-api/).
+        Pulumi Deployments makes it easier for you and engineers on your team to manage the entire lifecycle of infrastructure from provisioning to tear down. You can choose from different workflows such as GitHub pull requests triggered deployments, stacks with time based automatic deletions, scheduled automations, and more. You can also orchestrate custom workflows with [Automation API](/docs/using-pulumi/automation-api/) and offload the workflow execution to Pulumi Deployments instead of running the Automation API code locally yourself. Pulumi Deployments is a fully managed service with minimal setup and is available through [Pulumi Cloud](/product/pulumi-cloud/).
 
 preview:
   youtube_url: https://www.youtube.com/embed/v48U7CNWutc
@@ -54,31 +60,24 @@ options:
         - icon: lightning
           icon_color: violet
           title: TTL Stacks
-          description: Automatically cleanup infrastructure with self-destroying (automatic deletion) stacks. 
+          description: Automatically cleanup infrastructure with self-destroying (automatic deletion) stacks.
         - icon: clock
           icon_color: yellow
           title: Scheduled Deployments
-          description: Automate cloud operations (update, refresh, destroy) on defined schedules using cron expressions. 
+          description: Automate cloud operations (update, refresh, destroy) on defined schedules using cron expressions.
 
 form:
     hubspot_form_id: 35baf46c-fd6e-4321-a75f-fc9319e31efb
 
 faq:
     items:
-      - header: Question 1
+      - header: What is Pulumi Deployments?
         content: |
-          Pulumi ESC (Environments, Secrets and Configuration), is an [open source project](https://github.com/pulumi/esc) and managed service of Pulumi Cloud that enables teams to manage hierarchical collections of configuration and secrets and consume them from a variety of different infrastructure and application services.
+          Pulumi Deployments is an infrastructure lifecycle management service. It provides automation of deployment and operational workflows for cloud infrastructure. With Pulumi Deployments, you can orchestrate with ease the at-scale complexities of production infrastructure.
 
-          Pulumi ESC integrates with Pulumi Cloud identity and RBAC to provide rich control over access to secret configuration within an organization. Pulumi ESC supports multiple configuration providers, enabling static key/value configuration as well as dynamically retrieved configuration and secrets via OIDC and additional providers like 1Password and Vault.  Pulumi ESC is available via the new `esc` CLI, Pulumi Cloud, the Pulumi Cloud REST API, and Pulumi IaC stack configuration.
-      - header: Question 2
+      - header: Is there a free tier for Pulumi Deployments?
         content: |
-          An environment describes a collection of secrets and configuration values. It is typically intended to capture the configuration needed to work with a particular environment - for example the production environment for your key customer or line of business service.
-
-          An environment is represented by a YAML document. This document has two top level entries:  
-
-          - `imports`: An optional set of other environments that this environment derives from, enabling composition of environments and avoiding repetition across environments.  
-
-          - `values`: An arbitrary nested collection of key/value pairs representing top level configuration values.
+          Individual Edition has 500 deploy minutes/month. Team Edition has 3,000 included deploy minutes/month.
 
 
 learn:
