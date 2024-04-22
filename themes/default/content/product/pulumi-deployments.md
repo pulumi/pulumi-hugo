@@ -77,7 +77,7 @@ faq:
 
       - header: Is there a free tier for Pulumi Deployments?
         content: |
-          Individual Edition has 500 deploy minutes/month. Team Edition has 3,000 included deploy minutes/month.
+          Individual Edition has 500 deploy minutes/month. Team, Enterprise, and Business Critical Editions all have 3,000 included deploy minutes/month.
 
 
 learn:
