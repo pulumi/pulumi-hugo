@@ -29,7 +29,7 @@ meta_image: meta.png
 # `id` properties of the team member files at /data/team/team. Create a file for
 # yourself if you don't already have one.
 authors:
-    - joe-duffy
+    - bryce-lampe
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
@@ -41,24 +41,21 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-We are thrilled to introduce the latest addition to the Pulumi Ecosystem -- the
-new _Docker-Build_ provider. Expanding on the robust foundation of our widely
-used Docker provider, this new provider leverages
-[BuildKit] to help you modernize your
-container builds.
+We are thrilled to introduce the latest addition to the Pulumi Ecosystem -- the new _Docker-Build_ provider, designed to streamline and enhance Docker container builds. This addition builds on the solid foundation of our widly utilized Docker Provider. By embracing the power of Docker's [BuildKit] technology, this provider enhances your building experience, allowing you to modernize your container builds. This launch signifies our ongoing commitment to advancing technology and empowering developers to achieve new heights in container management.
 
-<!--more-->
+The Docker-Build provider is crafted to optimize the efficiency and versatility of Docker builds, integrating modern capabilities such as multi-platform image support, advanced caching options, and comprehensive build configurations. It offers developers a more potent and flexible approach to building Docker images, ensuring that they can achieve high performance and scalability in their deployment workflows.
 
-The new provider exposes the full power of Docker's next-gen
-[buildx](https://docs.docker.com/reference/cli/docker/buildx/build/)
-functionality. It natively supports things like:
+The new provider exposes the full power of Docker's next-gen [buildx](https://docs.docker.com/reference/cli/docker/buildx/build/) functionality and includes key features such as,
 
-* Multi-platform images.
-* Flexible caching with backends like S3 or GitHub Actions.
-* First-class support for secrets and [ESC](../environments-secrets-configurations-management).
-* Alternative build drivers like Kubernetes or [Docker Build Cloud](https://www.docker.com/products/build-cloud/).
-* Support for multiple exports types.
-* ...and more!
+* __Multi-Platform Image Support__: Build and manage images that run seamlessly across different hardware architectures.
+
+* __Advanced Caching Mechanisms__: Utilize various caching strategies to speed up build times and reduce resource consumption.
+
+* __Support for Secrets and Pulumi [ESC](../environments-secrets-configurations-management) (Environments, Secrets and Configurations)__ - Safely manage sensitive information and configurations with first-class support, integrating seamlessly into your deployment workflows.
+
+* __Support for multiple export Types__ - Supports multiple export types, enabling you to distribute your containers in various formats suited to different environments.
+
+* __Docker Build Cloud__ (DBC) Support : Take advantage of [Docker Build Cloud](https://www.docker.com/products/build-cloud/) to scale your build processes effortlessly and manage build resources dynamically, enhancing productivity and performance.
 
 ## Getting started
 
@@ -668,3 +665,11 @@ const v4Migrated = new dockerbuild.Image("v4-to-buildx", {
 [BuildKit]: https://docs.docker.com/build/buildkit/
 [Pulumi Docker]: https://www.pulumi.com/registry/packages/docker/
 [inline cache]: https://docs.docker.com/build/cache/backends/inline/
+
+### Conclusion
+
+The launch of the new Docker-Build provider marks a significant milestone in enhancing container management for developers. Leveraging the latest BuildKit technology, this tool is a testament to our commitment to innovation and user-driven development.
+
+Your feedback is crucial to our ongoing improvement efforts. As we look ahead, we are dedicated to incorporating your insights to further enhance the Docker-Build provider. Let’s continue to refine and advance our tools together.
+
+For more details on how to utilize the Docker-Build provider, check out our documentation. Together, we can redefine the possibilities in container technology.
