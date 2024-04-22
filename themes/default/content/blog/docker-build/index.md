@@ -41,25 +41,46 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-We are thrilled to introduce the latest addition to the Pulumi Ecosystem -- the new _Docker-Build_ provider, designed to streamline and enhance Docker container builds. This addition builds on the solid foundation of our widly utilized Docker Provider. By embracing the power of Docker's [BuildKit] technology, this provider enhances your building experience, allowing you to modernize your container builds. This launch signifies our ongoing commitment to advancing technology and empowering developers to achieve new heights in container management.
+We are thrilled to introduce the latest addition to the Pulumi Ecosystem -- the new _Docker-Build_ provider, designed to streamline and enhance Docker image builds.
+This addition builds on the solid foundation of our widely utilized [Pulumi Docker] provider.
+By embracing the power of Docker's [BuildKit] technology, this provider enhances your building experience, allowing you to modernize your image builds.
+This launch signifies our ongoing commitment to advancing technology and empowering developers to achieve new heights in container management.
 
-The Docker-Build provider is crafted to optimize the efficiency and versatility of Docker builds and offers developers a more potent and flexible approach to building Docker images, ensuring that they can achieve high performance and scalability in their deployment workflows. The new provider exposes the full power of Docker's next-gen [buildx](https://docs.docker.com/reference/cli/docker/buildx/build/) functionality and includes key features such as,
+The Docker-Build provider is crafted to optimize the efficiency and versatility of Docker builds and offers developers a more potent and flexible approach to building Docker images, ensuring that they can achieve high performance and scalability in their deployment workflows.
+The new provider exposes the full power of Docker's next-gen [buildx](https://docs.docker.com/reference/cli/docker/buildx/build/) functionality and includes key features such as,
 
-* __Multi-Platform Image Support__: Build and manage images that run seamlessly across different hardware architectures.
+* __Multi-platform image support__: Build images that run seamlessly across different hardware architectures.
 
-* __Advanced Caching Mechanisms__: Utilize various caching strategies to speed up build times and reduce resource consumption.
+* __Advanced caching mechanisms__: Utilize various caching strategies to speed up builds and reduce resource consumption.
 
-* __Support for Secrets and Pulumi [ESC](../environments-secrets-configurations-management) (Environments, Secrets and Configurations)__ - Safely manage sensitive information and configurations with first-class support, integrating seamlessly into your deployment workflows.
+* __Support for secrets and Pulumi [ESC](../environments-secrets-configurations-management) (Environments, Secrets and Configuration)__: Safely manage sensitive information and configuration with first-class support, integrating seamlessly into your deployment workflows.
 
-* __Support for multiple export Types__ - Supports multiple export types, enabling you to distribute your containers in various formats suited to different environments.
+* __Support for multiple export types__: Increase the power and flexibility of your workflows by exporting your images to registries, disk, or blob storage.
 
-* __Docker Build Cloud__ (DBC) Support : Take advantage of [Docker Build Cloud](https://www.docker.com/products/build-cloud/) to scale your build processes effortlessly and manage build resources dynamically, enhancing productivity and performance.
+* __Support for Docker Build Cloud__: Take advantage of [Docker Build Cloud](https://www.docker.com/products/build-cloud/) to scale your build processes effortlessly and manage build resources dynamically, enhancing productivity and performance.
+
+For background, the [Pulumi Docker] provider was first introduced in 2018 and
+has seen wide adoption.
+Over the years Pulumi has continued our investment in it, notably introducing a
+version 4.0 [last year](../build-images-50x-faster-docker-v4) and additional
+improvements to build-on-preview behavior after that.
+
+At the same time, the Docker build ecosystem has seen tremendous advancements
+in how images can be built and distributed. These changes were initially
+experimental, but they became official when [BuildKit] graduated to become the
+default builder in Docker version 23.
+
+We have heard a large number of requests from users to expose more [BuildKit]
+functionality in the Pulumi Docker provider. After some consideration, we
+decided that a new, standalone provider, focused exclusively on building
+images, would provide the best overall user experience as well as the best
+platform for Pulumi to stay current with the evolving build landscape.
 
 ## Getting started
 
 {{< chooser language "typescript,python,csharp,go,yaml,java" / >}}
 
-Add the "docker-build" package to your project to start taking advantage of modern container builds with Pulumi.
+Add the "docker-build" package to your project to start taking advantage of modern image builds with Pulumi.
 
 {{% choosable language typescript %}}
 
@@ -122,37 +143,47 @@ speed up subsequent builds.
 import * as aws from "@pulumi/aws";
 import * as docker_build from "@pulumi/docker-build";
 
+// Create an ECR repository for pushing.
 const ecrRepository = new aws.ecr.Repository("ecr-repository", {});
 
+// Grab auth credentials for ECR.
 const authToken = aws.ecr.getAuthorizationTokenOutput({
     registryId: ecrRepository.registryId,
 });
 
+// Build and push an image to ECR with inline caching.
 const myImage = new docker_build.Image("my-image", {
-    cacheFrom: [{
-        registry: {
-            ref: pulumi.interpolate`${ecrRepository.repositoryUrl}:cache`,
-        },
-    }],
-    cacheTo: [{
-        inline: {},
-    }],
+    // Tag our image with our ECR repository's address.
+    tags: [pulumi.interpolate`${ecrRepository.repositoryUrl}:latest`],
     context: {
         location: "./app",
     },
+    // Use the pushed image as a cache source.
+    cacheFrom: [{
+        registry: {
+            ref: pulumi.interpolate`${ecrRepository.repositoryUrl}:latest`,
+        },
+    }],
+    // Include an inline cache with our pushed image.
+    cacheTo: [{
+        inline: {},
+    }],
+    // Build a multi-platform image manifest for ARM and AMD.
     platforms: [
         "linux/amd64",
         "linux/arm64",
     ],
+    // Push the final result to ECR.
     push: true,
+    // Provide our ECR credentials.
     registries: [{
         address: ecrRepository.repositoryUrl,
         password: authToken.password,
         username: authToken.userName,
     }],
-    tags: [pulumi.interpolate`${ecrRepository.repositoryUrl}:latest`],
 });
 
+// Export a ref for the pushed images so we can deploy it.
 export const ref = myImage.ref;
 ```
 
@@ -165,34 +196,45 @@ import pulumi
 import pulumi_aws as aws
 import pulumi_docker_build as docker_build
 
+# Create an ECR repository for pushing.
 ecr_repository = aws.ecr.Repository("ecr-repository")
 
+# Grab auth credentials for ECR.
 auth_token = aws.ecr.get_authorization_token_output(registry_id=ecr_repository.registry_id)
 
+# Build and push an image to ECR with inline caching.
 my_image = docker_build.Image("my-image",
-    cache_from=[docker_build.CacheFromArgs(
-        registry=docker_build.CacheFromRegistryArgs(
-            ref=ecr_repository.repository_url.apply(lambda repository_url: f"{repository_url}:cache"),
-        ),
-    )],
-    cache_to=[docker_build.CacheToArgs(
-        inline=docker_build.CacheToInlineArgs(),
-    )],
+    # Tag our image with our ECR repository's address.
+    tags=[ecr_repository.repository_url.apply(lambda repository_url: f"{repository_url}:latest")],
     context=docker_build.BuildContextArgs(
         location="./app",
     ),
+    # Use the pushed image as a cache source.
+    cache_from=[docker_build.CacheFromArgs(
+        registry=docker_build.CacheFromRegistryArgs(
+            ref=ecr_repository.repository_url.apply(lambda repository_url: f"{repository_url}:latest"),
+        ),
+    )],
+    # Include an inline cache with our pushed image.
+    cache_to=[docker_build.CacheToArgs(
+        inline=docker_build.CacheToInlineArgs(),
+    )],
+    # Build a multi-platform image manifest for ARM and AMD.
     platforms=[
         docker_build.Platform.LINUX_AMD64,
         docker_build.Platform.LINUX_ARM64,
     ],
+    # Push the final result to ECR.
     push=True,
+    # Provide our ECR credentials.
     registries=[docker_build.RegistryArgs(
         address=ecr_repository.repository_url,
         password=auth_token.password,
         username=auth_token.user_name,
     )],
-    tags=[ecr_repository.repository_url.apply(lambda repository_url: f"{repository_url}:latest")])
+)
 
+# Export a ref for the pushed images so we can deploy it.
 pulumi.export("ref", my_image.ref)
 ```
 
@@ -209,25 +251,39 @@ using DockerBuild = Pulumi.DockerBuild;
 
 return await Deployment.RunAsync(() =>
 {
+    // Create an ECR repository for pushing.
     var ecrRepository = new Aws.Ecr.Repository("ecr-repository");
 
+    // Grab auth credentials for ECR.
     var authToken = Aws.Ecr.GetAuthorizationToken.Invoke(new()
     {
         RegistryId = ecrRepository.RegistryId,
     });
 
+    // Build and push an image to ECR with inline caching.
     var myImage = new DockerBuild.Image("my-image", new()
     {
+        // Tag our image with our ECR repository's address.
+        Tags = new[]
+        {
+            ecrRepository.RepositoryUrl.Apply(repositoryUrl => $"{repositoryUrl}:latest"),
+        },
+        Context = new DockerBuild.Inputs.BuildContextArgs
+        {
+            Location = "./app",
+        },
+        // Use the pushed image as a cache source.
         CacheFrom = new[]
         {
             new DockerBuild.Inputs.CacheFromArgs
             {
                 Registry = new DockerBuild.Inputs.CacheFromRegistryArgs
                 {
-                    Ref = ecrRepository.RepositoryUrl.Apply(repositoryUrl => $"{repositoryUrl}:cache"),
+                    Ref = ecrRepository.RepositoryUrl.Apply(repositoryUrl => $"{repositoryUrl}:latest"),
                 },
             },
         },
+        // Include an inline cache with our pushed image.
         CacheTo = new[]
         {
             new DockerBuild.Inputs.CacheToArgs
@@ -235,16 +291,15 @@ return await Deployment.RunAsync(() =>
                 Inline = null,
             },
         },
-        Context = new DockerBuild.Inputs.BuildContextArgs
-        {
-            Location = "./app",
-        },
+        // Build a multi-platform image manifest for ARM and AMD.
         Platforms = new[]
         {
             DockerBuild.Platform.Linux_amd64,
             DockerBuild.Platform.Linux_arm64,
         },
+        // Push the final result to ECR.
         Push = true,
+        // Provide our ECR credentials.
         Registries = new[]
         {
             new DockerBuild.Inputs.RegistryArgs
@@ -254,12 +309,9 @@ return await Deployment.RunAsync(() =>
                 Username = authToken.Apply(getAuthorizationTokenResult => getAuthorizationTokenResult.UserName),
             },
         },
-        Tags = new[]
-        {
-            ecrRepository.RepositoryUrl.Apply(repositoryUrl => $"{repositoryUrl}:latest"),
-        },
     });
 
+    // Export a ref for the pushed images so we can deploy it.
     return new Dictionary<string, object?>
     {
         ["ref"] = myImage.Ref,
@@ -285,36 +337,52 @@ import (
 
 func main() {
     pulumi.Run(func(ctx *pulumi.Context) error {
+        // Create an ECR repository for pushing.
         ecrRepository, err := ecr.NewRepository(ctx, "ecr-repository", nil)
         if err != nil {
             return err
         }
+
+        // Grab auth credentials for ECR.
         authToken := ecr.GetAuthorizationTokenOutput(ctx, ecr.GetAuthorizationTokenOutputArgs{
             RegistryId: ecrRepository.RegistryId,
         }, nil)
+
+        // Build and push an image to ECR with inline caching.
         myImage, err := dockerbuild.NewImage(ctx, "my-image", &dockerbuild.ImageArgs{
+            // Tag our image with our ECR repository's address.
+            Tags: pulumi.StringArray{
+                ecrRepository.RepositoryUrl.ApplyT(func(repositoryUrl string) (string, error) {
+                    return fmt.Sprintf("%v:latest", repositoryUrl), nil
+                }).(pulumi.StringOutput),
+            },
+            Context: &dockerbuild.BuildContextArgs{
+                Location: pulumi.String("./app"),
+            },
+            // Use the pushed image as a cache source.
             CacheFrom: dockerbuild.CacheFromArray{
                 &dockerbuild.CacheFromArgs{
                     Registry: &dockerbuild.CacheFromRegistryArgs{
                         Ref: ecrRepository.RepositoryUrl.ApplyT(func(repositoryUrl string) (string, error) {
-                            return fmt.Sprintf("%v:cache", repositoryUrl), nil
+                            return fmt.Sprintf("%v:latest", repositoryUrl), nil
                         }).(pulumi.StringOutput),
                     },
                 },
             },
+            // Include an inline cache with our pushed image.
             CacheTo: dockerbuild.CacheToArray{
                 &dockerbuild.CacheToArgs{
                     Inline: nil,
                 },
             },
-            Context: &dockerbuild.BuildContextArgs{
-                Location: pulumi.String("./app"),
-            },
+            // Build a multi-platform image manifest for ARM and AMD.
             Platforms: dockerbuild.PlatformArray{
                 dockerbuild.Platform_Linux_amd64,
                 dockerbuild.Platform_Linux_arm64,
             },
+            // Push the final result to ECR.
             Push: pulumi.Bool(true),
+            // Provide our ECR credentials.
             Registries: dockerbuild.RegistryArray{
                 &dockerbuild.RegistryArgs{
                     Address: ecrRepository.RepositoryUrl,
@@ -326,15 +394,12 @@ func main() {
                     }).(pulumi.StringPtrOutput),
                 },
             },
-            Tags: pulumi.StringArray{
-                ecrRepository.RepositoryUrl.ApplyT(func(repositoryUrl string) (string, error) {
-                    return fmt.Sprintf("%v:latest", repositoryUrl), nil
-                }).(pulumi.StringOutput),
-            },
         })
         if err != nil {
             return err
         }
+
+        // Export a ref for the pushed images so we can deploy it.
         ctx.Export("ref", myImage.Ref)
         return nil
     })
@@ -351,31 +416,42 @@ name: ecr
 outputs:
     ref: ${my-image.ref}
 resources:
+    # Create an ECR repository for pushing.
     ecr-repository:
         type: aws:ecr:Repository
+
+    # Build and push an image to ECR with inline caching.
     my-image:
+        type: docker-build:Image
         properties:
-            cacheFrom:
-                - registry:
-                    ref: ${ecr-repository.repositoryUrl}:cache
-            cacheTo:
-                - inline: {}
+            # Tag our image with our ECR repository's address.
+            tags:
+                - ${ecr-repository.repositoryUrl}:latest
             context:
                 location: ./app
+            # Use the pushed image as a cache source.
+            cacheFrom:
+                - registry:
+                    ref: ${ecr-repository.repositoryUrl}:latest
+            # Include an inline cache with our pushed image.
+            cacheTo:
+                - inline: {}
+            # Build a multi-platform image manifest for ARM and AMD.
             platforms:
                 - linux/amd64
                 - linux/arm64
+            # Push the final result to ECR.
             push: true
+            # Provide our ECR credentials.
             registries:
                 - address: ${ecr-repository.repositoryUrl}
                   password: ${auth-token.password}
                   username: ${auth-token.userName}
-            tags:
-                - ${ecr-repository.repositoryUrl}:latest
-        type: docker-build:Image
+
 runtime: yaml
 variables:
     auth-token:
+        # Grab auth credentials for ECR.
         fn::aws:ecr:getAuthorizationToken:
             registryId: ${ecr-repository.registryId}
 ```
@@ -414,34 +490,43 @@ public class App {
     }
 
     public static void stack(Context ctx) {
+        // Create an ECR repository for pushing.
         var ecrRepository = new Repository("ecrRepository");
 
+        // Grab auth credentials for ECR.
         final var authToken = EcrFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
             .registryId(ecrRepository.registryId())
             .build());
 
+        // Build and push an image to ECR with inline caching.
         var myImage = new Image("myImage", ImageArgs.builder()
-            .cacheFrom(CacheFromArgs.builder()
-                .registry(CacheFromRegistryArgs.builder()
-                    .ref(ecrRepository.repositoryUrl().applyValue(repositoryUrl -> String.format("%s:cache", repositoryUrl)))
-                    .build())
-                .build())
-            .cacheTo(CacheToArgs.builder()
-                .inline()
-                .build())
+            // Tag our image with our ECR repository's address.
+            .tags(ecrRepository.repositoryUrl().applyValue(repositoryUrl -> String.format("%s:latest", repositoryUrl)))
             .context(BuildContextArgs.builder()
                 .location("./app")
                 .build())
+            // Use the pushed image as a cache source.
+            .cacheFrom(CacheFromArgs.builder()
+                .registry(CacheFromRegistryArgs.builder()
+                    .ref(ecrRepository.repositoryUrl().applyValue(repositoryUrl -> String.format("%s:latest", repositoryUrl)))
+                    .build())
+                .build())
+            // Include an inline cache with our pushed image.
+            .cacheTo(CacheToArgs.builder()
+                .inline()
+                .build())
+            // Build a multi-platform image manifest for ARM and AMD.
             .platforms(
                 "linux/amd64",
                 "linux/arm64")
+            // Push the final result to ECR.
             .push(true)
+            // Provide our ECR credentials.
             .registries(RegistryArgs.builder()
                 .address(ecrRepository.repositoryUrl())
                 .password(authToken.applyValue(getAuthorizationTokenResult -> getAuthorizationTokenResult).applyValue(authToken -> authToken.applyValue(getAuthorizationTokenResult -> getAuthorizationTokenResult.password())))
                 .username(authToken.applyValue(getAuthorizationTokenResult -> getAuthorizationTokenResult).applyValue(authToken -> authToken.applyValue(getAuthorizationTokenResult -> getAuthorizationTokenResult.userName())))
                 .build())
-            .tags(ecrRepository.repositoryUrl().applyValue(repositoryUrl -> String.format("%s:latest", repositoryUrl)))
             .build());
 
         ctx.export("ref", myImage.ref());
@@ -457,32 +542,6 @@ image in downstream Pulumi resources like ECS
 or Kubernetes
 [Deployments](https://www.pulumi.com/registry/packages/kubernetes/api-docs/apps/v1/deployment/).
 
-## Why a new provider?
-
-The [Pulumi Docker] provider was first introduced in 2018 and has seen wide
-adoption. Over the years Pulumi has continued our investment in it, notably
-introducing a version 4.0 [last year](../build-images-50x-faster-docker-v4) and
-additional improvements to build-on-preview behavior after that.
-
-At the same time, the Docker build ecosystem has seen tremendous advancements
-in how images can be built and distributed. These changes were initially
-experimental, but they became official when [BuildKit] graduated to become the
-default builder in Docker version 23.
-
-We have heard a large number of requests from users to expose more [BuildKit]
-functionality in the Pulumi Docker provider. After some consideration, we
-decided that a new, standalone provider, focused exclusively on building
-images, would provide the best overall user experience as well as the best
-platform for Pulumi to stay current with the evolving build landscape.
-
-If you are wondering "Which provider should I use?" the answer depends on
-whether you are doing anything related to `docker build`.
-
-| Provider               | Use cases                                                                                                                                                |
-| ----------------       | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@pulumi/docker-build` | Use this provider primarily for building Docker images. Ideal for scenarios requiring automation of image creation with Docker, including setting up CI/CD pipelines for Docker image generation.                                                                                                 |
-| `@pulumi/docker`       | Suitable for broader Docker operations beyond just building images. This includes running Docker containers, managing container lifecycles, orchestrating Docker networks, and handling volumes. Recommended for general Docker management within Pulumi projects.                                                                                   |
-
 ## Migrating Docker images to Docker-Build
 
 If you are already using the [Pulumi Docker] provider to build images there is
@@ -494,14 +553,14 @@ resource in the [Pulumi Docker] provider will be in maintenance mode. New build
 functionality will only be available in the new Docker-Build provider.
 
 If you are interested in leveraging [BuildKit] for your images, or if you
-simply want to take advantage of the new provider's improved performance, the
+simply want to take advantage of the new provider's improved performance and functionality, the
 migration process is straightforward and described in detail in the [API
-documentation](TODO).
+documentation](https://www.pulumi.com/registry/packages/docker-build/image/).
 
-Docker-Build providers a superset of functionality over the previous Docker
-provider's Image resource, and if you are familiar with the `docker`
-command-line tool, the new Docker-Build Image's options will look very
-familiar.
+Docker-Build provides a superset of functionality over the previous Docker
+provider's Image resource, so existing resources can be migrated to it without
+issue. If you are familiar with the `docker` command-line tool, the new
+Docker-Build Image's options will look very familiar.
 
 {{% notes %}}
 The new Docker-Build provider matches the Docker CLI's behavior and _does not
@@ -509,14 +568,17 @@ push_ images by default. If you want to push to a registry, you should include
 `push: true` just as you would include `--push` on the command line.
 {{% /notes %}}
 
-### Coming from Pulumi Docker v3
+{{% notes %}}
+The new Docker-Build provider will build images by default during previews in
+order to reduce the risk of merging broken images as part of CI pipelines. This
+can be customized by specifying `buildOnPreview`.
+{{% /notes %}}
+
+### Migrating from Pulumi Docker v3
 
 Version 3.x of Pulumi Docker is still widely used because it exposes some
 BuildKit functionality through raw command-line arguments. The new Docker-Build
 provider exposes those arguments as top-level fields on the resource.
-
-Also note that the new Docker-Build provider will build images by default
-in CI.
 
 ```typescript
 // v3 Image
@@ -592,7 +654,7 @@ const v3Migrated = new dockerbuild.Image("v3-to-buildx", {
 
 ```
 
-### Coming from Pulumi Docker v4
+### Migrating from Pulumi Docker v4
 
 The new Docker-Build provider largely exposes the same fields as v4 but
 pluralized or renamed to better align with the Docker CLI.
@@ -601,9 +663,6 @@ It's important to note that the new Docker-Build provider matches the Docker
 CLI's behavior and _does not push_ images by default. If you want to push to a
 registry, you should include `push: true` just as you would include `--push` on
 the command line.
-
-Also note that the new Docker-Build provider will now build images by default
-in CI, whereas the v4 provider did not build images during preview by default.
 
 ```typescript
 // v4 Image
@@ -664,10 +723,20 @@ const v4Migrated = new dockerbuild.Image("v4-to-buildx", {
 [Pulumi Docker]: https://www.pulumi.com/registry/packages/docker/
 [inline cache]: https://docs.docker.com/build/cache/backends/inline/
 
-### Conclusion
+## Conclusion
 
-The launch of the new Docker-Build provider marks a significant milestone in enhancing container management for developers. Leveraging the latest BuildKit technology, this tool is a testament to our commitment to innovation and user-driven development.
+The launch of the new Docker-Build provider marks a significant milestone in enhancing container management for developers.
+Leveraging the latest BuildKit technology, this tool is a testament to our commitment to innovation and user-driven development.
 
-Your feedback is crucial to our ongoing improvement efforts. As we look ahead, we are dedicated to incorporating your insights to further enhance the Docker-Build provider. Letâ€™s continue to refine and advance our tools together.
+Your feedback is crucial to our ongoing improvement efforts.
+As we look ahead, we are dedicated to incorporating your insights to further enhance the Docker-Build provider. Let's continue to refine and advance our tools together.
 
-For more details on how to utilize the Docker-Build provider, check out our documentation. Together, we can redefine the possibilities in container technology.
+For more details on how to utilize the Docker-Build provider, check out our [documentation](https://www.pulumi.com/registry/packages/docker-build/image/).
+
+If you are still wondering "Which provider should I use?" the answer depends on
+whether you are doing anything related to `docker build`.
+
+| Provider               | Use cases                                                                                                                                                                                                                                                          |
+| ----------------       | --------------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                           |
+| `@pulumi/docker-build` | Use this provider primarily for building Docker images. Ideal for scenarios requiring automation of image creation with Docker, including setting up CI/CD pipelines for Docker image generation.                                                                  |
+| `@pulumi/docker`       | Suitable for broader Docker operations beyond just building images. This includes running Docker containers, managing container lifecycles, orchestrating Docker networks, and handling volumes. Recommended for general Docker management within Pulumi projects. |
