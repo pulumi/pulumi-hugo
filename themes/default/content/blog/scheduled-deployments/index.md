@@ -4,7 +4,7 @@ allow_long_title: True
 date: 2024-04-24
 draft: false
 meta_desc: Pulumi introduces Scheduled Deployments to enhance cloud management, allowing for automated operations based on customizable schedules.
-meta_image: meta.png
+meta_image: scheduled-deployments.png
 authors:
     - meagan-cojocar
 tags:
@@ -19,7 +19,7 @@ Scheduled Deployments enable precise automation of cloud operations, allowing us
 
 #### Example Use Cases
 
-- **Automating Deployments outside of Git:** Pulumi Deployments handles Git based Deployments well, but we have heard from customers there are times you want to intentionally diverge from Git triggered Deployments, such as wanting to deploy only at set times and ensure no deployments happen outside that set time or executing a deployment freeze for a period before a large usage event.
+- **Automating Deployments outside of Git:** Pulumi Deployments handles Git based Deployments well, but we have heard from customers there are times you want to intentionally diverge from Git triggered Deployments, such as wanting to deploy only at set times ahead of a large usage event or deploy only on non-peak traffic times.
 - **Cost Optimization:** Automatically power down non-critical development or test stacks during off-hours to cut unnecessary cloud spend. These stacks can be reactivated on a schedule or on-demand, ensuring resources are available precisely when teams need them without incurring costs during idle times.
 - **Product Launches:** Configure infrastructure to deploy right before a major release with `pulumi up`, ensuring that all resources are aligned and active precisely for the event, eliminating the need for last-minute manual updates.
 - **Scheduled Processing:** Perfect for tasks that require computing resources at specific times, such as nightly batch processing or periodic machine learning model training. Schedule these operations to maximize resource utilization and shut down upon task completion to optimize costs.

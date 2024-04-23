@@ -4,7 +4,7 @@ allow_long_title: True
 date: 2024-04-24
 draft: false
 meta_desc: Explore Pulumi Cloud's new Time-to-Live Stacks feature, designed to help teams manage infrastructure lifecycles and control cloud costs by automatically decommissioning stacks and resources.
-meta_image: meta.png
+meta_image: ttl.png
 authors:
     - meagan-cojocar
 tags:
