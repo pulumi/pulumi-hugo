@@ -10,6 +10,7 @@ authors:
     - komal-ali
 tags:
     - features
+    - infrastructure-lifecycle-management
 ---
 
 At Pulumi, we recognize the challenges platform teams face in maintaining the stability and compliance of their cloud infrastructures. One of the primary challenges is configuration drift, where the actual state of the infrastructure deviates from its intended state. This deviation can occur for various reasons, including manual adjustments made directly in the cloud provider’s console, unintended consequences of scripts, or unauthorized changes. Such drift can lead to significant problems including security vulnerabilities that open up potential breaches, compliance violations that can result in penalties, operational disruptions that affect user experience and business operations, and increased costs from unnecessary resource spend.
@@ -88,7 +89,171 @@ curl -H "Accept: application/vnd.pulumi+json" \
 
 ### Setting it Up via the Pulumi Service Provider
 
-TODO
+The Pulumi Service Provider allows you to set up automated Drift Detection and Remediation in source control.
+
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language typescript %}}
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as pulumiservice from "@pulumi/pulumiservice";
+
+const organizationName = "my-org";
+const projectName = "my-project";
+const stackName = "production";
+
+// Creating a DriftSchedule for automatically running drift detection
+const driftDetectionSchedule = new pulumiservice.DriftSchedule("driftDetectionSchedule", {
+    organization: organizationName,
+    project: projectName,
+    stack: stackName,
+    scheduleCron: "0 0 * * *", // Run drift detection daily at midnight
+    autoRemediate: true, // Automatically remediate any drifts detected
+});
+
+export const driftScheduleID = driftDetectionSchedule.scheduleID;
+
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_pulumiservice as pulumiservice
+
+organization_name = "my-org"
+project_name = "my-project"
+stack_name = "production"
+
+# Create a drift detection schedule
+drift_detection_schedule = pulumiservice.DriftSchedule("driftDetectionSchedule",
+    organization=organization_name,
+    project=project_name,
+    stack=stack_name,
+    schedule_cron="0 0 * * *",  # Run drift detection daily at midnight
+    auto_remediate=True)  # Automatically remediate any drifts detected
+
+pulumi.export('driftScheduleID', drift_detection_schedule.schedule_id)
+
+```
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+    "github.com/pulumi/pulumi-pulumiservice/sdk/go/pulumiservice"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+    pulumi.Run(func(ctx *pulumi.Context) error {
+        driftDetectionSchedule, err := pulumiservice.NewDriftSchedule(ctx, "driftDetectionSchedule", &pulumiservice.DriftScheduleArgs{
+            Organization: pulumi.String("my-org"),
+            Project: pulumi.String("my-project"),
+            Stack: pulumi.String("production"),
+            ScheduleCron: pulumi.String("0 0 * * *"),  // Run drift detection daily at midnight
+            AutoRemediate: pulumi.Bool(true),  // Automatically remediate any drifts detected
+        })
+        if err != nil {
+            return err
+        }
+
+        ctx.Export("driftScheduleID", driftDetectionSchedule.ScheduleID)
+        return nil
+    })
+}
+
+```
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using Pulumi;
+using PulumiService = Pulumi.PulumiService;
+
+class Program
+{
+    static Task<int> Main() => Deployment.RunAsync(() => {
+        var driftDetectionSchedule = new PulumiService.DriftSchedule("driftDetectionSchedule", new PulumiService.DriftScheduleArgs
+        {
+            Organization = "my-org",
+            Project = "my-project",
+            Stack = "production",
+            ScheduleCron = "0 0 * * *",  // Run drift detection daily at midnight
+            AutoRemediate = true,  // Automatically remediate any drifts detected
+        });
+
+        return new Dictionary<string, object?>
+        {
+            { "driftScheduleID", driftDetectionSchedule.ScheduleId }
+        };
+    });
+}
+
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.pulumiservice.Webhook;
+import com.pulumi.pulumiservice.WebhookArgs;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    private static void stack(Context ctx) {
+        var driftDetectionSchedule = new Webhook("driftDetectionSchedule", WebhookArgs.builder()
+            .organization("my-org")
+            .project("my-project")
+            .stack("production")
+            .scheduleCron("0 0 * * *") // Run drift detection daily at midnight
+            .autoRemediate(true) // Automatically remediate any drifts detected
+            .build());
+
+        ctx.export("driftScheduleID", driftDetectionSchedule.name());
+    }
+}
+
+```
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+name: drift-detection-setup
+runtime: yaml
+description: Setup of automated drift detection with Pulumi
+
+resources:
+  driftDetectionSchedule:
+    type: pulumiservice:index:DriftSchedule
+    properties:
+      organization: my-org
+      project: my-project
+      stack: production
+      scheduleCron: "0 0 * * *" # Run drift detection daily at midnight
+      autoRemediate: true # Automatically remediate any drifts detected
+
+outputs:
+  driftScheduleID: ${driftDetectionSchedule.scheduleID}
+
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 See the [Pulumi Service Provider documentation](/registry/packages/pulumiservice/api-docs/provider) for more details on how to manage Drift Detection and Remediation in source control.
 
