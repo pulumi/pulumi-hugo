@@ -23,11 +23,11 @@ quotes:
           quote: |
             “I’m making developers at Alkira significantly more productive while also making my job easier using Pulumi. I can get developers using IaC immediately with Pulumi Deployments and its GitHub integration, while Pulumi Insights makes it really easy to find idle developer environments that need to be shut down, which reduces our cloud costs.”
 
-        - company: bestow
-          name: Christopher Holmak
-          name_title: Director of Infrastructure at Bestow Insurance
+        - company: oleria
+          name: Jim Alkove
+          name_title: CEO of Oleria
           quote: |
-            “We manage a lot of infrastructure and need to do so reliably, securely, and in a cost-effective manner. Infrastructure as code helps do that, and we’ve now fully migrated everything from Terraform to Pulumi. There are still many operational processes, however, that can lead to drift or stale infrastructure. We are so happy to see Pulumi expanding to tackle these adjacent areas of infrastructure management.”
+            “At Oleria, we understand the importance of addressing issues with privacy, security, and data integrity. Earning and maintaining our trust isn’t just a responsibility but a fundamental aspect of our mission. Pulumi also understands how these attributes affect cloud infrastructure. Our team is excited to use these new capabilities, giving us even more confidence as we enable our customers to securely manage access to decentralized SaaS applications, adaptively and intelligently."
 
 benefits:
     title: How will Pulumi Deployments benefit me?
