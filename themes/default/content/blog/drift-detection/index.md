@@ -4,7 +4,7 @@ allow_long_title: True
 date: 2024-04-24
 draft: false
 meta_desc: Pulumi introduces Drift Detection and Remediation to continuously monitor and correct configuration drift in cloud infrastructures.
-meta_image: meta.png
+meta_image: drift.png
 authors:
     - meagan-cojocar
     - komal-ali

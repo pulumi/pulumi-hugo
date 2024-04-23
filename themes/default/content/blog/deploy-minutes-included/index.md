@@ -4,7 +4,7 @@ allow_long_title: True
 date: 2024-04-24
 draft: false
 meta_desc: Pulumi enhances its Deployments feature to offer free minutes, making it easier for customers to test and adopt cloud infrastructure management solutions.
-meta_image: meta.png
+meta_image: deployments-free-tier.png
 authors:
     - meagan-cojocar
 tags:
@@ -31,7 +31,7 @@ Manage resources effectively with [Time to Live (TTL) Stacks](/docs/pulumi-cloud
 
 Optimize your deployment strategy with [Scheduled Deployments](/docs/pulumi-cloud/deployments/scheduled-deployments). This feature allows you to plan and execute deployments at specific times, making it easier to manage updates during off-peak hours, minimizing impact on your services.
 
-## New Included Minutes
+## Pulumi Deployments for Everyone
 
 We've received valuable feedback from a range of customers who have highlighted the need for easier access to trial Pulumi Deployments without the hurdles of procurement and finance discussions. We’re thrilled at the level of interest from our prospective and current customer base, and want to reduce that barrier.
 
