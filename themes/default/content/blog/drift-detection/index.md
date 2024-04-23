@@ -46,7 +46,7 @@ In order to schedule Drift Detection and Remediation, the stack needs to be conf
 
 ### Setting it Up in the Pulumi Cloud Console
 
-![set up drift in the Ui](set-up-drift.png)
+![set up drift in the UI](set-up-drift.png)
 
 In order to set up Drift Detection and Remediation in the Pulumi Cloud console, follow these steps:
 
