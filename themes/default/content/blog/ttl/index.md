@@ -11,7 +11,6 @@ tags:
     - features
 ---
 
-## Time-to-Live Stacks: Managing Infrastructure Lifecycles Automatically
 
 In the dynamic landscape of cloud-based software development, platform teams face the continuous challenge of balancing the need for innovation with the imperative to control cloud costs and security. Pulumi Cloud's new Time-to-Live (TTL) Stacks feature directly addresses this challenge by empowering teams to manage infrastructure lifecycles automatically, mitigating the risks associated with stale infrastructure and resource costs ballooning.
 
@@ -21,7 +20,7 @@ Furthermore, managing these temporary stacks usually requires manual oversight, 
 
 ### Simplifying Stack Management with Time-to-Live Stacks
 
-The Time-to-Live Stacks feature in Pulumi Cloud is designed to solve these pain points by allowing teams to set a predefined lifespan on any stack directly in Pulumi Cloud. After the specified time, these stacks are automatically destroyed, and using the optional "delete after destroy" setting, they are also removed from Pulumi Cloud entirely. This setting plays a pivotal role by not just destroying the resources but also cleaning up by deleting the stack itself after all resources have been terminated, ensuring that no residual artifacts are left behind. This maintains a clean state in the cloud environment and further reduces costs by reducing clutter.
+The Time-to-Live Stacks feature in Pulumi Cloud is designed to solve these pain points by allowing teams to set a predefined lifespan on any stack directly in Pulumi Cloud. After the specified time, these stacks are automatically destroyed, and using the optional "delete after destroy" setting, they are also removed from Pulumi Cloud entirely. This setting plays a pivotal role by not just destroying the resources but also cleaning up by deleting the stack itself after all resources have been terminated, ensuring that no residual artifacts are left behind. This maintains a clean state in the cloud environment and further reduces costs by reducing clutter. Time-to-Live Stacks are available today on the Enterprise and Business Critical editions of Pulumi Cloud.
 
 ### Key Benefits of TTL Stacks
 
@@ -30,15 +29,32 @@ The Time-to-Live Stacks feature in Pulumi Cloud is designed to solve these pain 
 - **Operational Efficiency:** Reduces the administrative burden of manually tracking and decommissioning temporary or outdated stacks, allowing teams to focus on more strategic tasks.
 - **Enhanced Security:** Automatically removing unused or neglected stacks helps ensure compliance and reduces the potential attack surface, making your infrastructure safer.
 
-## Getting Started with TTL Stacks
+## Getting Started with Time-to-Live Stacks
 
-### Setting it up in the UI
+### Setting it up in the Pulumi Cloud Console
 
-Ensure Deployments Settings are configured on the stack. Navigate to the Stack > Settings > Schedules, click on Time-to-Live, turn on "Delete After Destroy" if applicable, set the destroy timestamp, and save the schedule.
+In order to set up Time-to-Live Stacks in the Pulumi Cloud console, follow these steps:
+
+1. Ensure Deployments Settings are configured on the stack [see the docs](/docs/pulumi-cloud/deployments/reference)
+2. Navigate to the Stack > Settings > Schedules
+3. Select "Time-to-Live"
+4. (Optional) Turn on "Delete After Destroy" if applicable
+5. Set the schedule using a cron expression
+6. Save the Schedule
+
+You will now see a schedule in the Schedules tab which highlights when the destroy will occur.
 
 ### Setting it up via the API
 
-For those who prefer to automate and script their infrastructure tasks, Time-to-Live schedules can be configured programmatically using simple HTTP requests:
+For those who prefer to automate and script their infrastructure tasks, Time-to-Live schedules can be configured programmatically using simple HTTP requests.
+
+- Create a Time-to-Live schedule
+- Get a Time-to-Live schedule for a stack
+- Update or delete a Time-to-Live schedule
+- Pause or resume a Time-to-Live schedule
+- List all schedules in the organization (includes raw Pulumi operations and Drift schedules)
+
+Below is an example of setting up Time-To-Live on a stack programmatically:
 
   ```bash
   curl -H "Accept: application/vnd.pulumi+json" \
@@ -48,6 +64,8 @@ For those who prefer to automate and script their infrastructure tasks, Time-to-
        --data '{"timestamp":"2024-12-31T23:59:59Z","deleteAfterDestroy":true}' \
        https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/ttl/schedules
 ```
+
+Refer to the [Pulumi Deployments REST API documentation](/docs/pulumi-cloud/deployments/api) for more details on how to use the REST API to manage Time-to-Live Stacks.
 
 ### Setting it up via the Pulumi Service Provider
 

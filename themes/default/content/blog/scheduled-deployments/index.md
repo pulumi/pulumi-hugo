@@ -1,68 +1,90 @@
 ---
-title: "Scheduled Deployments"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date and time this file was generated. Dates are used for display and
-# ordering purposes only; they have no effect on whether or when a post is
-# published. To influence the ordering of posts published on the same date, use
-# the time portion of the date value; posts are sorted in descending order by
-# date/time.
-date: 2024-04-23T09:55:18-07:00
-
-# The draft setting determines whether a post is published. Set it to true if
-# you want to be able to merge the post without publishing it.
+title: "Pulumi Launches Scheduled Deployments: Automate Recurring Workflows"
+allow_long_title: True
+date: 2024-04-24
 draft: false
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or
-# social-media previews. This field is required or the build will fail the
-# linter test. Max length is 160 characters.
-meta_desc: filling this out with random text so that my PR stops failing 
-
-# The meta_image appears in social-media previews and on the blog home page. A
-# placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
+meta_desc: Pulumi introduces Scheduled Deployments to enhance cloud management, allowing for automated operations based on customizable schedules.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the
-# `id` properties of the team member files at /data/team/team. Create a file for
-# yourself if you don't already have one.
 authors:
-    - joe-duffy
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
+    - meagan-cojocar
 tags:
-    - change-me
-
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md
-# for details, and please remove these comments before submitting for review.
+    - features
 ---
 
-What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional. To do that, just add an HTML comment like the one below.
+In the rapidly evolving world of cloud infrastructure, the complexities and costs of managing such environments are escalating. In response to these challenges, Pulumi is excited to announce Scheduled Deployments for Pulumi Cloud. This new feature, which builds upon the robust foundation of Pulumi Deployments, is designed to streamline cloud management by automating the deployment and deactivation of resources according to customizable schedules. Two new Pulumi features also announced today, [Drift Detection and Remediation](/blog/drift-detection) and [Time-to-Live Stacks](/blog/ttl), are built on top of the new Scheduled Deployments functionality. These three new features are available today on the Enterprise and Business Critical editions of Pulumi Cloud.
 
-<!--more-->
+### Simplifying Cloud Operations Through Automation
 
-And then everything _after_ that comment will appear on the post page itself.
+Scheduled Deployments enable precise automation of cloud operations, allowing users to schedule any Pulumi operation—such as `pulumi up`, `pulumi refresh`, `pulumi destroy`, or `pulumi preview`—for any stack with Pulumi Deployments. This feature is not just about automating routine tasks; it’s about enhancing operational efficiency, reducing costs, and deploying resources exactly when needed.
 
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
+#### Example Use Cases
 
-## Writing the Post
+- **Automating Deployments outside of Git:** Pulumi Deployments handles Git based Deployments well, but we have heard from customers there are times you want to intentionally diverge from Git triggered Deployments, such as wanting to deploy only at set times and ensure no deployments happen outside that set time or executing a deployment freeze for a period before a large usage event.
+- **Cost Optimization:** Automatically power down non-critical development or test stacks during off-hours to cut unnecessary cloud spend. These stacks can be reactivated on a schedule or on-demand, ensuring resources are available precisely when teams need them without incurring costs during idle times.
+- **Product Launches:** Configure infrastructure to deploy right before a major release with `pulumi up`, ensuring that all resources are aligned and active precisely for the event, eliminating the need for last-minute manual updates.
+- **Scheduled Processing:** Perfect for tasks that require computing resources at specific times, such as nightly batch processing or periodic machine learning model training. Schedule these operations to maximize resource utilization and shut down upon task completion to optimize costs.
 
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
+### How Scheduled Deployments Work
 
-## Code Samples
+Users can define schedules for any Pulumi operation, on any stack, using cron expressions, which provide the flexibility to specify exact times for operations. This granular control over deployment timing allows for effective management of infrastructure tasks, accommodating even the most complex scheduling needs. Pulumi Deployments Schedules can be set up using the Pulumi Cloud console, our [REST API](/docs/pulumi-cloud/deployments/api) or managed in source control using the [Pulumi Service Provider](/registry/packages/pulumiservice/api-docs/provider).
 
-```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
+### Integration with Existing Features
+
+Scheduled Deployments integrate seamlessly with existing Pulumi Deployments. The concurrency limits of Pulumi Deployments apply and if deployments on a stack are paused, the scheduled deployments will queue, waiting for the pause to lift before executing. This integration ensures that all scheduled activities respect the operational parameters set within Pulumi Cloud.
+
+## Getting Started with Scheduled Deployments
+
+### Setting it up in the Pulumi Cloud Console
+
+We'll walk through how to get up and running with Scheduled Deployments in the Pulumi Cloud console, REST API and Pulumi Service Provider. For more details on how to implement and maximize the benefits of Scheduled Deployments, please visit [our documentation](/deployments/scheduled-deployments).
+
+Setting up Scheduled Deployments via the Pulumi Cloud console is straightforward:
+
+![Create a Scheduled Deployment](create-schedule.png)
+
+In order to set up Drift Detection and Remediation in the Pulumi Cloud console, follow these steps:
+
+1. Ensure Deployments Settings are configured on the stack [see the docs](/docs/pulumi-cloud/deployments/reference)
+2. Navigate to the Stack > Settings > Schedules
+3. Select "Raw operation"
+4. Select from the drop-down the type of operation you would like to schedule
+5. Set the schedule using a cron expression
+6. Save the Schedule
+
+![Populated Schedule in the UI](raw-schedule.png)
+
+Now you have a Scheduled Deployment!
+
+### Setting it up in the API
+
+For those who prefer to automate and script their infrastructure tasks, Time-to-Live schedules can be configured programmatically using simple HTTP requests.
+
+- Create a schedule
+- Get a schedule for a stack
+- Update or delete a schedule
+- Pause or resume a schedule
+- List all schedules in the organization (includes Drift and Time-to-Live schedules)
+
+Below is an example of creating a Schedule on a stack programmatically:
+
+```bash
+curl \
+  -H "Accept: application/vnd.pulumi+8" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
+  --request POST \
+  --data '{ "scheduleCron":"0 0 * * *", "request": { "operation": "update" } }' \
+  https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/schedules
 ```
 
-## Images
+Refer to the [Pulumi Deployments REST API documentation](/docs/pulumi-cloud/deployments/api) for more details on how to use the REST API to manage Scheduled Deployments.
 
-![Placeholder Image](meta.png)
+### Setting it up in the Pulumi Service Provider
 
-## Videos
+TODO
 
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
+## Wrapping it up
 
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
+We are looking forward to unlocking this capability to enable an out of the box way to automate your reoccuring workflows.
+
+Happy building!
