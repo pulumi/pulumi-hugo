@@ -48,7 +48,7 @@ Standing up managed container services and Kubernetes clusters is a common area 
 
 Given this critical use case, we are thrilled to introduce the latest addition to the Pulumi Ecosystem: the new _Docker Build_ provider, designed to streamline and modernize Docker image builds.
 
-This addition builds on the solid foundation of our highly utilized [Pulumi Docker] provider and elevates the `docker.Image` resource -- one of the most heavily used and most uniquely powerful resources in the Pulumi ecosystem -- into its own new dedicated package.
+This addition builds on the solid foundation of our highly utilized [Docker] provider and elevates the `docker.Image` resource -- one of the most heavily used and most uniquely powerful resources in the Pulumi ecosystem -- into its own new dedicated package.
 By fully embracing the power of [BuildKit], the Docker Build provider brings with it many new features to support best-in-class Docker capabilities that developers will love.
 
 The new provider exposes Docker's next-gen [buildx](https://docs.docker.com/reference/cli/docker/buildx/build/) interface, so now even your most complex Docker images can be handled by Pulumi.
@@ -65,7 +65,7 @@ This is a remarkably flexible and versatile tool for building images, and includ
 
 * __Support for Docker Build Cloud__: Take advantage of [Docker Build Cloud](https://www.docker.com/products/build-cloud/) to scale your build processes effortlessly and manage build resources dynamically, enhancing productivity and performance.
 
-For background, the [Pulumi Docker] provider was first introduced in 2018 and
+For background, the [Docker] provider was first introduced in 2018 and
 has seen wide adoption.
 Over the years Pulumi has continued our investment in it, notably introducing a
 version 4.0 [last year](../build-images-50x-faster-docker-v4) and additional
@@ -737,5 +737,5 @@ whether you are doing anything related to `docker build`.
 | `@pulumi/docker`       | Use this provider for everything else, including managing local Docker containers, networks, and volumes on the host machine.                                                                                                                                      |
 
 [BuildKit]: https://docs.docker.com/build/buildkit/
-[Pulumi Docker]: https://www.pulumi.com/registry/packages/docker/
+[Docker]: https://www.pulumi.com/registry/packages/docker/
 [inline cache]: https://docs.docker.com/build/cache/backends/inline/
