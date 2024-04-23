@@ -86,7 +86,7 @@ Consider the following ESC definition for `development` environment opened by us
 
 ```yaml
 values:
-  aws:
+  gcp:
     login:
       fn::open::gcp-login:
         oidc:

@@ -79,7 +79,7 @@ Consider the following ESC definition for `development` environment opened by us
 
 ```yaml
 values:
-  aws:
+  azure:
     login:
       fn::open::azure-login:
         ...
