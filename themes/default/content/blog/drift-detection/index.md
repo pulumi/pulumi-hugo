@@ -108,10 +108,10 @@ const driftDetectionSchedule = new pulumiservice.DriftSchedule("driftDetectionSc
     project: projectName,
     stack: stackName,
     scheduleCron: "0 0 * * *", // Run drift detection daily at midnight
-    autoRemediate: true, // Automatically remediate any drifts detected
+    autoRemediate: true, // Automatically remediate any drift detected
 });
 
-export const driftScheduleID = driftDetectionSchedule.scheduleID;
+export const driftScheduleId = driftDetectionSchedule.scheduleId;
 
 ```
 
@@ -133,9 +133,9 @@ drift_detection_schedule = pulumiservice.DriftSchedule("driftDetectionSchedule",
     project=project_name,
     stack=stack_name,
     schedule_cron="0 0 * * *",  # Run drift detection daily at midnight
-    auto_remediate=True)  # Automatically remediate any drifts detected
+    auto_remediate=True)  # Automatically remediate any drift detected
 
-pulumi.export('driftScheduleID', drift_detection_schedule.schedule_id)
+pulumi.export('driftScheduleId', drift_detection_schedule.schedule_id)
 
 ```
 {{% /choosable %}}
@@ -157,13 +157,13 @@ func main() {
             Project: pulumi.String("my-project"),
             Stack: pulumi.String("production"),
             ScheduleCron: pulumi.String("0 0 * * *"),  // Run drift detection daily at midnight
-            AutoRemediate: pulumi.Bool(true),  // Automatically remediate any drifts detected
+            AutoRemediate: pulumi.Bool(true),  // Automatically remediate any drift detected
         })
         if err != nil {
             return err
         }
 
-        ctx.Export("driftScheduleID", driftDetectionSchedule.ScheduleID)
+        ctx.Export("driftScheduleId", driftDetectionSchedule.ScheduleId)
         return nil
     })
 }
@@ -186,12 +186,12 @@ class Program
             Project = "my-project",
             Stack = "production",
             ScheduleCron = "0 0 * * *",  // Run drift detection daily at midnight
-            AutoRemediate = true,  // Automatically remediate any drifts detected
+            AutoRemediate = true,  // Automatically remediate any drift detected
         });
 
         return new Dictionary<string, object?>
         {
-            { "driftScheduleID", driftDetectionSchedule.ScheduleId }
+            { "driftScheduleId", driftDetectionSchedule.ScheduleId }
         };
     });
 }
@@ -219,10 +219,10 @@ public class App {
             .project("my-project")
             .stack("production")
             .scheduleCron("0 0 * * *") // Run drift detection daily at midnight
-            .autoRemediate(true) // Automatically remediate any drifts detected
+            .autoRemediate(true) // Automatically remediate any drift detected
             .build());
 
-        ctx.export("driftScheduleID", driftDetectionSchedule.name());
+        ctx.export("driftScheduleId", driftDetectionSchedule.scheduleId());
     }
 }
 
@@ -244,10 +244,10 @@ resources:
       project: my-project
       stack: production
       scheduleCron: "0 0 * * *" # Run drift detection daily at midnight
-      autoRemediate: true # Automatically remediate any drifts detected
+      autoRemediate: true # Automatically remediate any drift detected
 
 outputs:
-  driftScheduleID: ${driftDetectionSchedule.scheduleID}
+  driftScheduleId: ${driftDetectionSchedule.scheduleId}
 
 ```
 
