@@ -7,8 +7,10 @@ meta_desc: Explore Pulumi Cloud's new Time-to-Live Stacks feature, designed to h
 meta_image: ttl.png
 authors:
     - meagan-cojocar
+    - derek-schaller
 tags:
     - features
+    - infrastructure-lifecycle-management
 ---
 
 
