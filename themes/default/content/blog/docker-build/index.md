@@ -7,7 +7,7 @@ title: "Introducing the new Docker Build provider"
 # published. To influence the ordering of posts published on the same date, use
 # the time portion of the date value; posts are sorted in descending order by
 # date/time.
-date: 2024-04-25T15:12:33-07:00
+date: 2024-04-25T09:00:00-07:00
 
 # The draft setting determines whether a post is published. Set it to true if
 # you want to be able to merge the post without publishing it.
@@ -43,8 +43,8 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-We are thrilled to introduce the latest addition to the Pulumi Ecosystem -- the new _Docker Build_ provider, designed to streamline and enhance Docker image builds.
-This addition builds on the solid foundation of our widely utilized [Pulumi Docker] provider.
+We are thrilled to introduce the latest addition to the Pulumi Package Ecosystem -- the new _Docker Build_ provider, designed to streamline and enhance Docker image builds.
+This addition builds on the solid foundation of our widely utilized [Docker](https://github.com/pulumi/pulumi-docker) provider.
 By embracing the power of Docker's [BuildKit] technology, this provider enhances your building experience, allowing you to modernize your image builds.
 This launch signifies our ongoing commitment to advancing technology and empowering developers to achieve new heights in container management.
 
@@ -82,7 +82,7 @@ platform for Pulumi to stay current with the evolving build landscape.
 
 {{< chooser language "typescript,python,csharp,go,yaml,java" / >}}
 
-Add the "docker-build" package to your project to start taking advantage of modern image builds with Pulumi.
+Add the `docker-build` package to your project to start taking advantage of modern image builds with Pulumi.
 
 {{% choosable language typescript %}}
 
@@ -544,7 +544,7 @@ image in downstream Pulumi resources like ECS
 or Kubernetes
 [Deployments](https://www.pulumi.com/registry/packages/kubernetes/api-docs/apps/v1/deployment/).
 
-## Migrating Docker images to Docker Build
+## Migrating from `docker.Image` to `docker_build.Image`
 
 If you are already using the [Pulumi Docker] provider to build images there is
 no action required on your part -- your images will continue to build normally.
@@ -740,5 +740,5 @@ whether you are doing anything related to `docker build`.
 
 | Provider               | Use cases                                                                                                                                                                                                                                                          |
 | ----------------       | --------------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                           |
-| `@pulumi/docker-build` | Use this provider primarily for building Docker images. Ideal for scenarios requiring automation of image creation with Docker, including setting up CI/CD pipelines for Docker image generation.                                                                  |
-| `@pulumi/docker`       | Suitable for broader Docker operations beyond just building images. This includes running Docker containers, managing container lifecycles, orchestrating Docker networks, and handling volumes. Recommended for general Docker management within Pulumi projects. |
+| `@pulumi/docker-build` | Use this provider for building and pushing Docker images. Ideal for scenarios requiring automation of image creation with Docker, including setting up CI/CD pipelines for Docker image generation.                                                                  |
+| `@pulumi/docker`       | Use this provider for managing local Docker containers, images, networks and volumes on the current machine.  |
