@@ -1,68 +1,45 @@
 ---
-title: "Infrastructure Lifecycle Management"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date and time this file was generated. Dates are used for display and
-# ordering purposes only; they have no effect on whether or when a post is
-# published. To influence the ordering of posts published on the same date, use
-# the time portion of the date value; posts are sorted in descending order by
-# date/time.
-date: 2024-04-23T09:56:28-07:00
-
-# The draft setting determines whether a post is published. Set it to true if
-# you want to be able to merge the post without publishing it.
+title: "Announcing New Infrastructure Lifecycle Management Features in Pulumi Cloud"
+allow_long_title: True
+date: 2024-04-24
 draft: false
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or
-# social-media previews. This field is required or the build will fail the
-# linter test. Max length is 160 characters.
-meta_desc: filling this out with random text so that my PR stops failing 
-
-# The meta_image appears in social-media previews and on the blog home page. A
-# placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
+meta_desc: Discover new infrastructure lifecycle management capabilities in Pulumi Cloud, including Drift Detection, Time-to-Live Stacks, and more.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the
-# `id` properties of the team member files at /data/team/team. Create a file for
-# yourself if you don't already have one.
 authors:
     - joe-duffy
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-    - change-me
-
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md
-# for details, and please remove these comments before submitting for review.
+    - features
 ---
 
-What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional. To do that, just add an HTML comment like the one below.
+## Announcing New Infrastructure Lifecycle Management Features in Pulumi Cloud
 
-<!--more-->
+Today we announced a new wave of Infrastructure Lifecycle Management capabilities in Pulumi Cloud. These build upon and extend our rich Pulumi Deployments foundation for deployment orchestration and workflow. This is an exciting, customer-driven release, with new features that help with Day 2 operations and management.
 
-And then everything _after_ that comment will appear on the post page itself.
+These new features are:
 
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
+- [Drift Detection and Remediation](/blog/drift-detection) - Continuously detect and remediate drift
+- [Time-to-Live Stacks](/blog/ttl) - Clean up stale infrastructure automatically
+- [Scheduled Deployments](/scheduled-deployments) - Automate recurring workflows on a schedule
+- [Free Deployments Minutes](/deploy-minutes-included) - Use all of the above for free, no matter your tier!
 
-## Writing the Post
+We built these features based on customer feedback, and our 2,500+ customers are excited:
 
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
+> “At Oleria, we understand the importance of addressing issues with privacy, security, and data integrity. Earning and maintaining our trust isn’t just a responsibility but a fundamental aspect of our mission," said Jim Alkove, CEO of Oleria.  “Pulumi also understands how these attributes affect cloud infrastructure. Our team is excited to use these new capabilities, giving us even more confidence as we enable our customers to securely manage access to decentralized SaaS applications, adaptively and intelligently."
 
-## Code Samples
+### Infrastructure Lifecycle Management Capabilities - Excelling at Day 2 and Beyond
 
-```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
-```
+So, why infrastructure lifecycle management?
 
-## Images
+Infrastructure as Code (IaC) is table stakes for our customers. It helps to ensure Day 1, 2, and beyond cloud practices are robust, secure, and dependable. However, operational realities mean that sometimes teams need more flexibility than what strict IaC and Git-driven deployments offer.
 
-![Placeholder Image](meta.png)
+For example, maybe you need to break glass and interact with the AWS console directly to open up SSH to an EC2 instance in order to debug a gnarly issue. Or maybe you need to scale up your Auto Scaling group (ASG) temporarily while a live-site incident of unexpected traffic peaks plays out. Or maybe someone added tags to your resource without knowing it was under the management of Pulumi. This can lead to drift, where your IaC configuration no longer matches reality, and reality no longer matches your IaC. This is where Drift Detection and Remediation comes in to automatically report on and reconcile it.
 
-## Videos
+Alternatively, you may want to enable self-service infrastructure provisioning for your entire team, including developers and data scientists, who are not infrastructure experts. But what if they forget to wind things down when they’re done? You are left spending valuable money and resources managing infrastructure that’s no longer needed. Time-to-Live Stacks automatically reclaim such ephemeral infrastructure, enabling self-serve with confidence.
 
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
+Next up, we often want to deploy on a Git commit, which Pulumi Deployments already handles. However, what if we want more flexibility around how and when deployments occur? For instance, perhaps you're a retailer who doesn’t want to deploy on Black Friday. Or maybe you prefer to deploy at set times throughout the week rather than on every Git commit. This is where Scheduled Deployments comes in, to give us flexible cron-based scheduling of deployments.
 
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
+Finally, we want everyone to be able to kick the tires with all of the above, no commitments needed. That’s why we’re also announcing today that all users – individuals, teams, and enterprises alike – get an allotment of free monthly deployment minutes to use all of this.
+
+Get started now for free at [app.pulumi.com](https://app.pulumi.com). We can’t wait to hear what you think!
+
+Happy cloud spelunking.
