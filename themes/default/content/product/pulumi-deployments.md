@@ -33,7 +33,7 @@ benefits:
     title: How will Pulumi Deployments benefit me?
     description: |
         Pulumi Deployments makes it easier for you and engineers on your team to manage the entire lifecycle of infrastructure from provisioning to tear down. You can choose from different workflows such as GitHub pull request triggered deployments, stacks with time based automatic deletions, scheduled automations, and more.
-        
+
         You can also orchestrate custom workflows with [Automation API](/docs/using-pulumi/automation-api/) and offload the workflow execution to Pulumi Deployments instead of running the Automation API code locally yourself. Pulumi Deployments is a fully managed service with minimal setup and is available through [Pulumi Cloud](/product/pulumi-cloud/).
 
 preview:
@@ -80,6 +80,14 @@ faq:
       - header: Is there a free tier for Pulumi Deployments?
         content: |
           Individual Edition has 500 deploy minutes/month. Team, Enterprise, and Business Critical Editions all have 3,000 included deploy minutes/month.
+
+      - header: How does drift detection work?
+        content: |
+          Drift detection and remediation operates continuously, on a schedule of your choosing, comparing the state of your resources with the expected configurations defined in your Pulumi setups. Any discrepancies triggered by modifications, deletions, or additions of resources are promptly reported and, if configured, can be automatically remediated. Alerts can be configured to be sent via webhooks, Slack, or Microsoft Teams, with detailed information about the drift's nature and scope provided directly within the alerts.
+
+      - header: What granularity can you define schedules for Scheduled Deployments?
+        content: |
+          You can define schedules for any stack at the granularity of cron expressions.
 
 
 learn:
