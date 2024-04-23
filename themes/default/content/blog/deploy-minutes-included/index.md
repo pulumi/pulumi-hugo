@@ -11,11 +11,25 @@ tags:
     - features
 ---
 
-At Pulumi, we are committed to empowering developers and infrastructure teams with the tools they need to efficiently manage cloud resources at scale. As part of our ongoing efforts to enhance user experience and ease of use, we are excited to share some significant updates to Pulumi Deployments pricing, making it easier for all customers to experiment with and adopt our the easiest way to go from code to cloud.
+At Pulumi, we are committed to empowering developers and infrastructure teams with the tools they need to efficiently manage cloud resources at scale. As part of our ongoing efforts to enhance user experience and ease of use, we are excited to share some significant updates to Pulumi Deployments pricing, making it easier for all customers to experiment with and adopt our the easiest way to go from code to cloud. Paired with the launch of [Drift Detection and Remediation](/blog/drift-detection), [Time-to-Live Stacks](/blog/ttl) and [Scheduled Deployments](/blog/scheduled-deployments)- it has never been easier to kick the tires on the latest and greatest tools for [infrastructure lifecycle management](/blog/infrastructure-lifecycle-management).
 
 ## Introduction to Pulumi Deployments
 
 [Pulumi Deployments](/docs/pulumi-cloud/deployments) is a fully managed platform designed to empower teams to efficiently manage and scale their cloud infrastructure. Whether you are just getting started in the cloud and want the easiest path to set up secure CI/CD, or are a platform engineer building a self-service platform to support thousands of engineers, Pulumi Deployments provides you with the building blocks that enable you to scale your cloud footprint without scaling your headcount. It offers a fully managed, secure, and elastic compute environment for running infrastructure deployments. It simplifies configuration by centralizing the management of source code, cloud credentials, and other necessities at the stack level. Additionally, the platform supports a variety of deployment triggers such as [REST API](/docs/pulumi-cloud/deployments/api), [Git Push to Deploy](/docs/pulumi-cloud/deployments/reference/#github-push-to-deploy), and [Click to Deploy](/docs/pulumi-cloud/deployments/reference/#click-to-deploy), allowing users to customize and automate their cloud operations beyond the capabilities of traditional CI/CD systems. When a stack is managed with Pulumi Deployments, richer Pulumi Cloud functionality is supported, such as [Review Stacks](/docs/pulumi-cloud/deployments/review-stacks) and Click to Deploy templates in the New Project Wizard.
+
+## Exciting New Features
+
+### Drift Detection
+
+Stay on top of your infrastructure's health with our new [Drift Detection](/docs/pulumi-cloud/deployments/drift-detection) feature. Drift Detection helps you monitor and rectify discrepancies between your desired infrastructure state and the actual state, ensuring consistency and compliance.
+
+### TTL Stacks
+
+Manage resources effectively with [Time to Live (TTL) Stacks](/docs/pulumi-cloud/deployments/ttl-stacks). This feature automatically deallocates resources after a set period, perfect for temporary or experimental deployments, reducing costs and manual cleanup efforts.
+
+### Scheduled Deployments
+
+Optimize your deployment strategy with [Scheduled Deployments](/docs/pulumi-cloud/deployments/scheduled-deployments). This feature allows you to plan and execute deployments at specific times, making it easier to manage updates during off-peak hours, minimizing impact on your services.
 
 ## New Included Minutes
 
@@ -32,6 +46,6 @@ To address these concerns and support our users in their cloud journey, we are i
 
 ## Looking Forward
 
-As a core part of Pulumi Cloud, Pulumi Deployments is now easier to adopt in your organization. We expect to release even more rich features built on Pulumi Deployments, such as drift detection and time to live stacks, to offer turnkey solutions for platform teams.
+As a core part of Pulumi Cloud, Pulumi Deployments is now easier to adopt in your organization. We expect to release even more rich features built on Pulumi Deployments, offloading the time consuming work to Pulumi Cloud with turn-key features to solve your existing pain points.
 
-For more details on how to make the most of your deployment minutes and to start using Pulumi today, please visit our [documentation](https://www.pulumi.com/docs/pulumi-cloud/deployments).
+We can't wait to hear any feedback on this new set of features and Pulumi Deployments as a whole!

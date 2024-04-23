@@ -1,68 +1,68 @@
 ---
-title: "Drift Detection"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date and time this file was generated. Dates are used for display and
-# ordering purposes only; they have no effect on whether or when a post is
-# published. To influence the ordering of posts published on the same date, use
-# the time portion of the date value; posts are sorted in descending order by
-# date/time.
-date: 2024-04-23T09:54:34-07:00
-
-# The draft setting determines whether a post is published. Set it to true if
-# you want to be able to merge the post without publishing it.
+title: "Pulumi Announces Drift Detection and Remediation: Continuously Monitor Your Infrastructure Changes"
+allow_long_title: True
+date: 2024-04-24
 draft: false
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or
-# social-media previews. This field is required or the build will fail the
-# linter test. Max length is 160 characters.
-meta_desc:
-
-# The meta_image appears in social-media previews and on the blog home page. A
-# placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
+meta_desc: Pulumi introduces Drift Detection and Remediation to continuously monitor and correct configuration drift in cloud infrastructures.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the
-# `id` properties of the team member files at /data/team/team. Create a file for
-# yourself if you don't already have one.
 authors:
-    - joe-duffy
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
+    - meagan-cojocar
+    - komal-ali
 tags:
-    - change-me
-
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md
-# for details, and please remove these comments before submitting for review.
+    - features
 ---
 
-What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional. To do that, just add an HTML comment like the one below.
+At Pulumi, we recognize the challenges platform teams face in maintaining the stability and compliance of their cloud infrastructures. One of the primary challenges is configuration drift, where the actual state of the infrastructure deviates from its intended state. This deviation can occur for various reasons, including manual adjustments made directly in the cloud provider’s console, unintended consequences of scripts, or unauthorized changes. Such drift can lead to significant problems including security vulnerabilities that open up potential breaches, compliance violations that can result in penalties, operational disruptions that affect user experience and business operations, and resource wastage that increases costs unnecessarily.
 
-<!--more-->
+Today, we are excited to launch a new Drift Detection and Remediation feature in Pulumi Cloud to address these challenges. This new functionality is designed to automate the detection and correction of drift in your cloud environments, seamlessly integrating into your existing workflows, whether you use [Pulumi Deployments](/pulumi-deployments) or other CI/CD systems, and is supported for any resource you can manage with Pulumi, whether they are from Amazon Web Services, Microsoft Azure, Google Cloud Platform, or any of the [180+ supported providers](/registry).
 
-And then everything _after_ that comment will appear on the post page itself.
+### Why Pulumi Cloud Drift Detection and Remediation?
 
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
+Drift Detection is the process of identifying changes in the actual state of your cloud environment that deviate from the expected configuration stored in Pulumi Cloud. This can occur when an operator makes an out-of-band change directly in the cloud provider console, bypassing the usual code deployment processes.
 
-## Writing the Post
+**Key benefits:**
 
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
+- **Enhanced Security:** Stay ahead of potential security breaches caused by unauthorized changes to your infrastructure.
+- **Compliance Assurance:** Ensure that your infrastructure remains compliant with organizational policies and standards after out of band changes.
+- **Time and Cost Efficiency:** Reduce the time spent on tracking and rectifying configuration drift or managing a custom drift solution: leading to cost savings.
+- **Risk Mitigation:** Minimize the risk of errors and potential outages by promptly identifying and addressing accidental drifts in your environments.
 
-## Code Samples
+### How Drift Detection Works
 
-```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
-```
+Pulumi Cloud's Drift Detection and Remediation operates continuously, on a schedule of your choosing, comparing the state of your resources with the expected configurations defined in your Pulumi setups. Any discrepancies triggered by modifications, deletions, or additions of resources are promptly reported in the new Drift tab in the Pulumi Cloud console. Alerts can be configured to be sent via webhooks, Slack, or Microsoft Teams when drift occurs, with detailed information about the drift's nature and scope provided directly within the alerts.
 
-## Images
+For those using Pulumi Deployments, the system not only regularly detects but can also remedies the drift to align with your Pulumi program. This auto-remediation applies the last known infrastructure as code state, overwriting the drift. Auto-remediation can be set to occur by default or turned off to allow for manual intervention in the remediation of drift, depending on the criticality and nature of the stacks involved.
 
-![Placeholder Image](meta.png)
+Under the hood, drift is detected by regularly running a new Pulumi operation we have added, `pulumi refresh --preview-only`. This operation collects the set of changes that exist between the cloud provider and the current desired state in Pulumi. These scheduled operations build on top of the new [Scheduled Deployments](/blog/scheduled-deployments) functionality as is [Time-to-Live Stacks](/blog/ttl), both of which also were announced today. If there is a delta between the cloud and current desired state, it is presented in the Drift tab along with a “Drift Detected” notification on the stack. If remediation is configured, a `pulumi refresh` followed by `pulumi up` are run automatically following any detection of drift. All of this is automated by Pulumi Deployments for users who have configured Pulumi Deployments on their stack. For users who are not using Pulumi Deployments, they can configure their existing CI/CD system to run these same operations regularly, and the results will still be displayed as part of the Drift tab in Pulumi Cloud and you can receive notifications when drift is detected.
 
-## Videos
+### Getting Started with Drift Detection
 
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
+To get started with Drift Detection in Pulumi, select which deployment route you will be using:
+- **Pulumi Deployments**: Pulumi programs are run on Pulumi-hosted compute, allowing you to set a schedule and let us handle the rest, including detecting drift, auto-remediation if you turn it on, history of each drift run and what was detected and notifications for drift events.
+- **Existing CI/CD system**: Run Drift Detection to regularly run `pulumi refresh --preview-only` to see what drift is detected in the Pulumi Cloud console and get notified on drift events.
 
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
+In order to schedule Drift Detection and Remediation, the stack needs to be configured for Pulumi Deployments and have deployment settings configured. You can find more information on how to set up Pulumi Deployments in our documentation.
+
+### Setting it Up in the UI
+
+In order to set up Drift Detection and Remediation in the Pulumi Cloud console, follow these steps:
+- Ensure Deployments Settings are configured on the stack see the docs
+- Navigate to the Stack > Settings > Schedules
+- Click on Drift
+- (Optional) Turn on auto-remediation if applicable
+- Set the schedule using a cron expression
+- Save the Schedule
+
+And just like that, you have Drift Detection! To test what the output will look like you can use the Actions button in the top right on the Stack page to run an ad hoc Drift Detection operation or an Auto-remediate operation. Note: if you have never ran a `pulumi refresh` on that stack before, you will want to run one before setting up Drift Detection and ensure a clean refresh state. More details on getting a clean refresh state in our documentation.
+
+### Setting it Up via the API
+
+For those who prefer to automate and script their infrastructure tasks, Drift Detection and Remediation can be configured programmatically using simple HTTP requests, here is an example of using the endpoint:
+
+```curl
+curl -H "Accept: application/vnd.pulumi+json" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
+     --request POST \
+     --data '{"scheduleCron":"0 0 * * *","autoRemediate":true}' \
+     https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/drift/schedules
