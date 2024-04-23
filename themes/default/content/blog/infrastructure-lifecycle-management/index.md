@@ -1,7 +1,7 @@
 ---
 title: "Announcing New Infrastructure Lifecycle Management Features in Pulumi Cloud"
 allow_long_title: True
-date: 2024-04-24
+date: 2024-04-24T07:00:05-08:00
 draft: false
 meta_desc: Discover new infrastructure lifecycle management capabilities in Pulumi Cloud, including Drift Detection, Time-to-Live Stacks, and more.
 meta_image: ilm.png
