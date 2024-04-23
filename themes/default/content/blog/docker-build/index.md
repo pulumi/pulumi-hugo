@@ -727,13 +727,9 @@ const v4Migrated = new dockerbuild.Image("v4-to-buildx", {
 
 ## Conclusion
 
-The launch of the new Docker Build provider marks a significant milestone in modernizing container management for developers.
-Leveraging the latest BuildKit technology, this tool is a testament to our commitment to innovation and user-driven development.
+The launch of the new Docker Build provider marks a significant milestone in modernizing container management for developers. The new package, which replaces `docker.Image` resource, reflects our commitment to innovation and user-centric development. By incorporating the latest BuildKit technology, the Docker Build provider not only supports the newest Docker features but also enhances multi-architecture builds and improves caching strategies.
 
-Your feedback is crucial to our ongoing improvement efforts.
-As we look ahead, we are dedicated to incorporating your insights to further enhance the Docker Build provider. Let's continue to refine and advance our tools together.
-
-For more details on how to utilize the Docker Build provider, check out our [documentation](https://www.pulumi.com/registry/packages/docker-build/image/).
+Moreover, its integration with [Docker Build Cloud](https://www.docker.com/products/build-cloud/) underscores our dedication to providing a more robust and efficient toolset for developers. This launch is a testament to our ongoing efforts to modernize and improve the ways in which developers manage containers. For more details on how to utilize the Docker Build provider, check out our [documentation](https://www.pulumi.com/registry/packages/docker-build/image/).
 
 If you are still wondering "Which provider should I use?" the answer depends on
 whether you are doing anything related to `docker build`.
