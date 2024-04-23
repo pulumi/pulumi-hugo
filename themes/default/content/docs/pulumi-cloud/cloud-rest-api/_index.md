@@ -2532,7 +2532,7 @@ Status: 200 OK
 ## Schedules
 
 {{< notes >}}
-Pulumi Schedules REST API endpoints are currently in private preview.
+Pulumi Schedules REST API endpoints are currently in public preview.
 {{< /notes >}}
 
 <!-- ###################################################################### -->
@@ -2594,6 +2594,8 @@ Status: 200 OK
 
 ### Create Drift Schedule
 
+Note: This is a convenience API for ease of use to create a Drift Schedule, but the same configuration is possible via the raw deployments schedule APIs.
+
 ```
 POST /api/stacks/{organization}/{project}/{stack}/deployments/drift/schedules
 ```
@@ -2606,7 +2608,7 @@ POST /api/stacks/{organization}/{project}/{stack}/deployments/drift/schedules
 | `project`           | string | path  | project name                                                                                                 |
 | `stack`             | string | path  | stack name                                                                                                   |
 | `scheduleCron`      | string | body  | cron expression for when to run drift detection                                                              |
-| `autoRemediate`     | bool   | body  | whether to remediate any detected drift                                                                      |
+| `autoRemediate`     | bool   | body  | true if detected drift should be remediated automatically                                                    |
 
 #### Example
 
@@ -2616,7 +2618,7 @@ curl \
   -H "Content-Type: application/json" \
   -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
   --request POST \
-  --data '{"scheduleCron":"{scheduleCronValue}","autoRemediate":"{autoRemediateValue}"}' \
+  --data '{"scheduleCron":"0 0 * * 0", "autoRemediate":true}' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/drift/schedules
 ```
 
@@ -2654,6 +2656,8 @@ Status: 200 OK
 
 ### Create TTL Schedule
 
+Note: This is a convenience API for ease of use to create a TTL Schedule, but the same configuration is possible via the raw deployments schedule APIs.
+
 ```
 POST /api/stacks/{organization}/{project}/{stack}/deployments/ttl/schedules
 ```
@@ -2665,8 +2669,8 @@ POST /api/stacks/{organization}/{project}/{stack}/deployments/ttl/schedules
 | `organization`      | string | path  | organization name                                                                                            |
 | `project`           | string | path  | project name                                                                                                 |
 | `stack`             | string | path  | stack name                                                                                                   |
-| `timestamp`         | string | body  | ISO timestamp of when to destroy the stack                                                                   |
-| `deleteAfterDestroy`| bool   | body  | whether to delete the stack after resources are destroyed                                                    |
+| `timestamp`         | string | body  | ISO 8601 timestamp specifying when to destroy the stack. Example: `2024-04-20T00:00:00.000Z`                 |
+| `deleteAfterDestroy`| bool   | body  | true if the stack should be deleted after resources are destroyed                                            |
 
 #### Example
 
@@ -2676,7 +2680,7 @@ curl \
   -H "Content-Type: application/json" \
   -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
   --request POST \
-  --data '{"timestamp":"{timestampValue}","deleteAfterDestroy":"{deleteAfterDestroyValue}"}' \
+  --data '{"timestamp":"2024-04-20T00:00:00.000Z","deleteAfterDestroy":true}' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/ttl/schedules
 ```
 
@@ -2690,7 +2694,7 @@ Status: 200 OK
 {
   "id": "12345678-8102-447f-b246-e9ec85786e23",
   "orgID": "87654321-8b3b-418a-8c01-5ddd0e00bace",
-  "scheduleCron": "0 0 * * *",
+  "scheduleOnce": "2024-04-20 00:00:00.000",
   "nextExecution": "2024-04-20 00:00:00.000",
   "paused": false,
   "kind": "deployment",
@@ -2712,7 +2716,7 @@ Status: 200 OK
 }
 ```
 
-### Create Raw Operation Schedule
+### Create Raw Deployment Schedule
 
 ```
 POST /api/stacks/{organization}/{project}/{stack}/deployments/schedules
@@ -2720,16 +2724,16 @@ POST /api/stacks/{organization}/{project}/{stack}/deployments/schedules
 
 #### Parameters
 
-| Parameter           | Type   | In    | Description                                                                                                  |
-|---------------------|--------|-------|--------------------------------------------------------------------------------------------------------------|
-| `organization`      | string | path  | organization name                                                                                            |
-| `project`           | string | path  | project name                                                                                                 |
-| `stack`             | string | path  | stack name                                                                                                   |
-| `scheduleCron`      | string | body  | cron expression for when to run the pulumi operation                                                         |
-| `scheduleOnce`      | string | body  | ISO timestamp of when to destroy the stack                                                                   |
-| `operation`         | string | body  | pulumi operation to perform. Can be "update", "destroy", "refresh" or "preview"                              |
+| Parameter           | Type                                                                             | In    | Description                                                                                         |
+|---------------------|----------------------------------------------------------------------------------|-------|-----------------------------------------------------------------------------------------------------|
+| `organization`      | string                                                                           | path  | organization name                                                                                   |
+| `project`           | string                                                                           | path  | project name                                                                                        |
+| `stack`             | string                                                                           | path  | stack name                                                                                          |
+| `scheduleCron`      | string                                                                           | body  | cron expression for when to run the pulumi operation                                                |
+| `scheduleOnce`      | string                                                                           | body  | ISO 8601 timestamp specifying when to run the pulumi operation. Example: `2024-04-20T00:00:00.000Z` |
+| `request`           | [CreateDeploymentRequest](/docs/pulumi-cloud/deployments/api/#create-deployment) | body  | The create deployment request object that will be executed on every invocation                      |
 
-Note: only pass in either `scheduleCron` or `scheduleOnce`, and not both. One of them is required though.
+Note: Exactly one of `scheduleCron` and `scheduleOnce` must be set.
 
 #### Example
 
@@ -2739,11 +2743,9 @@ curl \
   -H "Content-Type: application/json" \
   -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
   --request POST \
-  --data '{ "scheduleCron":"{scheduleCronValue}", "request": { "operation": "{operationValue}" } }' \
+  --data '{ "scheduleCron":"0 0 * * 0", "request": { "operation": "update" } }' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/schedules
 ```
-
-The `request` field is really a [CreateDeploymentRequest](/docs/pulumi-cloud/deployments/api/#create-deployment) under the hood. You can pass in the same parameters to customize the scheduled deployment, but they are not required.
 
 #### Default response
 
@@ -2823,6 +2825,8 @@ Status: 200 OK
 
 ### Update Drift Schedule
 
+Note: This is a convenience API for ease of use to update a Drift Schedule, but the same configuration is possible via the raw deployments schedule APIs.
+
 ```
 POST /api/stacks/{organization}/{project}/{stack}/deployments/drift/schedules/{scheduleID}
 ```
@@ -2834,7 +2838,7 @@ POST /api/stacks/{organization}/{project}/{stack}/deployments/drift/schedules/{s
 | `stack`             | string | path  | stack name                                                                                                   |
 | `scheduleID`        | string | path  | schedule ID that you want to update                                                                          |
 | `scheduleCron`      | string | body  | cron expression for when to run drift detection                                                              |
-| `autoRemediate`     | bool   | body  | whether to remediate any detected drift                                                                      |
+| `autoRemediate`     | bool   | body  | true if detected drift should be remediated automatically                                                    |
 
 #### Example
 
@@ -2844,7 +2848,7 @@ curl \
   -H "Content-Type: application/json" \
   -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
   --request POST \
-  --data '{"scheduleCron":"{scheduleCronValue}","autoRemediate":"{autoRemediateValue}"}' \
+  --data '{"scheduleCron":"0 0 * * 0","autoRemediate":true}' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/drift/schedules/{scheduleID}
 ```
 
@@ -2882,6 +2886,8 @@ Status: 200 OK
 
 ### Update TTL Schedule
 
+Note: This is a convenience API for ease of use to update a TTL Schedule, but the same configuration is possible via the raw deployments schedule APIs.
+
 ```
 POST /api/stacks/{organization}/{project}/{stack}/deployments/ttl/schedules/{scheduleID}
 ```
@@ -2892,8 +2898,8 @@ POST /api/stacks/{organization}/{project}/{stack}/deployments/ttl/schedules/{sch
 | `project`           | string | path  | project name                                                                                                 |
 | `stack`             | string | path  | stack name                                                                                                   |
 | `scheduleID`        | string | path  | schedule ID that you want to update                                                                          |
-| `timestamp`         | string | body  | ISO timestamp of when to destroy the stack                                                                   |
-| `deleteAfterDestroy`| bool   | body  | whether to delete the stack after resources are destroyed                                                    |
+| `timestamp`         | string | body  | ISO 8601 timestamp specifying when to destroy the stack. Example: `2024-04-20T00:00:00.000Z`                 |
+| `deleteAfterDestroy`| bool   | body  | true if the stack should be deleted after resources are destroyed                                            |
 
 #### Example
 
@@ -2903,7 +2909,7 @@ curl \
   -H "Content-Type: application/json" \
   -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
   --request POST \
-  --data '{"timestamp":"{timestampValue}","deleteAfterDestroy":"{deleteAfterDestroyValue}"}' \
+  --data '{"timestamp":"2024-04-20T00:00:00.000Z","deleteAfterDestroy":true}' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/ttl/schedules/{scheduleID}
 ```
 
@@ -2917,7 +2923,7 @@ Status: 200 OK
 {
   "id": "12345678-8102-447f-b246-e9ec85786e23",
   "orgID": "87654321-8b3b-418a-8c01-5ddd0e00bace",
-  "scheduleCron": "0 0 * * *",
+  "scheduleOnce": "2024-04-20 00:00:00.000",
   "nextExecution": "2024-04-20 00:00:00.000",
   "paused": false,
   "kind": "deployment",
@@ -2939,7 +2945,7 @@ Status: 200 OK
 }
 ```
 
-### Update Raw Operation Schedule
+### Update Raw Deployment Schedule
 
 ```
 POST /api/stacks/{organization}/{project}/{stack}/deployments/schedules/{scheduleID}
@@ -2947,17 +2953,17 @@ POST /api/stacks/{organization}/{project}/{stack}/deployments/schedules/{schedul
 
 #### Parameters
 
-| Parameter           | Type   | In    | Description                                                                                                  |
-|---------------------|--------|-------|--------------------------------------------------------------------------------------------------------------|
-| `organization`      | string | path  | organization name                                                                                            |
-| `project`           | string | path  | project name                                                                                                 |
-| `stack`             | string | path  | stack name                                                                                                   |
-| `scheduleID`        | string | path  | schedule ID that you want to update                                                                          |
-| `scheduleCron`      | string | body  | cron expression for when to run the pulumi operation                                                         |
-| `scheduleOnce`      | string | body  | ISO timestamp of when to destroy the stack                                                                   |
-| `operation`         | string | body  | pulumi operation to perform. Can be "update", "destroy", "refresh" or "preview"                              |
+| Parameter           | Type                                                                             | In    | Description                                                                                         |
+|---------------------|----------------------------------------------------------------------------------|-------|-----------------------------------------------------------------------------------------------------|
+| `organization`      | string                                                                           | path  | organization name                                                                                   |
+| `project`           | string                                                                           | path  | project name                                                                                        |
+| `stack`             | string                                                                           | path  | stack name                                                                                          |
+| `scheduleID`        | string                                                                           | path  | schedule ID that you want to update                                                                 |
+| `scheduleCron`      | string                                                                           | body  | cron expression for when to run the pulumi operation                                                |
+| `scheduleOnce`      | string                                                                           | body  | ISO 8601 timestamp specifying when to run the pulumi operation. Example: `2024-04-20T00:00:00.000Z` |
+| `request`           | [CreateDeploymentRequest](/docs/pulumi-cloud/deployments/api/#create-deployment) | body  | The create deployment request object that will be executed on every invocation                      |
 
-Note: only pass in either `scheduleCron` or `scheduleOnce`, and not both. One of them is required though.
+Note: Exactly one of `scheduleCron` and `scheduleOnce` must be set.
 
 #### Example
 
@@ -2967,11 +2973,9 @@ curl \
   -H "Content-Type: application/json" \
   -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
   --request POST \
-  --data '{ "scheduleCron":"{scheduleCronValue}", "request": { "operation": "{operationValue}" } }' \
+  --data '{ "scheduleCron":"0 0 * * 0", "request": { "operation": "update" } }' \
   https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/schedules/{scheduleID}
 ```
-
-The `request` field is really a [CreateDeploymentRequest](/docs/pulumi-cloud/deployments/api/#create-deployment) under the hood. You can pass in the same parameters to customize the scheduled deployment, but they are not required.
 
 #### Default response
 
@@ -3010,7 +3014,7 @@ DELETE /api/stacks/{organization}/{project}/{stack}/deployments/schedules/{sched
 | `organization`      | string | path  | organization name                                                                                            |
 | `project`           | string | path  | project name                                                                                                 |
 | `stack`             | string | path  | stack name                                                                                                   |
-| `scheduleID`        | string | path  | schedule ID that you want to get                                                                             |
+| `scheduleID`        | string | path  | schedule ID that you want to delete                                                                          |
 
 #### Example
 
@@ -3040,7 +3044,7 @@ POST /api/stacks/{organization}/{project}/{stack}/deployments/schedules/{schedul
 | `organization`      | string | path  | organization name                                                                                            |
 | `project`           | string | path  | project name                                                                                                 |
 | `stack`             | string | path  | stack name                                                                                                   |
-| `scheduleID`        | string | path  | schedule ID that you want to pause                                                                             |
+| `scheduleID`        | string | path  | schedule ID that you want to pause                                                                           |
 
 #### Example
 
@@ -3070,7 +3074,7 @@ POST /api/stacks/{organization}/{project}/{stack}/deployments/schedules/{schedul
 | `organization`      | string | path  | organization name                                                                                            |
 | `project`           | string | path  | project name                                                                                                 |
 | `stack`             | string | path  | stack name                                                                                                   |
-| `scheduleID`        | string | path  | schedule ID that you want to resume                                                                             |
+| `scheduleID`        | string | path  | schedule ID that you want to resume                                                                          |
 
 #### Example
 
