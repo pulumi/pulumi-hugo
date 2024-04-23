@@ -38,14 +38,18 @@ Under the hood, drift is detected by regularly running a new Pulumi operation we
 ### Getting Started with Drift Detection
 
 To get started with Drift Detection in Pulumi, select which deployment route you will be using:
+
 - **Pulumi Deployments**: Pulumi programs are run on Pulumi-hosted compute, allowing you to set a schedule and let us handle the rest, including detecting drift, auto-remediation if you turn it on, history of each drift run and what was detected and notifications for drift events.
 - **Existing CI/CD system**: Run Drift Detection to regularly run `pulumi refresh --preview-only` to see what drift is detected in the Pulumi Cloud console and get notified on drift events.
 
-In order to schedule Drift Detection and Remediation, the stack needs to be configured for Pulumi Deployments and have deployment settings configured. You can find more information on how to set up Pulumi Deployments in our documentation.
+In order to schedule Drift Detection and Remediation, the stack needs to be configured for Pulumi Deployments and have deployment settings configured. You can find more information on [how to set up Pulumi Deployments in our documentation](/docs/pulumi-cloud/deployments/reference).
 
 ### Setting it Up in the UI
 
+![set up drift in the Ui](set-up-drift.png)
+
 In order to set up Drift Detection and Remediation in the Pulumi Cloud console, follow these steps:
+
 - Ensure Deployments Settings are configured on the stack see the docs
 - Navigate to the Stack > Settings > Schedules
 - Click on Drift
@@ -57,7 +61,18 @@ And just like that, you have Drift Detection! To test what the output will look 
 
 ### Setting it Up via the API
 
-For those who prefer to automate and script their infrastructure tasks, Drift Detection and Remediation can be configured programmatically using simple HTTP requests, here is an example of using the endpoint:
+For those who prefer to automate and script their infrastructure tasks, Drift Detection and Remediation can be configured programmatically using simple HTTP requests. Here are the new endpoints we have added:
+
+1. Create a Drift schedule
+2. Get a Drift schedule
+3. Update a Drift schedule
+4. Delete a Drift schedule
+5. Pause or Resume a Drift schedule
+6. List all schedules (includes raw Pulumi operations and Time-to-Live schedules)
+
+Here is an example of setting up Drift Detection and Remediation on a stack, see the [Pulumi Deployments REST API documentation](/docs/pulumi-cloud/deployments/api) for more details on how to set Drift Detection and Remediation up programmatically.
+
+Create a Drift schedule:
 
 ```curl
 curl -H "Accept: application/vnd.pulumi+json" \
@@ -66,3 +81,16 @@ curl -H "Accept: application/vnd.pulumi+json" \
      --request POST \
      --data '{"scheduleCron":"0 0 * * *","autoRemediate":true}' \
      https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/drift/schedules
+```
+
+### Setting it Up via the Pulumi Service Provider
+
+TODO
+
+See the [Pulumi Service Provider documentation](/registry/packages/pulumiservice/api-docs/provider) for more details on how to manage Drift Detection and Remediation in source control.
+
+## Wrapping it up
+
+We are thrilled to be releasing a top customer ask today and are looking forward to hearing about your experience using Drift Detection and Remediation.
+
+Until next time, happy building!

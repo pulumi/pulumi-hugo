@@ -1,68 +1,53 @@
 ---
-title: "Ttl"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date and time this file was generated. Dates are used for display and
-# ordering purposes only; they have no effect on whether or when a post is
-# published. To influence the ordering of posts published on the same date, use
-# the time portion of the date value; posts are sorted in descending order by
-# date/time.
-date: 2024-04-23T09:55:08-07:00
-
-# The draft setting determines whether a post is published. Set it to true if
-# you want to be able to merge the post without publishing it.
+title: "Time-to-Live Stacks: Auto-Destroying Stacks"
+allow_long_title: True
+date: 2024-04-24
 draft: false
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or
-# social-media previews. This field is required or the build will fail the
-# linter test. Max length is 160 characters.
-meta_desc: todo
-
-# The meta_image appears in social-media previews and on the blog home page. A
-# placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
+meta_desc: Explore Pulumi Cloud's new Time-to-Live Stacks feature, designed to help teams manage infrastructure lifecycles and control cloud costs by automatically decommissioning stacks and resources.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the
-# `id` properties of the team member files at /data/team/team. Create a file for
-# yourself if you don't already have one.
 authors:
-    - joe-duffy
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
+    - meagan-cojocar
 tags:
-    - change-me
-
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md
-# for details, and please remove these comments before submitting for review.
+    - features
 ---
 
-What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional. To do that, just add an HTML comment like the one below.
+## Time-to-Live Stacks: Managing Infrastructure Lifecycles Automatically
 
-<!--more-->
+In the dynamic landscape of cloud-based software development, platform teams face the continuous challenge of balancing the need for innovation with the imperative to control cloud costs and security. Pulumi Cloud's new Time-to-Live (TTL) Stacks feature directly addresses this challenge by empowering teams to manage infrastructure lifecycles automatically, mitigating the risks associated with stale infrastructure and resource costs ballooning.
 
-And then everything _after_ that comment will appear on the post page itself.
+Creating temporary environments for development, testing, or staging is a common practice in the lifecycle of software development. These environments are crucial for running experiments, testing new features, and ensuring that everything works smoothly before going live. However, these environments often don't get decommissioned properly and linger, forgotten, consuming resources and adding unnecessary costs to your cloud bill.
 
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
+Furthermore, managing these temporary stacks usually requires manual oversight, adding to the operational burden of your team. They need to track which environments are active, which are outdated, and manually shut them down to avoid security risks from idle and unmonitored resources. This process is not only time-consuming but also prone to human error, leading to either premature deletion of necessary resources or overlooked environments that pose security risks.
 
-## Writing the Post
+### Simplifying Stack Management with Time-to-Live Stacks
 
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
+The Time-to-Live Stacks feature in Pulumi Cloud is designed to solve these pain points by allowing teams to set a predefined lifespan on any stack directly in Pulumi Cloud. After the specified time, these stacks are automatically destroyed, and using the optional "delete after destroy" setting, they are also removed from Pulumi Cloud entirely. This setting plays a pivotal role by not just destroying the resources but also cleaning up by deleting the stack itself after all resources have been terminated, ensuring that no residual artifacts are left behind. This maintains a clean state in the cloud environment and further reduces costs by reducing clutter.
 
-## Code Samples
+### Key Benefits of TTL Stacks
 
-```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
+- **Cost Control:** Automatically terminate stacks that are no longer needed, helping to avoid overspending on cloud resources that are not in active use.
+- **Developer Enablement:** Provides developers the flexibility to quickly spin up and test application changes in sandbox environments without worrying about the cleanup.
+- **Operational Efficiency:** Reduces the administrative burden of manually tracking and decommissioning temporary or outdated stacks, allowing teams to focus on more strategic tasks.
+- **Enhanced Security:** Automatically removing unused or neglected stacks helps ensure compliance and reduces the potential attack surface, making your infrastructure safer.
+
+## Getting Started with TTL Stacks
+
+### Setting it up in the UI
+
+Ensure Deployments Settings are configured on the stack. Navigate to the Stack > Settings > Schedules, click on Time-to-Live, turn on "Delete After Destroy" if applicable, set the destroy timestamp, and save the schedule.
+
+### Setting it up via the API
+
+For those who prefer to automate and script their infrastructure tasks, Time-to-Live schedules can be configured programmatically using simple HTTP requests:
+
+  ```bash
+  curl -H "Accept: application/vnd.pulumi+json" \
+       -H "Content-Type: application/json" \
+       -H "Authorization: token $PULUMI_ACCESS_TOKEN" \
+       --request POST \
+       --data '{"timestamp":"2024-12-31T23:59:59Z","deleteAfterDestroy":true}' \
+       https://api.pulumi.com/api/stacks/{organization}/{project}/{stack}/deployments/ttl/schedules
 ```
 
-## Images
+### Setting it up via the Pulumi Service Provider
 
-![Placeholder Image](meta.png)
-
-## Videos
-
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
-
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
