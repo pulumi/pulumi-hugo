@@ -61,7 +61,7 @@ The new provider exposes the full power of Docker's next-gen [buildx](https://do
 
 * __Support for Docker Build Cloud__: Take advantage of [Docker Build Cloud](https://www.docker.com/products/build-cloud/) to scale your build processes effortlessly and manage build resources dynamically, enhancing productivity and performance.
 
-For background, the [Pulumi Docker] provider was first introduced in 2018 and
+For background, the [Docker provider] was first introduced in 2018 and
 has seen wide adoption.
 Over the years Pulumi has continued our investment in it, notably introducing a
 version 4.0 [last year](../build-images-50x-faster-docker-v4) and additional
@@ -73,7 +73,7 @@ experimental, but they became official when [BuildKit] graduated to become the
 default builder in Docker version 23.
 
 We have heard a large number of requests from users to expose more [BuildKit]
-functionality in the Pulumi Docker provider. After some consideration, we
+functionality in the Docker provider. After some consideration, we
 decided that a new, standalone provider, focused exclusively on building
 images, would provide the best overall user experience as well as the best
 platform for Pulumi to stay current with the evolving build landscape.
@@ -546,12 +546,12 @@ or Kubernetes
 
 ## Migrating from `docker.Image` to `docker_build.Image`
 
-If you are already using the [Pulumi Docker] provider to build images there is
+If you are already using the [Docker provider] to build images there is
 no action required on your part -- your images will continue to build normally.
 
 However, please be aware that going forward the
 [Image](https://www.pulumi.com/registry/packages/docker/api-docs/image/)
-resource in the [Pulumi Docker] provider will be in maintenance mode. New build
+resource in the [Docker provider] will be in maintenance mode. New build
 functionality will only be available in the new Docker Build provider.
 
 If you are interested in leveraging [BuildKit] for your images, or if you
@@ -576,9 +576,9 @@ order to reduce the risk of merging broken images as part of CI pipelines. This
 can be customized by specifying `buildOnPreview`.
 {{% /notes %}}
 
-### Migrating from Pulumi Docker v3
+### Migrating from Docker Provider v3
 
-Version 3.x of Pulumi Docker is still widely used because it exposes some
+Version 3.x of Docker Provider is still widely used because it exposes some
 BuildKit functionality through raw command-line arguments. The new Docker-Build
 provider exposes those arguments as top-level fields on the resource.
 
@@ -656,7 +656,7 @@ const v3Migrated = new dockerbuild.Image("v3-to-buildx", {
 
 ```
 
-### Migrating from Pulumi Docker v4
+### Migrating from Docker Provider v4
 
 The new Docker Build provider largely exposes the same fields as v4 but
 pluralized or renamed to better align with the Docker CLI.
@@ -722,7 +722,7 @@ const v4Migrated = new dockerbuild.Image("v4-to-buildx", {
 ```
 
 [BuildKit]: https://docs.docker.com/build/buildkit/
-[Pulumi Docker]: https://www.pulumi.com/registry/packages/docker/
+[Pulumi's Docker Provider]: https://www.pulumi.com/registry/packages/docker/
 [inline cache]: https://docs.docker.com/build/cache/backends/inline/
 
 ## Conclusion
