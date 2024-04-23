@@ -51,3 +51,10 @@ For those who prefer to automate and script their infrastructure tasks, Time-to-
 
 ### Setting it up via the Pulumi Service Provider
 
+See the [Pulumi Service Provider documentation](/registry/packages/pulumiservice/api-docs/provider) for more details on how to manage Time-to-Live Stacks in source control.
+
+## Wrapping it up
+
+We are thrilled to be releasing a top customer ask today and are looking forward to hearing about your experience using Time-to-Live Stacks.
+
+Happy hacking!
