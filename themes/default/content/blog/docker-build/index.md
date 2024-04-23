@@ -36,6 +36,8 @@ tags:
     - docker
     - buildx
     - buildkit
+    - containers
+
 
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md
 # for details, and please remove these comments before submitting for review.
@@ -63,7 +65,7 @@ For background, the [Pulumi Docker] provider was first introduced in 2018 and
 has seen wide adoption.
 Over the years Pulumi has continued our investment in it, notably introducing a
 version 4.0 [last year](../build-images-50x-faster-docker-v4) and additional
-improvements to build-on-preview behavior after that.
+improvements like build-on-preview behavior after that.
 
 At the same time, the Docker build ecosystem has seen tremendous advancements
 in how images can be built and distributed. These changes were initially
@@ -725,7 +727,7 @@ const v4Migrated = new dockerbuild.Image("v4-to-buildx", {
 
 ## Conclusion
 
-The launch of the new Docker-Build provider marks a significant milestone in enhancing container management for developers.
+The launch of the new Docker-Build provider marks a significant milestone in modernizing container management for developers.
 Leveraging the latest BuildKit technology, this tool is a testament to our commitment to innovation and user-driven development.
 
 Your feedback is crucial to our ongoing improvement efforts.
