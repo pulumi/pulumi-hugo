@@ -114,8 +114,10 @@ ttl_schedule = pulumiservice.TtlSchedule("ttlSchedule",
     timestamp="2024-01-01T00:00:00Z") # Specify the ISO date/time for destruction
 
 pulumi.export('scheduleId', ttl_schedule.schedule_id)
-{{% /choosable %}}
 ```
+
+{{% /choosable %}}
+
 
 {{% choosable language go %}}
 
