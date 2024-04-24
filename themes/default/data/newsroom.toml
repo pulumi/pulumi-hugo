@@ -6,6 +6,12 @@ summary = "Pulumi Launches Drift Detection and Time-to-Live Stacks to Improve Cl
 url = "https://info.pulumi.com/announcement/infrastructure-lifecycle-management"
 
 [[releases]]
+date = "21st February 2024"
+title = "Pulumi Launches New Infrastructure Libraries for the GenAI Stack"
+summary = "Pulumi Launches New Infrastructure Libraries for the GenAI Stack."
+url = "https://info.pulumi.com/announcement/new-infrastructure-libraries-genai-stack"
+
+[[releases]]
 date = "11th October 2023"
 title = "Pulumi Gives Enterprises a Multi-Cloud Infrastructure Platform in a Box"
 summary = "Pulumi Gives Enterprises a Multi-Cloud Infrastructure Platform in a Box."
