@@ -90,6 +90,7 @@ The Pulumi Service provider allows you to set up a raw schedule for operations l
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 
 {{% choosable language typescript %}}
+
 ```ts
 import * as pulumi from "@pulumi/pulumi";
 import * as pulumiservice from "@pulumi/pulumiservice";
@@ -107,9 +108,13 @@ const rawSchedule = new pulumiservice.DeploymentSchedule("rawSchedule", {
 });
 
 export const scheduleId = rawSchedule.scheduleId;
+```
+
 {{% /choosable %}}
 
 {{% choosable language python %}}
+
+```python
 import pulumi
 import pulumi_pulumiservice as pulumiservice
 
@@ -158,9 +163,13 @@ func main() {
         return nil
     })
 }
+```
+
 {{% /choosable %}}
 
 {{% choosable language csharp %}}
+
+```csharp
 using Pulumi;
 using PulumiService = Pulumi.PulumiService;
 
@@ -212,10 +221,12 @@ public class App {
         ctx.export("scheduleId", rawSchedule.name());
     }
 }
-{{% /choosable %}}
 ```
 
+{{% /choosable %}}
+
 {{% choosable language yaml %}}
+
 ```yaml
 name: raw-schedule-setup
 runtime: yaml
@@ -233,7 +244,7 @@ resources:
 
 outputs:
   scheduleId: ${rawSchedule.scheduleId}
-  
+
 ```
 
 {{% /choosable %}}
