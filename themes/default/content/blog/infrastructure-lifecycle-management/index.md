@@ -21,11 +21,13 @@ These new features are:
 - [Scheduled Deployments](/blog/scheduled-deployments) - Automate recurring workflows on a schedule
 - [Free Deployments Minutes](/blog/deploy-minutes-included) - Use all of the above for free, no matter your tier!
 
-![Diagram of how they fit together](ilm-diagram.png)
-
 We built these features based on customer feedback, and our 2,500+ customers are excited:
 
-> “At Oleria, we understand the importance of addressing issues with privacy, security, and data integrity. Earning and maintaining our trust isn’t just a responsibility but a fundamental aspect of our mission," said Jim Alkove, CEO of Oleria.  “Pulumi also understands how these attributes affect cloud infrastructure. Our team is excited to use these new capabilities, giving us even more confidence as we enable our customers to securely manage access to decentralized SaaS applications, adaptively and intelligently."
+> "At Oleria, we understand the importance of addressing issues with privacy, security, and data integrity. Earning and maintaining our trust isn’t just a responsibility but a fundamental aspect of our mission," said Jim Alkove, CEO of Oleria.  "Pulumi also understands how these attributes affect cloud infrastructure. Our team is excited to use these new capabilities, giving us even more confidence as we enable our customers to securely manage access to decentralized SaaS applications, adaptively and intelligently."
+
+Together, these features enable an end-to-end experience for managing the lifcycle and consistency of your cloud infrastructure.
+
+![Diagram of how they fit together](ilm-diagram.png)
 
 ### Infrastructure Lifecycle Management Capabilities - Excelling at Day 2 and Beyond
 

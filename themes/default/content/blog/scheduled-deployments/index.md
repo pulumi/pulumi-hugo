@@ -13,7 +13,7 @@ tags:
     - infrastructure-lifecycle-management
 ---
 
-In the rapidly evolving world of cloud infrastructure, the complexities and costs of managing such environments are escalating. In response to these challenges, Pulumi is excited to announce Scheduled Deployments for Pulumi Cloud. This new feature, which builds upon the robust foundation of Pulumi Deployments, is designed to streamline cloud management by automating the deployment and deactivation of resources according to customizable schedules. Two new Pulumi features also announced today, [Drift Detection and Remediation](/blog/drift-detection) and [Time-to-Live Stacks](/blog/ttl), are built on top of the new Scheduled Deployments functionality. These three new features are available today on the Enterprise and Business Critical editions of Pulumi Cloud.
+We are excited to announce __Scheduled Deployments__ for Pulumi Cloud. This new feature, which builds upon the robust foundation of Pulumi Deployments, is designed to streamline cloud management by automating the deployment and deactivation of resources according to customizable schedules. Two new Pulumi features also announced today, [Drift Detection and Remediation](/blog/drift-detection) and [Time-to-Live Stacks](/blog/ttl), are built on top of the new Scheduled Deployments functionality. These three new features are available today on the Enterprise and Business Critical editions of Pulumi Cloud.
 
 ### Simplifying Cloud Operations Through Automation
 
@@ -47,7 +47,7 @@ Setting up Scheduled Deployments via the Pulumi Cloud console is straightforward
 In order to set up Scheduled Deployments in the Pulumi Cloud console, follow these steps:
 
 1. Ensure Deployments Settings are configured on the stack [see the docs](/docs/pulumi-cloud/deployments/reference)
-2. Navigate to the Stack > Settings > Schedules
+2. Navigate to the `Stack > Settings > Schedules` page
 3. Select "Raw operation"
 4. Select from the drop-down the type of operation you would like to schedule
 5. Set the schedule using a cron expression
@@ -56,6 +56,10 @@ In order to set up Scheduled Deployments in the Pulumi Cloud console, follow the
 ![Populated Schedule in the UI](raw-schedule.png)
 
 Now you have a Scheduled Deployment!
+
+The `Stack > Settings > Schedules` page will show all of the schedules configured for your stack, including Drift, TTL or Raw Operation schedules.
+
+![List of schedules](schedules.png)
 
 ### Setting it up in the API
 

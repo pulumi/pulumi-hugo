@@ -13,7 +13,7 @@ tags:
 ---
 
 
-In the dynamic landscape of cloud-based software development, platform teams face the continuous challenge of balancing the need for innovation with the imperative to control cloud costs and security. Pulumi Cloud's new Time-to-Live (TTL) Stacks feature directly addresses this challenge by empowering teams to manage infrastructure lifecycles automatically, mitigating the risks associated with stale infrastructure and resource costs ballooning.
+In the dynamic landscape of cloud-based software development, platform teams face the continuous challenge of balancing the need for innovation with the imperative to control cloud costs and security. Pulumi Cloud's new __Time-to-Live (TTL) Stacks__ feature directly addresses this challenge by empowering teams to manage infrastructure lifecycles automatically, mitigating the risks associated with stale infrastructure and resource costs ballooning.
 
 Creating temporary environments for development, testing, or staging is a common practice in the lifecycle of software development. These environments are crucial for running experiments, testing new features, and ensuring that everything works smoothly before going live. However, these environments often don't get decommissioned properly and linger, forgotten, consuming resources and adding unnecessary costs to your cloud bill.
 
@@ -21,7 +21,7 @@ Furthermore, managing these temporary stacks usually requires manual oversight, 
 
 ### Simplifying Stack Management with Time-to-Live Stacks
 
-The Time-to-Live Stacks feature in Pulumi Cloud is designed to solve these pain points by allowing teams to set a predefined lifespan on any stack directly in Pulumi Cloud. After the specified time, these stacks are automatically destroyed, and using the optional "delete after destroy" setting, they are also removed from Pulumi Cloud entirely. This setting plays a pivotal role by not just destroying the resources but also cleaning up by deleting the stack itself after all resources have been terminated, ensuring that no residual artifacts are left behind. This maintains a clean state in the cloud environment and further reduces costs by reducing clutter. Time-to-Live Stacks are available today on the Enterprise and Business Critical editions of Pulumi Cloud.
+The Time-to-Live Stacks feature in Pulumi Cloud is designed to solve these pain points by allowing teams to set a predefined lifespan on any stack directly in Pulumi Cloud. After the specified time, these stacks are automatically destroyed, and using the optional "delete after destroy" setting, they are also removed from Pulumi Cloud entirely. This setting plays a pivotal role by not just destroying the resources but also cleaning up the stack itself after all resources have been terminated, ensuring that no residual artifacts are left behind. This maintains a clean state in the cloud environment and further reduces costs by reducing clutter. Time-to-Live Stacks are available today on the Enterprise and Business Critical editions of Pulumi Cloud.
 
 ### Key Benefits of TTL Stacks
 
@@ -37,7 +37,7 @@ The Time-to-Live Stacks feature in Pulumi Cloud is designed to solve these pain 
 In order to set up Time-to-Live Stacks in the Pulumi Cloud console, follow these steps:
 
 1. Ensure Deployments Settings are configured on the stack [see the docs](/docs/pulumi-cloud/deployments/reference)
-2. Navigate to the Stack > Settings > Schedules
+2. Navigate to the `Stack > Settings > Schedules` page
 3. Select "Time-to-Live"
 4. (Optional) Turn on "Delete After Destroy" if applicable
 5. Set the schedule using a cron expression
@@ -236,6 +236,6 @@ See the [Pulumi Service Provider documentation](/registry/packages/pulumiservice
 
 ## Wrapping it up
 
-We are thrilled to be releasing a top customer ask today and are looking forward to hearing about your experience using Time-to-Live Stacks.
+Time-to-Live Stacks has been one of the top requests from our Pulumi Cloud users, and we are thrilled to be making it available today. We look forward to further feedback on where Pulumi Cloud can best support your organizations' infrastructure lifecycle management needs.
 
 Happy hacking!

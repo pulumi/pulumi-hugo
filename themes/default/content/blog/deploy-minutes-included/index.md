@@ -12,7 +12,11 @@ tags:
     - infrastructure-lifecycle-management
 ---
 
-At Pulumi, we are committed to empowering developers and infrastructure teams with the tools they need to efficiently manage cloud resources at scale. As part of our ongoing efforts to enhance user experience and ease of use, we are excited to share some significant updates to Pulumi Deployments pricing, making it easier for all customers to experiment with and adopt our the easiest way to go from code to cloud. Paired with the launch of [Drift Detection and Remediation](/blog/drift-detection), [Time-to-Live Stacks](/blog/ttl) and [Scheduled Deployments](/blog/scheduled-deployments)- it has never been easier to kick the tires on the latest and greatest tools for [infrastructure lifecycle management](/blog/infrastructure-lifecycle-management).
+At Pulumi, we are committed to empowering developers and infrastructure teams with the tools they need to efficiently manage cloud resources at scale. As part of our ongoing efforts to enhance user experience and ease of use, we are excited to share some significant updates to Pulumi Deployments pricing, making it easier for _all_ customers to experiment with and adopt the easiest way to go from code to cloud. 
+
+Starting today, all paid Pulumi Cloud organizations get 3,000 minutes per month of Pulumi Deployments included with their Pulumi Cloud subscription.
+
+Paired with the launch of [Drift Detection and Remediation](/blog/drift-detection), [Time-to-Live Stacks](/blog/ttl) and [Scheduled Deployments](/blog/scheduled-deployments) - it has never been easier to kick the tires on the latest and greatest tools for [infrastructure lifecycle management](/blog/infrastructure-lifecycle-management).
 
 ## Introduction to Pulumi Deployments
 
@@ -34,9 +38,7 @@ Optimize your deployment strategy with [Scheduled Deployments](/docs/pulumi-clou
 
 ## Pulumi Deployments for Everyone
 
-We've received valuable feedback from a range of customers who have highlighted the need for easier access to trial Pulumi Deployments without the hurdles of procurement and finance discussions. We’re thrilled at the level of interest from our prospective and current customer base, and want to reduce that barrier.
-
-To address these concerns and support our users in their cloud journey, we are introducing an updated allocation model for deployment minutes. Now, all customer tiers—Team, Enterprise, and Business Critical—will receive 3,000 free deployment minutes each month. This change allows our users to test and leverage Pulumi Deployments without upfront commitments or the need to engage in lengthy procurement processes. The table below shows the Pulumi Deployments dimensions (both pricing and limits) by tier, more details can be found on our [pricing page](https://www.pulumi.com/pricing/).
+To help ensure all Pulumi Cloud users can get started with Pulumi Deployments, we are introducing an updated allocation model for deployment minutes. Now, all customer tiers—Team, Enterprise, and Business Critical—will receive 3,000 free deployment minutes each month. This change allows our users to test and leverage Pulumi Deployments without upfront commitments or the need to engage in lengthy procurement processes. The table below shows the Pulumi Deployments dimensions (both pricing and limits) by tier, more details can be found on our [pricing page](https://www.pulumi.com/pricing/).
 
 | Dimension               | Individual | Team        | Enterprise  | Business Critical |
 |-------------------------|------------|-------------|-------------|-------------------|

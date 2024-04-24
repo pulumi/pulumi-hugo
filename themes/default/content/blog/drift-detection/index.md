@@ -34,7 +34,7 @@ Pulumi Cloud's Drift Detection and Remediation operates continuously, on a sched
 
 For those using Pulumi Deployments, the system not only regularly detects but can also remedy the drift to align with your Pulumi program. This auto-remediation applies the last known infrastructure as code state, overwriting the drift. Auto-remediation can be set to occur by default or turned off to allow for manual intervention in the remediation of drift, depending on the criticality and nature of the stacks involved.
 
-Under the hood, drift is detected by regularly running a new Pulumi operation we have added, `pulumi refresh --preview-only`. This operation collects the set of changes that exist between the cloud provider and the current desired state in Pulumi. These scheduled operations build on top of the new [Scheduled Deployments](/blog/scheduled-deployments) functionality as is [Time-to-Live Stacks](/blog/ttl), both of which were also announced today. If there is a delta between the cloud and the current desired state, it is presented in the Drift tab along with a “Drift Detected” notification on the stack. If remediation is configured, a `pulumi refresh` followed by `pulumi up` is run automatically following any detection of drift. All of this is automated by Pulumi Deployments for users who have configured Pulumi Deployments on their stack. For users who are not using Pulumi Deployments, they can configure their existing CI/CD system to run these same operations regularly, and the results will still be displayed as part of the Drift tab in Pulumi Cloud and you can receive notifications when drift is detected.
+Under the hood, drift is detected by regularly running a new Pulumi operation we have added, `pulumi refresh --preview-only`. This operation collects the set of changes that exist between the cloud provider and the current desired state in Pulumi. These scheduled operations build on top of the new [Scheduled Deployments](/blog/scheduled-deployments) functionality, along with [Time-to-Live Stacks](/blog/ttl), both of which were also announced today. If there is a delta between the cloud and the current desired state, it is presented in the Drift tab along with a "Drift Detected" notification on the stack. If remediation is configured, a `pulumi refresh` followed by `pulumi up` is run automatically following any detection of drift. All of this is automated by Pulumi Deployments for users who have configured Pulumi Deployments on their stack. For users who are not using Pulumi Deployments, they can configure their existing CI/CD system to run these same operations regularly, and the results will still be displayed as part of the Drift tab in Pulumi Cloud and you can receive notifications when drift is detected.
 
 ### Getting Started with Drift Detection
 
@@ -43,8 +43,6 @@ To get started with Drift Detection in Pulumi, select which deployment route you
 - **Pulumi Deployments**: Pulumi programs are run on Pulumi-hosted compute, allowing you to set a schedule and let us handle the rest, including detecting drift, auto-remediation if you turn it on, history of each drift run and what was detected and notifications for drift events.
 - **Existing CI/CD system**: Run Drift Detection to regularly run `pulumi refresh --preview-only` to see what drift is detected in the Pulumi Cloud console and get notified on drift events.
 
-In order to schedule Drift Detection and Remediation, the stack needs to be configured for Pulumi Deployments and have deployment settings configured. You can find more information on [how to set up Pulumi Deployments in our documentation](/docs/pulumi-cloud/deployments/reference).
-
 ### Setting it Up in the Pulumi Cloud Console
 
 ![set up drift in the UI](set-up-drift.png)
@@ -52,7 +50,7 @@ In order to schedule Drift Detection and Remediation, the stack needs to be conf
 In order to set up Drift Detection and Remediation in the Pulumi Cloud console, follow these steps:
 
 1. Ensure Deployments Settings are configured on the stack [see the docs](/docs/pulumi-cloud/deployments/reference)
-2. Navigate to the Stack > Settings > Schedules
+2. Navigate to the `Stack > Settings > Schedules` page
 3. Select "Drift"
 4. (Optional) Turn on auto-remediation if applicable
 5. Set the schedule using a cron expression
@@ -63,6 +61,12 @@ And just like that, you have Drift Detection! To test what the output will look 
 ![Summary of drift that was detected](drift-summary.png)
 
 You will now see on the Drift tab, a summary of what resources have been updated, created or deleted, the properties that have changed, when the drift run happened and a link to the Deployment with further details.
+
+When drift is detected, you have a couple of options:
+1. _Run remediation from Pulumi Cloud_:  If you want to overwrite the changes made in your cloud provider with the most recently specified desired state of your Pulumi program.  This can be done via the "Remediate drift" option in the Actions drop down on your stack page.
+2. _Run refresh from Pulumi Cloud_:  If you want to accept the changes made in your cloud provider back into your Pulumi desired state.  This can be done via the "Refresh" option in the Actions drop down on your stack page. You may also want to update your Pulumi program to align with the changes made in the cloud provider.
+
+<img width="300" src="actions.png" alt="Actions menu" />
 
 ### Setting it Up via the API
 
