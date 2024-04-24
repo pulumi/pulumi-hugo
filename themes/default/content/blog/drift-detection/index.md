@@ -41,7 +41,7 @@ Under the hood, drift is detected by regularly running a new Pulumi operation we
 To get started with Drift Detection in Pulumi, select which deployment route you will be using:
 
 - **Pulumi Deployments**: Pulumi programs are run on Pulumi-hosted compute, allowing you to set a schedule and let us handle the rest, including detecting drift, auto-remediation if you turn it on, history of each drift run and what was detected and notifications for drift events.
-- **Existing CI/CD system**: Run Drift Detection to regularly run `pulumi refresh --preview-only` to see what drift is detected in the Pulumi Cloud console and get notified on drift events.
+- **Existing CI/CD system**: Run Drift Detection by regularly running `pulumi refresh --preview-only` to see what drift is detected in the Pulumi Cloud console and get notified on drift events.
 
 ### Setting it Up in the Pulumi Cloud Console
 
