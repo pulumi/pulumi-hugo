@@ -268,3 +268,5 @@ outputs:
 {{% /choosable %}}
 
 {{< /chooser >}}
+
+See the [Pulumi Service Provider documentation](/registry/packages/pulumiservice/api-docs/provider) for more details on how to manage Drift Detection and Remediation in source control.

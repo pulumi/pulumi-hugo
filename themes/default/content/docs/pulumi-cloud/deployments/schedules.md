@@ -57,4 +57,165 @@ Refer to the [Pulumi Deployments REST API documentation](/docs/pulumi-cloud/depl
 
 ### Pulumi Cloud Service provider
 
-TODO
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language typescript %}}
+
+```ts
+import * as pulumi from "@pulumi/pulumi";
+import * as pulumiservice from "@pulumi/pulumiservice";
+
+const organizationName = "my-org";
+const projectName = "my-project";
+const stackName = "prod-stack";
+
+const rawSchedule = new pulumiservice.DeploymentSchedule("rawSchedule", {
+    organization: organizationName,
+    project: projectName,
+    stack: stackName,
+    scheduleCron: "0 0 * * *", // Run an update daily at midnight
+    pulumiOperation: pulumiservice.PulumiOperation.update
+});
+
+export const scheduleId = rawSchedule.scheduleId;
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```python
+import pulumi
+import pulumi_pulumiservice as pulumiservice
+
+organization_name = "my-org"
+project_name = "my-project"
+stack_name = "prod-stack"
+
+# Create a raw deployment schedule
+raw_schedule = pulumiservice.DeploymentSchedule("rawSchedule",
+    organization=organization_name,
+    project=project_name,
+    stack=stack_name,
+    schedule_cron="0 0 * * *",  # Run an update daily at midnight
+    pulumi_operation=pulumiservice.PulumiOperation.update)
+
+pulumi.export('scheduleId', raw_schedule.schedule_id)
+
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+    "github.com/pulumi/pulumi-pulumiservice/sdk/go/pulumiservice"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+    pulumi.Run(func(ctx *pulumi.Context) error {
+        rawSchedule, err := pulumiservice.NewDeploymentSchedule(ctx, "rawSchedule", &pulumiservice.DeploymentScheduleArgs{
+            Organization: pulumi.String("my-org"),
+            Project: pulumi.String("my-project"),
+            Stack: pulumi.String("prod-stack"),
+            ScheduleCron: pulumi.String("0 0 * * *"),  // Run an update daily at midnight
+            PulumiOperation: pulumiservice.PulumiOperationUpdate,
+        })
+        if err != nil {
+            return err
+        }
+
+        ctx.Export("scheduleId", rawSchedule.ScheduleID)
+        return nil
+    })
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using Pulumi;
+using PulumiService = Pulumi.PulumiService;
+
+class Program
+{
+    static Task<int> Main() => Deployment.RunAsync(() => {
+        var rawSchedule = new PulumiService.DeploymentSchedule("rawSchedule", new PulumiService.DeploymentScheduleArgs
+        {
+            Organization = "my-org",
+            Project = "my-project",
+            Stack = "prod-stack",
+            ScheduleCron = "0 0 * * *",  // Run an update daily at midnight
+            PulumiOperation = PulumiService.PulumiOperation.Update,
+        });
+
+        return new Dictionary<string, object?>
+        {
+            { "scheduleId", rawSchedule.ScheduleId }
+        };
+    });
+}
+
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+
+```java
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.pulumiservice.DeploymentSchedule;
+import com.pulumi.pulumiservice.DeploymentScheduleArgs;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    private static to stack(Context ctx) {
+        var rawSchedule = new DeploymentSchedule("rawSchedule", DeploymentScheduleArgs.builder()
+            .organization("my-org")
+            .project("my-project")
+            .stack("prod-stack")
+            .scheduleCron("0 0 * * *") // Run an update daily at midnight
+            .pulumiOperation(com.pulumi.pulumiservice.PulumiOperation.update())
+            .build());
+
+        ctx.export("scheduleId", rawSchedule.name());
+    }
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+name: raw-schedule-setup
+runtime: yaml
+description: Setup of a raw schedule for automatic operations with Pulumi
+
+resources:
+  rawSchedule:
+    type: pulumiservice:index:DeploymentSchedule
+    properties:
+      organization: my-org
+      project: my-project
+      stack: prod-stack
+      scheduleCron: "0 0 * * *" # Run an update daily at midnight
+      pulumiOperation: update
+
+outputs:
+  scheduleId: ${rawSchedule.scheduleId}
+
+```
+
+{{% /choosable %}}
+{{< /chooser >}}
+
+See the [Pulumi Service Provider documentation](/registry/packages/pulumiservice/api-docs/provider) for more details on how to manage Scheduled Deployments in source control.
