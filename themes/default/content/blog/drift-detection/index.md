@@ -56,7 +56,7 @@ In order to set up Drift Detection and Remediation in the Pulumi Cloud console, 
 5. Set the schedule using a cron expression
 6. Save the Schedule
 
-And just like that, you have Drift Detection! To test what the output will look like you can use the Actions button in the top right on the Stack page to run an ad hoc Drift Detection operation or an Auto-remediate operation. Note: if you have never ran a `pulumi refresh` on that stack before, you will want to run one before setting up Drift Detection and ensure a clean refresh state. More details on getting a clean refresh state in our documentation.
+And just like that, you have Drift Detection! To test what the output will look like you can use the Actions button in the top right on the Stack page to run an ad hoc Drift Detection operation or an Auto-remediate operation. Note: if you have never run a `pulumi refresh` on that stack before, you will want to run one before setting up Drift Detection and ensure a clean refresh state. More details on getting a clean refresh state in our documentation.
 
 ![Summary of drift that was detected](drift-summary.png)
 
