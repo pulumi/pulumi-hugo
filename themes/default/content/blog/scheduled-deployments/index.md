@@ -38,7 +38,7 @@ Scheduled Deployments integrate seamlessly with existing Pulumi Deployments. The
 
 ### Setting it up in the Pulumi Cloud Console
 
-We'll walk through how to get up and running with Scheduled Deployments in the Pulumi Cloud console, REST API and Pulumi Service Provider. For more details on how to implement and maximize the benefits of Scheduled Deployments, please visit [our documentation](/deployments/scheduled-deployments).
+We'll walk through how to get up and running with Scheduled Deployments in the Pulumi Cloud console, REST API and Pulumi Service Provider. For more details on how to implement and maximize the benefits of Scheduled Deployments, please visit [our documentation](/docs/pulumi-cloud/deployments/schedules).
 
 Setting up Scheduled Deployments via the Pulumi Cloud console is straightforward:
 
