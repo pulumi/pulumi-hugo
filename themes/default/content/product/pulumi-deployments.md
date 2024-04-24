@@ -58,7 +58,7 @@ options:
         - icon: eye
           icon_color: fuchsia
           title: Review Stacks
-          description: Automate creation and deletion of dedicated cloud environments for every pull request, enabling cost-effective reviews.
+          description: Automate the creation and deletion of dedicated cloud environments for every pull request, enabling cost-effective reviews.
         - icon: lightning
           icon_color: violet
           title: TTL Stacks
@@ -83,7 +83,7 @@ faq:
 
       - header: How does drift detection work?
         content: |
-          Drift detection and remediation operates continuously, on a schedule of your choosing, comparing the state of your resources with the expected configurations defined in your Pulumi setups. Any discrepancies triggered by modifications, deletions, or additions of resources are promptly reported and, if configured, can be automatically remediated. Alerts can be configured to be sent via webhooks, Slack, or Microsoft Teams, with detailed information about the drift's nature and scope provided directly within the alerts.
+          Drift detection and remediation operate continuously, on a schedule of your choosing, comparing the state of your resources with the expected configurations defined in your Pulumi setups. Any discrepancies triggered by modifications, deletions, or additions of resources are promptly reported and, if configured, can be automatically remediated. Alerts can be configured to be sent via webhooks, Slack, or Microsoft Teams, with detailed information about the drift's nature and scope provided directly within the alerts.
 
       - header: What granularity can you define schedules for Scheduled Deployments?
         content: |
