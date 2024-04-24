@@ -42,14 +42,17 @@ This will show you the drift schedule and time line of drift runs. For each drif
 
 In order to set up Drift Detection and Remediation in the Pulumi Cloud console, follow these steps:
 
+<!-- markdownlint-disable ol-prefix -->
 1. Ensure Deployments Settings are configured on the stack [see the docs](/docs/pulumi-cloud/deployments/reference)
 2. Navigate to the Stack > Settings > Schedules
+
 ![Schedule](schedule.png)
+
 3. Select "Drift"
 4. (Optional) Turn on auto-remediation if applicable
 5. Set the schedule using a cron expression
 6. Save the Schedule
-
+<!-- markdownlint-enable ol-prefix -->
 ![Drift Schedule](set-up-drift.png)
 
 ### Configuring notifications for Drift Detection
