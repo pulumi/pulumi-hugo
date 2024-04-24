@@ -18,7 +18,7 @@ You can also run a remediate drift operation, which will run a `pulumi up --refr
 
 ## Runing Drift detection from the CLI
 
-Drift is detected by running the `pulumi refresh --preview-only` command via the Pulumi CLI, or via Pulumi Deployments. You can run the CLI from your local machine or from your existing CI/CD system.
+Any Preview of a Refresh is considered a drift detection run in Pulumi Cloud. Running drift detection from the CLI is as simple as running `pulumi refresh --preview-only` or even just `pulumi refresh`, which will first run a preview (thereby creating the drift run), before running the actual refresh.
 
 After your run completes you can see the drift run via the [Drift tab](#drift-tab) for your stack.
 
