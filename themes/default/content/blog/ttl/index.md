@@ -108,10 +108,10 @@ stack_name = "temp-stack"
 
 # Create a TTL schedule for stack destruction
 ttl_schedule = pulumiservice.TtlSchedule("ttlSchedule",
-organization=organization_name,
-project=project_name,
-stack=stack_name,
-timestamp="2024-01-01T00:00:00Z") # Specify the ISO date/time for destruction
+    organization=organization_name,
+    project=project_name,
+    stack=stack_name,
+    timestamp="2024-01-01T00:00:00Z") # Specify the ISO date/time for destruction
 
 pulumi.export('scheduleId', ttl_schedule.schedule_id)
 {{% /choosable %}}
