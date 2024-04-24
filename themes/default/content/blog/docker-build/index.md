@@ -671,4 +671,4 @@ If you are still wondering, "Which provider should I use?" the answer depends on
 [BuildKit]: https://docs.docker.com/build/buildkit/
 [Docker provider]: https://www.pulumi.com/registry/packages/docker/
 [inline cache]: https://docs.docker.com/build/cache/backends/inline/
-[Docker Build provider]: (https://www.pulumi.com/registry/packages/docker-build/)
+[Docker Build provider]: https://www.pulumi.com/registry/packages/docker-build/
