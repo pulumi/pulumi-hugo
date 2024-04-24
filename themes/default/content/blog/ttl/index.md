@@ -197,7 +197,7 @@ public class App {
             .timestamp("2024-01-01T00:00:00Z") // Specify the ISO date/time for destruction
             .build());
 
-        ctx.export("scheduleID", ttlSchedule.name());
+        ctx.export("scheduleID", ttlSchedule.scheduleId());
     }
 }
 
