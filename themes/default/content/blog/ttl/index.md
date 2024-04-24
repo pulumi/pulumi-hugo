@@ -84,10 +84,10 @@ const projectName = "my-project";
 const stackName = "temp-stack";
 
 const ttlSchedule = new pulumiservice.TtlSchedule("ttlSchedule", {
-organization: organizationName,
-project: projectName,
-stack: stackName,
-timestamp: "2024-01-01T00:00:00Z" // Specify the ISO date/time for destruction
+  organization: organizationName,
+  project: projectName,
+  stack: stackName,
+  timestamp: "2024-01-01T00:00:00Z" // Specify the ISO date/time for destruction
 });
 
 export const scheduleId = ttlSchedule.scheduleId;
