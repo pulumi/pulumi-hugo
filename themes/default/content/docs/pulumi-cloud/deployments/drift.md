@@ -32,9 +32,9 @@ You can run a drift or remediate drift run ad hoc using the Click to Deploy opti
 
 ### Drift Tab
 
-Regardless of the way that you initiate a drift run, you will see a new Drift tag in you stack. If Drift was detected, you will see a warning bell icon.
+We've added a new Drift tab to the stack page. If the stack is currently in a drifted state, a warning bell icon will appear on the tab.
 
-This will show you the drift schedule and time line of drift runs. For each drift run you can link to the deployment if run via Pulumi Deployments and a summary of the drifted resources.
+Regardless of how a drift run is initiated, all results will appear in this tab. If there is drift detected for a run, a diff summary of the changes will be included in the information card.
 
 ![Drift tab](drift-tab.png)
 
