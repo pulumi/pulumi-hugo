@@ -17,6 +17,8 @@ At Pulumi, we recognize the challenges platform teams face in maintaining the st
 
 Today, we are excited to launch a new Drift Detection and Remediation feature in Pulumi Cloud to address these challenges. This new functionality is designed to automate the detection and correction of drift in your cloud environments, seamlessly integrating into your existing workflows, whether you use [Pulumi Deployments](/pulumi-deployments) or other CI/CD systems, and is supported for any resource you can manage with Pulumi, whether they are from Amazon Web Services, Microsoft Azure, Google Cloud Platform, or any of the [180+ supported providers](/registry). Drift Detection and Remediation is available today on the Enterprise and Business Critical editions of Pulumi Cloud.
 
+{{< video title="Drift Detection and Remediation in Pulumi Cloud" src="./drift.mp4" width=600 height=420 autoplay="true" loop="true" >}}
+
 ### Why Pulumi Cloud Drift Detection and Remediation?
 
 Drift Detection is the process of identifying changes in the actual state of your cloud environment that deviate from the expected configuration stored in Pulumi Cloud. This can occur when an operator makes an out-of-band change directly in the cloud provider console, bypassing the usual code deployment processes.
