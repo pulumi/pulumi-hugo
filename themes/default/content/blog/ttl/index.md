@@ -70,6 +70,162 @@ Refer to the [Pulumi Deployments REST API documentation](/docs/pulumi-cloud/depl
 
 ### Setting it up via the Pulumi Service Provider
 
+The Pulumi Service Provider allows you to set up and manage Time-to-Live Stacks in source control.
+
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% choosable language typescript %}}
+```ts
+import * as pulumi from "@pulumi/pulumi";
+import * as pulumiservice from "@pulumi/pulumiservice";
+
+const organizationName = "my-org";
+const projectName = "my-project";
+const stackName = "temp-stack";
+
+const ttlSchedule = new pulumiservice.TtlSchedule("ttlSchedule", {
+organization: organizationName,
+project: projectName,
+stack: stackName,
+timestamp: "2024-01-01T00:00:00Z" // Specify the ISO date/time for destruction
+});
+
+export const scheduleId = ttlSchedule.scheduleId;
+
+```
+
+{{% /choosable %}}
+
+{{% choosable language python %}}
+
+```py
+import pulumi
+import pulumi_pulumiservice as pulumiservice
+
+organization_name = "my-org"
+project_name = "my-project"
+stack_name = "temp-stack"
+
+# Create a TTL schedule for stack destruction
+ttl_schedule = pulumiservice.TtlSchedule("ttlSchedule",
+organization=organization_name,
+project=project_name,
+stack=stack_name,
+timestamp="2024-01-01T00:00:00Z") # Specify the ISO date/time for destruction
+
+pulumi.export('scheduleId', ttl_schedule.schedule_id)
+{{% /choosable %}}
+```
+
+{{% choosable language go %}}
+
+```go
+
+package main
+
+import (
+    "github.com/pulumi/pulumi-pulumiservice/sdk/go/pulumiservice"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+    pulumi.Run(func(ctx *pulumi.Context) error {
+        ttlSchedule, err := pulumiservice.NewTtlSchedule(ctx, "ttlSchedule", &pulumiservice.TtlScheduleArgs{
+            Organization: pulumi.String("my-org"),
+            Project: pulumi.String("my-project"),
+            Stack: pulumi.String("temp-stack"),
+            Timestamp: pulumi.String("2024-01-01T00:00:00Z"),  // Specify the ISO date/time for destruction
+        })
+        if err != nil {
+            return err
+        }
+
+        ctx.Export("scheduleId", ttlSchedule.ScheduleId)
+        return nil
+    })
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```yaml
+{{% choosable language yaml %}}
+name: ttl-schedule-setup
+runtime: yaml
+description: Setup of TTL for automatic resource destruction with Pulumi
+
+resources:
+ttlSchedule:
+type: pulumiservice:index:TtlSchedule
+properties:
+organization: my-org
+project: my-project
+stack: temp-stack
+timestamp: "2024-01-01T00:00:00Z" # Specify the ISO date/time for destruction
+
+outputs:
+scheduleID: ${ttlSchedule.scheduleId}
+
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+```java
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.pulumiservice.TtlSchedule;
+import com.pulumi.pulumiservice.TtlScheduleArgs;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    private static void stack(Context ctx) {
+        var ttlSchedule = new TtlSchedule("ttlSchedule", TtlScheduleArgs.builder()
+            .organization("my-org")
+            .project("my-project")
+            .stack("temp-stack")
+            .timestamp("2024-01-01T00:00:00Z") // Specify the ISO date/time for destruction
+            .build());
+
+        ctx.export("scheduleID", ttlSchedule.name());
+    }
+}
+
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```yaml
+name: ttl-schedule-setup
+runtime: yaml
+description: Setup of TTL for automatic resource destruction with Pulumi
+
+resources:
+  ttlSchedule:
+    type: pulumiservice:index:TtlSchedule
+    properties:
+      organization: my-org
+      project: my-project
+      stack: temp-stack
+      timestamp: "2024-01-01T00:00:00Z" # Specify the ISO date/time for destruction
+
+outputs:
+  scheduleId: ${ttlSchedule.scheduleId}
+
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
 See the [Pulumi Service Provider documentation](/registry/packages/pulumiservice/api-docs/provider) for more details on how to manage Time-to-Live Stacks in source control.
 
 ## Wrapping it up
