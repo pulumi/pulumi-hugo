@@ -150,29 +150,33 @@ func main() {
 
 {{% choosable language csharp %}}
 
-```yaml
-{{% choosable language yaml %}}
-name: ttl-schedule-setup
-runtime: yaml
-description: Setup of TTL for automatic resource destruction with Pulumi
+```csharp
+using Pulumi;
+using PulumiService = Pulumi.PulumiService;
 
-resources:
-ttlSchedule:
-type: pulumiservice:index:TtlSchedule
-properties:
-organization: my-org
-project: my-project
-stack: temp-stack
-timestamp: "2024-01-01T00:00:00Z" # Specify the ISO date/time for destruction
+class Program
+{
+    static Task<int> Main() => Deployment.RunAsync(() => {
+        var ttlSchedule = new PulumiService.TtlSchedule("ttlSchedule", new PulumiService.TtlScheduleArgs
+        {
+            Organization = "my-org",
+            Project = "my-project",
+            Stack = "temp-stack",
+            Timestamp = "2024-01-01T00:00:00Z",  // Specify the ISO date/time for destruction
+        });
 
-outputs:
-scheduleID: ${ttlSchedule.scheduleId}
+        return new Dictionary<string, object?>
+        {
+            { "scheduleID", ttlSchedule.ScheduleId }
+        };
+    });
+}
 
 ```
 
 {{% /choosable %}}
 
-{{< /chooser >}}
+{{% choosable language java %}}
 
 ```java
 import com.pulumi.Context;
