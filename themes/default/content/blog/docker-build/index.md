@@ -1,94 +1,49 @@
 ---
 title: "Introducing the new Docker Build provider"
-
-# The date represents the post's publish date, and by default corresponds with
-# the date and time this file was generated. Dates are used for display and
-# ordering purposes only; they have no effect on whether or when a post is
-# published. To influence the ordering of posts published on the same date, use
-# the time portion of the date value; posts are sorted in descending order by
-# date/time.
 date: 2024-04-25T09:00:00-07:00
-
-# The draft setting determines whether a post is published. Set it to true if
-# you want to be able to merge the post without publishing it.
 draft: false
-
-# Use the meta_desc property to provide a brief summary (one or two sentences)
-# of the content of the post, which is useful for targeting search results or
-# social-media previews. This field is required or the build will fail the
-# linter test. Max length is 160 characters.
 meta_desc: >-
     Pulumi's new Docker Build provider offers support for Docker builds using modern buildx/BuildKit APIs.
-
-# The meta_image appears in social-media previews and on the blog home page. A
-# placeholder image representing the recommended format, dimensions and aspect
-# ratio has been provided for you.
 meta_image: meta.png
-
-# At least one author is required. The values in this list correspond with the
-# `id` properties of the team member files at /data/team/team. Create a file for
-# yourself if you don't already have one.
 authors:
     - bryce-lampe
-
-# At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
     - docker
     - buildx
     - buildkit
     - containers
-
-
-# See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md
-# for details, and please remove these comments before submitting for review.
 ---
 
-Deploying and managing containerized workloads is one of the fastest-growing areas for Pulumi.
-Standing up managed container services and Kubernetes clusters is a common area for automation, and many of our customers use Pulumi to automate building and publishing images to their registry of choice.
+Deploying and managing containerized workloads is one of Pulumi's fastest-growing areas. Standing up managed container services and Kubernetes clusters is a common area for automation, and many of our customers use Pulumi to automate building and publishing images to their registry of choice.
 
-Given this critical use case, we are thrilled to introduce the latest addition to the Pulumi Ecosystem: the new [Docker Build provider](https://www.pulumi.com/registry/packages/docker-build/), designed to streamline and modernize Docker image builds.
+Given this critical use case, we are thrilled to introduce the latest addition to the Pulumi ecosystem: the new [Docker Build provider](https://www.pulumi.com/registry/packages/docker-build/), designed to streamline and modernize Docker image builds.
 
-This addition builds on the solid foundation of our highly utilized [Docker provider] and elevates the `docker.Image` resource -- one of the most heavily used and most uniquely powerful resources in the Pulumi ecosystem -- into its own new dedicated package.
-By fully embracing the power of [BuildKit], the Docker Build provider brings with it many new features to support best-in-class Docker capabilities that developers will love.
+This new addition expands upon the solid foundation of our highly utilized [Docker provider]. It elevates the `docker.Image` resource, one of the most heavily used and most powerful resources in the Pulumi ecosystem, into its very own dedicated package. By fully embracing the power of [BuildKit], the Docker Build provider brings many new features to support the best-in-class Docker capabilities developers love.
 
-The new provider exposes Docker's next-gen [buildx] interface, so now even your most complex Docker images can be handled by Pulumi.
-This is a remarkably flexible and versatile tool for building images, and includes key features such as,
+The new provider exposes Docker's next-gen [buildx] interface, so now even your most complex Docker images can be handled by Pulumi. This is a remarkably flexible and versatile tool for building images and includes key features such as,
 
 * __Multi-platform image support__: Build images that run seamlessly across different hardware architectures.
-
 * __Advanced caching mechanisms__: Speed up builds and reduce resource consumption by utilizing cache backends like S3, GitHub Actions, local disk, and more.
+* __Support for build secrets__: Unlike building images with the `docker` CLI, which requires juggling environment variables or files on disk, Pulumi's first-class support for secrets means you can now safely and efficiently incorporate sensitive information into your builds. With Pulumi ESC ([Environments, Secrets, and Configuration](../environments-secrets-configurations-management)), it's easy to share build secrets with other developers and teams.
+* __Support for multiple export types__: Export your images to registries, disk, or blob storage to increase the power and flexibility of your workflows.
+* __Support for Docker Build Cloud__: Use [Docker Build Cloud](https://www.docker.com/products/build-cloud/) to offload your builds and caches to the cloud, enhancing productivity and performance.
 
-* __Support for build secrets__: Unlike building images with the `docker` CLI, which requires juggling environment variables or files on disk, Pulumi's first-class support for secrets means you can now safely and easily incorporate sensitive information into your builds.
-  And with Pulumi's [Environments, Secrets, and Configuration](../environments-secrets-configurations-management) (ESC) it's easy to safely share these secrets with other developers and teams.
-
-* __Support for multiple export types__: Increase the power and flexibility of your workflows by exporting your images to registries, disk, or blob storage.
-
-* __Support for Docker Build Cloud__: Take advantage of [Docker Build Cloud](https://www.docker.com/products/build-cloud/) to offload your builds and caches to the cloud, enhancing productivity and performance.
   {{< video title="Docker Build Cloud" src="dbc.mp4" autoplay="true" loop="true" >}}
 
-For background, the [Docker provider] was first introduced in 2018 and
-has seen wide adoption.
-Over the years Pulumi has continued our investment in it, notably introducing a
-version 4.0 [last year](../build-images-50x-faster-docker-v4) and additional
-improvements like build-on-preview behavior after that.
+## A brief history
 
-At the same time, the Docker build ecosystem has seen tremendous advancements
-in how images can be built and distributed. These changes were initially
-experimental, but they became official when [BuildKit] graduated to become the
+Pulumi first introduced the [Docker provider] in 2018, and it has been widely adopted since. Over the years, Pulumi has invested in the Docker provider, notably introducing version 4.0 [last year](../build-images-50x-faster-docker-v4) and additional improvements like `build-on-preview` behavior.
+
+At the same time, the Docker build ecosystem has seen tremendous advancements in how images can be built and distributed. These changes were initially experimental, but they became official when [BuildKit] graduated to become the
 default builder in Docker version 23.
 
-We have heard a large number of requests from users to expose more [BuildKit]
-functionality in the Docker provider. After some consideration, we
-decided that a new, standalone provider, focused exclusively on building
-images, would provide the best overall user experience as well as the best
-platform for Pulumi to stay current with the evolving build landscape.
+We have heard many requests from users to expose more [BuildKit] functionality in the Docker provider. After some consideration, we decided that a new, standalone provider focused exclusively on building images would provide the best overall user experience. In addition, it allows Pulumi to stay current with the evolving Docker build landscape.
 
 ## Getting started
 
+Add the `docker-build` package to your Pulumi program to take full advantage of modern image builds.
+
 {{< chooser language "typescript,python,csharp,go,yaml,java" / >}}
-
-Add the `docker-build` package to your project to start taking advantage of modern image builds with Pulumi.
-
 {{% choosable language typescript %}}
 
 ```typescript
@@ -96,7 +51,6 @@ import * as docker_build from "@pulumi/docker-build";
 ```
 
 {{% /choosable %}}
-
 {{% choosable language python %}}
 
 ```python
@@ -104,7 +58,6 @@ import pulumi_docker_build as docker_build
 ```
 
 {{% /choosable %}}
-
 {{% choosable language csharp %}}
 
 ```csharp
@@ -112,7 +65,6 @@ using DockerBuild = Pulumi.DockerBuild;
 ```
 
 {{% /choosable %}}
-
 {{% choosable language go %}}
 
 ```go
@@ -120,7 +72,6 @@ import "github.com/pulumi/pulumi-docker-build/sdk/go/dockerbuild"
 ```
 
 {{% /choosable %}}
-
 {{% choosable language yaml %}}
 
 ```yaml
@@ -138,11 +89,11 @@ import com.pulumi.dockerbuild.Image
 
 {{% /choosable %}}
 
-If your Pulumi program has a directory called `app` alongside it, containing a
-file named "Dockerfile" (which can be as simple as `FROM alpine` for the
-purpose of example), then the example below shows how to build a multi-platform
-image, publish it to a remote AWS ECR registry, and use an [inline cache] to
-speed up subsequent builds.
+Suppose your Pulumi program has a subfolder called `./app` that contains a file named `Dockerfile` (its contents can be as simple as `FROM alpine`). In that case, the example below shows:
+
+* how to build a multi-platform image (`linux/amd64` and `linux/arm64`),
+* publish the image to a remote AWS ECR registry, and;
+* use an inline cache to speed up subsequent builds.
 
 {{% choosable language typescript %}}
 
@@ -195,7 +146,6 @@ export const ref = myImage.ref;
 ```
 
 {{% /choosable %}}
-
 {{% choosable language python %}}
 
 ```python
@@ -246,7 +196,6 @@ pulumi.export("ref", my_image.ref)
 ```
 
 {{% /choosable %}}
-
 {{% choosable language csharp %}}
 
 ```csharp
@@ -328,7 +277,6 @@ return await Deployment.RunAsync(() =>
 ```
 
 {{% /choosable %}}
-
 {{% choosable language go %}}
 
 ```go
@@ -414,7 +362,6 @@ func main() {
 ```
 
 {{% /choosable %}}
-
 {{% choosable language yaml %}}
 
 ```yaml
@@ -464,7 +411,6 @@ variables:
 ```
 
 {{% /choosable %}}
-
 {{% choosable language java %}}
 
 ```java
@@ -543,46 +489,37 @@ public class App {
 
 {{% /choosable %}}
 
-The exported `ref` value provides a convenient way to reference the pushed
-image in downstream Pulumi resources like ECS
-[TaskDefinitions](https://www.pulumi.com/registry/packages/aws/api-docs/ecs/taskdefinition/)
-or Kubernetes
-[Deployments](https://www.pulumi.com/registry/packages/kubernetes/api-docs/apps/v1/deployment/).
+The Pulumi output, `ref`, provides a convenient way to reference the pushed image in downstream Pulumi resources like [ECS TaskDefinitions](https://www.pulumi.com/registry/packages/aws/api-docs/ecs/taskdefinition/) or [Kubernetes Deployments](https://www.pulumi.com/registry/packages/kubernetes/api-docs/apps/v1/deployment/).
 
-## Migrating from `docker.Image` to `docker_build.Image`
+## Migrating from docker.Image to docker_build.Image
 
-The `docker_build.Image` resource is a replacement for the old `docker.Image` resource. It adds new features and addresses many bugs with the previous resource by fully aligning with Docker's underlying [buildx] commands.
-Going forward we will continue to invest in Docker Build and the `docker_build.Image` resource.
+The new `docker_build.Image` replaces the old `docker.Image` resource. It adds new features and addresses many bugs with the previous resource by fully aligning with Docker's underlying [buildx] commands. From now on, we will continue to invest in Docker Build and the `docker_build.Image` resource.
 
-We do not expect to make further changes to `docker.Image`.
-It will remain available for the foreseeable future, so you can continue using it if it still meets your needs.
-However, we recommend you migrate your images to `docker_build.Image` to get the best possible support, features and performance.
-In the future, we expect we will likely deprecate the `docker.Image` resource.
+We do not expect to make further changes to `docker.Image`. It will remain available for the foreseeable future, so you can continue using it if it meets your needs. However, we **recommend** you migrate your images to `docker_build.Image` to get the best possible support, features, and performance. We expect to deprecate the `docker.Image` resource in the future.
 
-The migration process is straightforward and described in detail in the [API
-documentation](https://www.pulumi.com/registry/packages/docker-build/image/).
-Docker Build provides a superset of functionality over the previous
-`docker.Image` resource, so existing resources can be migrated to it without
-issue. If you are familiar with the `docker` command-line tool, the new Docker
-Build Image's options will look very familiar.
+The migration process is straightforward and detailed in the [API documentation](https://www.pulumi.com/registry/packages/docker-build/image/). Docker Build provides a superset functionality over the previous
+`docker.Image` resource; thus, you can migrate existing resources without issue. The new Docker Build Image options will look very familiar if you are familiar with the Docker command-line tool.
 
 {{% notes %}}
-The new Docker Build provider matches the Docker CLI's behavior and _does not
-push_ images by default. If you want to push to a registry, you should include
-`push: true` just as you would include `--push` on the command line.
+
+The new Docker Build provider matches the Docker CLI behavior. Thus, it _does_ not push_ images by default. If you want to push to a registry, you should include `push: true` just as you would include `--push` on the command line.
+
 {{% /notes %}}
 
 {{% notes %}}
-The new Docker Build provider will build images by default during previews in
-order to reduce the risk of merging broken images as part of CI pipelines. This
-can be customized by specifying `buildOnPreview`.
+
+The new Docker Build provider builds images by default during previews to reduce the risk of merging broken images as part of CI pipelines. You can change the default behavior by specifying a `buildOnPreview` flag.
+
 {{% /notes %}}
 
-### Migrating from Docker Provider v3
+Jump over to the applicable migration guide to learn how to update your existing Pulumi program:
 
-Version 3.x of Docker Provider is still widely used because it exposes some
-BuildKit functionality through raw command-line arguments. The new Docker Build
-provider exposes those arguments as top-level fields on the resource.
+* [Migrating from Docker provider v3](#migrating-from-docker-provider-v3)
+* [Migrating from Docker provider v4](#migrating-from-docker-provider-v4)
+
+### Migrating from Docker provider v3
+
+Version 3.x of Docker provider is still widely used because it exposes BuildKit functionality through raw command-line arguments. However, the new Docker Build provider exposes those arguments as top-level fields on the resource.
 
 ```typescript
 // v3 Image
@@ -658,10 +595,9 @@ const v3Migrated = new dockerbuild.Image("v3-to-buildx", {
 
 ```
 
-### Migrating from Docker Provider v4
+### Migrating from Docker provider v4
 
-The new Docker Build provider largely exposes the same fields as v4 but
-pluralized or renamed to better align with the Docker CLI.
+The new Docker Build provider largely exposes the same fields as v4, but the fields are pluralized or renamed to better align with the Docker CLI.
 
 ```typescript
 // v4 Image
@@ -720,19 +656,15 @@ const v4Migrated = new dockerbuild.Image("v4-to-buildx", {
 
 ## Conclusion
 
-The launch of the new [Docker Build provider] marks a significant milestone in modernizing container management for developers.
-The new package, which the `docker.Image` resource, reflects our commitment to innovation and user-centric development.
-By incorporating the latest [BuildKit] technology, the Docker Build provider not only supports the newest Docker features but also enhances multi-architecture builds and improves caching strategies.
+Launching the new [Docker Build provider] marks a significant milestone in modernizing container management for developers. The new package, which contains the `docker_build.`Image` resource reflects our commitment to innovation and user-centric development. By incorporating the latest [BuildKit] technology, the Docker Build provider supports the newest features, enhances multi-architecture builds, and improves caching strategies. Moreover, its integration with [Docker Build Cloud](https://www.docker.com/products/build-cloud/) underscores our dedication to providing a cutting-edge toolset for developers. This launch is a testament to our ongoing efforts to modernize and improve how developers build images.
 
-Moreover, its integration with [Docker Build Cloud](https://www.docker.com/products/build-cloud/) underscores our dedication to providing a cutting-edge toolset for developers.
-This launch is a testament to our ongoing efforts to modernize and improve the ways in which developers build images.
-For more details on how to utilize the Docker Build provider, check out our [documentation](https://www.pulumi.com/registry/packages/docker-build/image/).
+Check out our [documentation](https://www.pulumi.com/registry/packages/docker-build/image/) for more details on utilizing the Docker Build provider.
 
 If you are still wondering, "Which provider should I use?" the answer depends on whether you are doing anything related to `docker build`.
 
 | Provider               | Use cases                                                                                                                                                                                                                                                          |
 | ----------------       | --------------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                           |
-| `@pulumi/docker-build` | Use this provider for building and pushing Docker images. Ideal for scenarios requiring automation of image creation with Docker, including setting up CI/CD pipelines for Docker image generation.                                                                |
+| `@pulumi/docker-build` | Use this provider to build and push Docker images. Ideal for scenarios requiring automation of image creation with Docker, including setting up CI/CD pipelines for Docker image generation.                                                                |
 | `@pulumi/docker`       | Use this provider for everything else, including managing local Docker containers, networks, and volumes on the host machine.                                                                                                                                      |
 
 [buildx]: https://docs.docker.com/reference/cli/docker/buildx/build/
