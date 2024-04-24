@@ -24,7 +24,7 @@ After your run completes you can see the drift run via the [Drift tab](#drift-ta
 
 ## Pulumi Cloud UI
 
-### Running via click to deploy
+### Running via Click to Deploy
 
 You can run a drift or remediate drift run ad hoc using the Click to Deploy option from your stack.
 
@@ -40,7 +40,7 @@ Regardless of how a drift run is initiated, all results will appear in this tab.
 
 ### Configuring Drift Detection on a schedule
 
-In order to set up Drift Detection and remediation in the Pulumi Cloud console, follow these steps:
+In order to set up Drift Detection and Remediation in the Pulumi Cloud console, follow these steps:
 
 <!-- markdownlint-disable ol-prefix -->
 1. Ensure Deployments Settings are configured on the stack [see the docs](/docs/pulumi-cloud/deployments/reference)
@@ -66,7 +66,7 @@ You can integrate Drift notifications to Slack, MS Teams, and more using Pulumi 
 
 ![Drift Webhook Events](../drift-webhook-events.png)
 
-### Summary of Drift Detection events
+### Summary of Drift Detection and Remediation events
 
 * Drift detected - A drift run detected drift.
 * Drift detection succeeded - A drift run succeeded, regardless of whether it detected drift or not.
