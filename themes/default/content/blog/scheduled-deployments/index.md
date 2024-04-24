@@ -44,7 +44,7 @@ Setting up Scheduled Deployments via the Pulumi Cloud console is straightforward
 
 ![Create a Scheduled Deployment](create-schedule.png)
 
-In order to set up Drift Detection and Remediation in the Pulumi Cloud console, follow these steps:
+In order to set up Scheduled Deployments in the Pulumi Cloud console, follow these steps:
 
 1. Ensure Deployments Settings are configured on the stack [see the docs](/docs/pulumi-cloud/deployments/reference)
 2. Navigate to the Stack > Settings > Schedules
