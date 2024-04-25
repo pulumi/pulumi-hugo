@@ -16,7 +16,7 @@ tags:
 
 Deploying and managing containerized workloads is one of Pulumi's fastest-growing areas. Standing up managed container services and Kubernetes clusters is a common area for automation, and many of our customers use Pulumi to automate building and publishing images to their registry of choice.
 
-Given this critical use case, we are thrilled to introduce the latest addition to the Pulumi ecosystem: the new [Docker Build provider](https://www.pulumi.com/registry/packages/docker-build/), designed to streamline and modernize Docker image builds.
+Given this critical use case, we are thrilled to introduce the latest addition to the Pulumi ecosystem: the new [Docker Build provider](https://www.pulumi.com/registry/packages/docker-build/), designed to streamline and modernize Docker image builds from your Pulumi programs.
 
 This new addition expands upon the solid foundation of our highly utilized [Docker provider]. It elevates the `docker.Image` resource, one of the most heavily used and most powerful resources in the Pulumi ecosystem, into its very own dedicated package. By fully embracing the power of [BuildKit], the Docker Build provider brings many new features to support the best-in-class Docker capabilities developers love.
 
