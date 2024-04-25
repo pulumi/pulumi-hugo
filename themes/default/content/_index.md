@@ -46,8 +46,6 @@ secrets:
 customer_logos:
   title: Trusted by your peers
   logos:
-    - name: mercedes-benz
-      link: /case-studies/mercedes-benz
     - name: snowflake
       link: /case-studies/snowflake
     - name: lemonade
