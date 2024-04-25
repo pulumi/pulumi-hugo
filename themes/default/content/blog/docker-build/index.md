@@ -502,13 +502,13 @@ The migration process is straightforward and detailed in the [API documentation]
 
 {{% notes %}}
 
-The new Docker Build provider matches the Docker CLI behavior. Thus, it _does_ not push_ images by default. If you want to push to a registry, you should include `push: true` just as you would include `--push` on the command line.
+The new Docker Build provider matches the Docker CLI behavior. Thus, it does **not** push images by default. If you want to push to a registry, include [`push: true`](https://www.pulumi.com/registry/packages/docker-build/api-docs/image/#push_nodejs) in the code just as you would include `--push` on the command line.
 
 {{% /notes %}}
 
 {{% notes %}}
 
-The new Docker Build provider builds images by default during previews to reduce the risk of merging broken images as part of CI pipelines. You can change the default behavior by specifying a `buildOnPreview` flag.
+The new Docker Build provider builds images by default during [previews](https://www.pulumi.com/docs/cli/commands/pulumi_preview/) to reduce the risk of merging broken images as part of CI pipelines. You can change the default behavior by specifying a [`buildOnPreview`](https://www.pulumi.com/registry/packages/docker-build/api-docs/image/#buildonpreview_nodejs) flag.
 
 {{% /notes %}}
 
@@ -519,7 +519,9 @@ Jump over to the applicable migration guide to learn how to update your existing
 
 ### Migrating from Docker provider v3
 
-Version 3.x of Docker provider is still widely used because it exposes BuildKit functionality through raw command-line arguments. However, the new Docker Build provider exposes those arguments as top-level fields on the resource.
+Version 3.x of the Docker provider is still widely used because it exposes `BuildKit` functionality through raw command-line arguments. However, the new Docker Build provider exposes those arguments as top-level fields on the resource.
+
+Reference the below TypeScript code to compare a v3 definition of a `docker.Image` with the new `dockerbuild.Image`. In particular, note the `extraOptions` in v3 are now top-level fields, e.g., `cacheFrom`, `cacheTo`, `platforms`, etc.
 
 ```typescript
 // v3 Image
@@ -598,6 +600,8 @@ const v3Migrated = new dockerbuild.Image("v3-to-buildx", {
 ### Migrating from Docker provider v4
 
 The new Docker Build provider largely exposes the same fields as v4, but the fields are pluralized or renamed to better align with the Docker CLI.
+
+Reference the below TypeScript code to compare a v4 definition of a `docker.Image` with the new `dockerbuild.Image`. In particular, note the top-level, pluralized names, e.g., `registries`, `platforms`, etc.
 
 ```typescript
 // v4 Image
