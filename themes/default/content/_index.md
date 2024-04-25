@@ -46,6 +46,7 @@ secrets:
 customer_logos:
   title: Trusted by your peers
   logos:
+    - name: bmw
     - name: snowflake
       link: /case-studies/snowflake
     - name: lemonade
