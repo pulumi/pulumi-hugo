@@ -10,7 +10,7 @@ talks:
   - event: "LA DevOps"
     title: "Cloud Native DevOps with Pulumi and ArgoCD"
     url: https://www.meetup.com/meetup-group-zzqwjltm/events/300366094/
-    date: 2024-26-18T10:00:00.000-07:00
+    date: 2024-26-25T10:00:00.000-07:00
     slides: null
   - event: "Mastering GitOps 2024"
     title: "Wie man mit Backstage, IaC und GitOps eine interne Entwicklerplattform auf Kubernetes aufbaut"
