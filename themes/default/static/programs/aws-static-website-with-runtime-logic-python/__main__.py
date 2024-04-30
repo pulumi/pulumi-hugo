@@ -1,6 +1,6 @@
 import pulumi
 import pulumi_aws as aws
-import asyncio
+import atexit
 import boto3
 import json
 import os
@@ -9,7 +9,16 @@ import subprocess
 import time
 
 # Build the website.
-result = subprocess.run(["hugo"], stdout=subprocess.PIPE, cwd="./www")
+result = subprocess.run(
+    ["hugo", "--destination", "./public"],
+    stdout=subprocess.PIPE,
+    cwd="./www",
+    check=True,
+    shell=True,
+)
+
+# Log the build output to the console.
+print(result.stdout.decode())
 
 # Provision a storage bucket for the website.
 bucket = aws.s3.Bucket(
@@ -47,12 +56,15 @@ redirects = json.loads(response.text)
 
 # Create an S3 website redirect for each one.
 for i, redirect in enumerate(redirects):
-    aws.s3.BucketObject(f"redirect-{i}",
+    aws.s3.BucketObject(
+        f"redirect-{i}",
         bucket=bucket.id,
         key=redirect["from"],
         website_redirect=redirect["to"],
         acl="public-read",
-        opts=pulumi.ResourceOptions(depends_on=[ownership_controls, public_access_block]),
+        opts=pulumi.ResourceOptions(
+            depends_on=[ownership_controls, public_access_block]
+        ),
     )
 
 # Create a CloudFront distribution for the website.
@@ -94,8 +106,8 @@ cdn = aws.cloudfront.Distribution(
     ),
 )
 
-def create_invalidation(id):
 
+def create_invalidation(id):
     # Don't bother invalidating unless it's an actual deployment.
     if pulumi.runtime.is_dry_run():
         print("This is a Pulumi preview, so skipping cache invalidation.")
@@ -105,21 +117,21 @@ def create_invalidation(id):
     result = client.create_invalidation(
         DistributionId=id,
         InvalidationBatch={
-            "CallerReference": f"invalidation-{str(time.time)}",
+            "CallerReference": f"invalidation-{time.time()}",
             "Paths": {
                 "Quantity": 1,
-                "Items": [ "/*" ],
+                "Items": ["/*"],
             },
         },
     )
 
-    print(f"Cache invalidation of distribution {id}: {result['Invalidation']['Status']}.")
+    print(
+        f"Cache invalidation for distribution {id}: {result['Invalidation']['Status']}."
+    )
 
-# Register a function to be be invoked before the program exits.
-async def invalidate(id):
-    await asyncio.to_thread(create_invalidation, id)
 
-cdn.id.apply(lambda id: invalidate(id))
+# Register a function to be invoked before the program exits.
+cdn.id.apply(lambda id: atexit.register(lambda: create_invalidation(id)))
 
 # Export the URL of the CDN.
 pulumi.export("cdnURL", pulumi.Output.format("https://{0}", cdn.domain_name))

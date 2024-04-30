@@ -8,7 +8,10 @@ const config = new pulumi.Config("aws");
 const region = config.require("region");
 
 // Build the website.
-const proc = childProcess.execSync("hugo", { stdio: "inherit", cwd: "./www" });
+const result = childProcess.execSync("hugo --destination ./public", { stdio: "pipe", cwd: "./www" });
+
+// Log the build output to the console.
+console.log(result.toString());
 
 // Provision a storage bucket for the website.
 const bucket = new aws.s3.Bucket("bucket", {
@@ -99,15 +102,14 @@ const cdn = new aws.cloudfront.Distribution("cdn", {
     },
 });
 
-// Register a function to be be invoked before the program exits.
-process.on("beforeExit", () => {
+function createInvalidation(id: string) {
     // Only invalidate after a deployment.
     if (pulumi.runtime.isDryRun()) {
         console.log("This is a Pulumi preview, so skipping cache invalidation.");
         return;
     }
 
-    cdn.id.apply(id => {
+    process.on("beforeExit", () => {
         const client = new cloudfront.CloudFrontClient({ region });
         const command = new cloudfront.CreateInvalidationCommand({
             DistributionId: id,
@@ -131,7 +133,10 @@ process.on("beforeExit", () => {
                 process.exit(1);
             });
     });
-});
+}
+
+// Register a function to be invoked before the program exits.
+cdn.id.apply(id => createInvalidation(id));
 
 // Export the URL of the CDN.
 export const cdnURL = pulumi.interpolate`https://${cdn.domainName}`;

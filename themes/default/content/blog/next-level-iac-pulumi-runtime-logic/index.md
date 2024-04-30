@@ -1,7 +1,8 @@
 ---
-title: "Next-level IaC: Do more with languages!"
+title: "Next-level IaC: Drop those wrapper scripts and let your language do that for you"
+allow_long_title: true
 date: 2024-04-26
-meta_desc: Learn how to use your language of choice to do more than simply declare cloud resources.
+meta_desc: Learn how to use your language of choice to do more than just declare cloud resources.
 meta_image: meta.png
 authors:
     - christian-nunciato
@@ -16,25 +17,25 @@ tags:
 
 Our users are always telling us (particularly the ones who come to Pulumi from other IaC tools) that being able to use general-purpose languages to manage their infrastructure was a game changer for them.
 
-I know it was for me. As a JavaScript developer, when I discovered Pulumi and saw that I could do pretty much everything I was doing with Terraform _but with TypeScript_, I was immediately hooked; that's all it took. For me, just being able to write my resource declarations in a full-featured language that I knew well, and that my IDE deeply understood, was huge.
+I know it was for me. As a JavaScript developer, when I discovered Pulumi and saw that I could do pretty much everything I was doing with Terraform _but with TypeScript_, I was immediately hooked; that's all it took. Just being able to write my resource declarations in a language I knew well (and that my IDE understood) was huge.
 
-But it's easy to forget, even when you've been using Pulumi for a while, that you aren't just getting the language alone --- you're getting the full breadth and capability of that language's runtime environment as well. Not just JavaScript, but all of Node.js. Not just C#, but everything the .NET framework and common-language runtime have to offer.
+But it's easy to forget, even when you've been using Pulumi for a while, that you aren't just getting the language alone --- you're getting the full capability of the language's runtime environment also. Not just JavaScript, but all of Node.js. Not just C#, but everything the .NET framework, runtime, and ecosystem have to offer.
 
-This is quite a big deal, actually. Whereas with other tools, you're bound by the limitations of the tool's DSL (CloudFormation YAML, Terraform HCL, etc.), with Pulumi, you have no such constraints; you can do just about anything your chosen language and runtime can do. That means much more than just declare long lists of cloud resources --- it means unlocking all sorts of capabilities that allow you do more with less, handle change easily, and really bring your infrastructure-management practice to a whole new level.
+This is quite a big deal, actually. Whereas with other tools, you're often bound by the limits of the tool's DSL, with Pulumi, you have no such constraints; you can do just about anything your chosen language can do. That means much more than just declaring long lists of cloud resources --- it means unlocking all kinds of capabilities that can help bring your infrastructure-management practice to a whole new level.
 
-In this post, the first of a series, we'll show you a few things you can do to take advantage of this reality.
+In this post, the first of a new series we're calling Next-level IaC, we'll show you a few small but useful ways you can take advantage of this reality --- first, by spotting some opportunities to simplify your deployments.
 
 ## Run pre-deployment tasks with Pulumi
 
-Since a Pulumi program is just a regular program, you can take actions programmatically before runs --- specifically before Pulumi begins [registering resource declarations](https://www.pulumi.com/docs/concepts/how-pulumi-works).
+Fundamentally, a Pulumi program is just a regular program. That means you can take actions programmatically at runtime --- before the Pulumi engine gets going.
 
-Suppose you were writing a program to deploy a static website. With a traditional IaC tool, you might model the deployment in steps:
+Suppose you were tasked with writing the code to deploy and manage a static website. Conceptually, you might break this process up into a few separate steps:
 
 1. Build the website
-1. Deploy the supporting infrastructure (cloud storage, content-delivery front-end)
+1. Deploy the supporting infrastructure (e.g, the cloud storage, maybe a content-delivery network)
 1. Copy the content of the website into the infrastructure
 
-To execute these steps, you might reach for something like Bash, writing a shell script similar to the following, which uses [Hugo](https://gohugo.io/), a popular static-site generator, to build the website, Pulumi to provision the infrastructure, and the AWS CLI to upload the content:
+This you might lead you to reach for Bash to write up a shell script like the one below, which uses [Hugo](https://gohugo.io/) (a popular static-site generator) to build the website, Pulumi to provision the infrastructure, and the AWS CLI to push the built website up into the AWS cloud:
 
 ```bash
 #!/bin/bash
@@ -45,11 +46,11 @@ hugo --destination ./public
 # Provision the infrastructure.
 pulumi up --yes
 
-# Copy the content of the website into the infrastructure.
+# Copy the website content into the infrastructure.
 aws s3 sync ./public s3://$(pulumi stack output bucketName)
 ```
 
-And this would work --- but it's also unnecessary. You can get rid of the Bash wrapper entirely by just using your chosen language's built-in support for spawning shell processes:
+And this would definitely work. But it's also unnecessary. You can avoid both the Bash wrapper and the dependency on the AWS CLI by using your chosen language's built-in support for spawning shell processes:
 
 {{< chooser language "typescript,python" />}}
 
@@ -87,26 +88,20 @@ import pulumi_aws as aws
 import subprocess
 
 # Build the website.
-result = subprocess.run(["hugo"], stdout=subprocess.PIPE, cwd="./www")
+result = subprocess.run(["hugo", "--destination", "./public"], stdout=subprocess.PIPE, cwd="./www", check=True, shell=True)
+
+# Log the build output to the console.
+print(result.stdout.decode())
 
 # Provision a storage bucket for the website.
-bucket = aws.s3.Bucket(
-    "bucket", website=aws.s3.BucketWebsiteArgs(index_document="index.html")
-)
-
-# Copy the website home page into the bucket
-homepage = aws.s3.BucketObject(
-    "index.html",
-    bucket=bucket.id,
-    content=open("./www/public/index.html", "r").read(),
-    content_type="text/html",
-    acl="public-read",
-)
+bucket = aws.s3.Bucket("bucket", website=aws.s3.BucketWebsiteArgs(
+    index_document="index.html"
+))
 ```
 
 {{% /choosable %}}
 
-Because these processes run synchronously, they finish before the deployment engine gets going, terminating the containing process on error and logging any relevant output to the console:
+Running processes like these synchronously, as above, means they'll complete before Pulumi starts [registering resources](https://www.pulumi.com/docs/concepts/how-pulumi-works) --- important here because the `BucketObject` resource needs that `public` folder to exist for the deployment to succeed. Fortunately it does, so all is well:
 
 ```
 $ pulumi up
@@ -134,20 +129,19 @@ Diagnostics:
       Cleaned          |  0
     Total in 11 ms
 
-Outputs:
-    bucketName: bucket-5b63cc9
-
 Resources:
     + 3 created
 ```
 
-Simple stuff, but flexible and powerful. With one line, you've made your deployment process simpler, dropping two tools you no longer need thanks to the built-in capabilities of your language of choice.
+Also notice how the example captures the output of the process in `result` and writes it to the terminal. Standard logging like this tends not to be possible with static languages (at least not without some hackery) because there's no real way to do it programmatically. Similarly, those that do support spawning processes tend to require them to return strictly formatted JSON strings --- which, as the example shows, not all processes do. (Forcing you to have to wrap them with yet more shell scripts.)
+
+Simple stuff, but flexible and powerful. With one line, you've kept your deployment process simple, dropping two tools you don't need thanks to the built-in capabilities of Pulumi and your language of choice.
 
 ## Fetch data to generate resources dynamically
 
-To build on the static-website scenario, suppose you wanted to retrieve some data from an external source and then use it to provision a set of cloud resources dynamically. For instance, you might want to let your marketing team create their own short URLs for social media posts. For this, you might once again reach for Bash to pull those URLs from a corporate CMS, either before or after running `pulumi` itself, to create the corresponding redirects imperatively using `curl` and the `aws` CLI.
+To build on the static-website scenario, suppose you wanted to retrieve some data from an external source and use it to provision some cloud resources dynamically. For example, you might want to let your marketing team create short URLs on their own for social media posts. For this, you might once again turn to Bash and the AWS CLI to pull those URLs from your corporate CMS (e.g., with `curl`), either before or after running `pulumi`, and create the corresponding redirects imperatively using a follow-up shell command of some sort.
 
-Again, totally reasonable. But why bother, when you have the full capability of {{< langhost >}} at fingertips? Just add a few lines to the program to fetch the data and be on your way:
+Again, a totally reasonable approach. But again, why bother, when you have the full capability of {{< langhost >}} at fingertips? Just add a few lines to your program to fetch the data and be on your way:
 
 {{< chooser language "typescript,python" />}}
 
@@ -200,76 +194,21 @@ for i, redirect in enumerate(redirects):
 
 {{% /choosable %}}
 
-Notice the example parses the response using the language's built-in JSON support. If your CMS happened to return data in some other format, or required some additional credentials for authorization, no problem --- your language and its ecosystem are already there to help you.
+Notice the example parses the response using the language's built-in JSON support. If your CMS happened to return data in some other format, or required some additional credentials for authorization, no problem --- your language and its package ecosystem are going to be there to help you.
 
-Also notice the example reads the source URL directly from the environment. This is typically more cumbersome (or even impossible) with other tools, requiring that you name your environment variables in specific ways, and then tack on additional blocks of configuration in order to read and assign them. But as you can see, since you're working with {{< langhost >}}, it's as easy as referencing a regular variable.
+Also notice the example reads the source URL directly from the environment. This is typically more cumbersome (if even possible) with other tools, requiring you to name your environment variables in tool-specific ways and then tack on additional blocks of configuration before you're able to use them. As you can see, {{< langhost >}} makes this much more convenient.
 
-Finally, notice it also uses a familiar looping construct. That's next!
-
-## Write clear, simple loops and conditionals
-
-One of the fundamental difficulties of working with any strictly declarative syntax (whether that's YAML, JSON, HCL or something else) is figuring out how to express conditional and iterative logic. There's just no great way to do this without sacrificing usability or clarity somehow. This makes sense --- What would a loop even look like in JSON? --- but even so, reality demands that as engineers, we're able to control, at least somehow, whether or not (or how many times) a given thing happens.
-
-Configuration languages often handle this by augmenting the syntax with meta-properties that _look_ neatly declarative, but can be awkward and hard to decipher in practice, such as here, which uses HCL to conditionally declare three S3 buckets:
-
-```hcl
-variable "enable_storage" {
-    type = bool
-    default = true
-}
-
-variable "bucket_count" {
-    type = list(number)
-    default = [1, 2, 3]
-}
-
-resource "aws_s3_bucket" "bucket" {
-    count = var.enable_storage ? length(var.bucket_count) : 0
-    bucket = "my-uniquely-named-bucket-${element(var.bucket_count, count.index)}"
-}
-```
-
-General-purpose languages make this so much easier. Here's the same example rewritten in {{< langname >}} using a plain `if` statement and `for` loop. Anyone familiar with {{< langname >}} could look at this code and see what's going on --- and if they had debug it, they could do so by adding a log statement using the language's built-in support for that, too (which static languages aren't really able to do):
-
-{{< chooser language "typescript,python" />}}
-
-{{% choosable language typescript %}}
-
-```typescript
-const enableStorage = true;
-
-if (enableStorage) {
-    for (let i in [1, 2, 3]) {
-        new aws.s3.Bucket(`bucket-${i}`);
-    }
-}
-```
-
-{{% /choosable %}}
-
-{{% choosable language python %}}
-
-```python
-enable_storage = True
-
-if enable_storage:
-    for i in range(1, 3):
-        bucket = aws.s3.Bucket(f"bucket-{i}")
-```
-
-{{% /choosable %}}
-
-Again, things like these just make the job that much easier.
+Finally, notice the redirects are translated into cloud resources using a familiar {{< langname >}} looping construct. We'll cover this topic in much more depth in an upcoming post. (Stay tuned!)
 
 ## Hook the event loop to run tasks after deployment
 
-Finally, you can do nifty things like run tasks programmatically after a Pulumi deployment completes --- without ever having to leave the Pulumi program.
+Finally, you can do nifty things like run tasks programmatically _after_ a Pulumi deployment completes --- once again, without ever having to leave the Pulumi program.
 
-If your hypothetical website were sitting behind a CloudFront CDN, for example, you'd probably need some way to clear the CDN's cache after a deployment. This generally requires some imperative action, like using the AWS CLI to run `aws cloudfront create-invalidation` at some point later. How might you do something like this, given that Pulumi programs exit automatically when their operations complete?
+If your hypothetical website were sitting behind a CloudFront CDN, for example, you might want some way to clear the CDN's cache after a deployment. This generally requires some imperative action, like using the AWS CLI to run `aws cloudfront create-invalidation` sometime later. How might you do something like this with Pulumi, given Pulumi programs exit automatically when their operations complete?
 
-One way --- again, since a Pulumi program is just a regular {{< langhost >}} program --- would be to write a {{< langname >}} function to create an invalidation request, and then ask the {{< langhost >}} runtime to run the function before exiting.
+One way --- again, since a Pulumi program is just a regular {{< langhost >}} program --- would be to write a {{< langname >}} function to create an invalidation request, and then ask the {{< langhost >}} runtime to run that function before exiting.
 
-The mechanics of this vary slightly by language, but it works, and it's a handy way to keep all of your deployment logic in one place --- again avoiding the need to wrap anything in a Bash script:
+The mechanics of this vary slightly by language, but it works, and it's a very handy way to keep all of your deployment logic in one place --- again avoiding the need to relegate anything to a Bash script:
 
 {{< chooser language "typescript,python" />}}
 
@@ -294,7 +233,7 @@ const cdn = new aws.cloudfront.Distribution("cdn", {
     // ...
 });
 
-// Register a function to be be invoked before the program exits.
+// Register a function to be invoked before the program exits.
 process.on("beforeExit", () => {
 
     // Only invalidate after a deployment.
@@ -375,7 +314,7 @@ def create_invalidation(id):
 
     print(f"Cache invalidation of distribution {id}: {result['Invalidation']['Status']}.")
 
-# Register a function to be be invoked before the program exits.
+# Register a function to be invoked before the program exits.
 async def invalidate(id):
     await asyncio.to_thread(create_invalidation, id)
 
