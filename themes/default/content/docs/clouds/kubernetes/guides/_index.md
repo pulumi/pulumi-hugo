@@ -57,26 +57,6 @@ drop into and inject a given API type's raw spec is maintained through out.
 [Get started][pulumi-kx] with `pulumi/kubernetesx` to manage Kubernetes
 workloads using constructs built for everyone.
 
-## Query for Kubernetes
-
-Maintaining and understanding Kubernetes clusters requires coordination
-and delivery of continuous changes. The API surface area is complex and highly
-disjointed when you want to make sense of what is taking place in the cluster, and why it is occuring.
-
-Common choices for these assessments include a mix of `kubectl`
-and [`client-go`][k8s-clientgo], and require the user to form manual joins
-across resources, and perform a reactive series of queries to understand what is taking place.
-
-To gain detailed insights, we've released a new tool called [Pulumi Query](#pulumi-query) that
-helps you understand your clusters passively or in real-time.
-By exposing Kubernetes through a library of streaming queries, it becomes easy
-to write apps that can tail API resources, discover distinct versions of a
-given Pod, or even inform you of which Services are publicly exposed to the
-Internet.
-
-[Get started][pulumi-kq] with `pulumi/query` to understand Kubernetes
-clusters and workloads through a new lens.
-
 ## Pulumi Kubernetes Operator
 
 <a href="./">
