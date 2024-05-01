@@ -46,7 +46,7 @@ Today we announce our annual PulumiUP virtual conference taking place on Septemb
 
 PulumiUP isn't just another conference, it's a global gathering of minds passionate about cloud technologies, AI, DevOps, and everything in between. Whether you're an industry veteran or just dipping your toes into the vast ocean of cloud computing, PulumiUP has something for everyone.
 
-You will hear keynote from Pulumi leaders, Founder/CEO Joe Duffy and CTO Luke Hoban, and from industry leaders on their experience in cloud adoption, innovation and transformation and how they are leverage Pulumi to make it happen. We will have special industry expert speakers to help you navigate the everchanging world of the cloud and hear from the community, which can be you if you have a story to tell that brings value to cloud ecosystem community. 
+You will hear keynote from Pulumi leaders, Founder/CEO Joe Duffy and CTO Luke Hoban, and from industry leaders on their experience in cloud adoption, innovation and transformation and how they are leverage Pulumi to make it happen. We will have special industry expert speakers to help you navigate the everchanging world of the cloud and hear from the community, which can be you if you have a story to tell that brings value to cloud ecosystem community.
 
 ## Call for Speakers: Your Story Matters
 
