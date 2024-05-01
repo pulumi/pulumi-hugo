@@ -1,6 +1,7 @@
 ---
-title: "Next-level IaC: Pulumi Automation API and API Economy"
-date: 2024-04-26
+title: "Next-level IaC: How Pulumi Supports Your API Economy Strategy"
+allow_long_title: true
+date: 2024-05-06
 meta_desc: Learn how to use Pulumi Automation API to build your own Service API and expose it to your organization.
 meta_image: meta.png
 
@@ -19,19 +20,15 @@ tags:
 
 ---
 
-When I am talking with our customers and users, there is one common theme that comes up: how can we make infrastructure as code (IaC) more accessible to our organization? This is a great question, and it is something that we have been thinking about a lot at Pulumi.
+When I am talking with community members, who are not using Pulumi yet, I often get asked what would be a good way to include their Infrastructure as Code (IaC) into existing software like a REST API. And my answer is always the same: Use our Pulumi Automation API.
 
-We believe that the key to making IaC more accessible is to treat it as a first-class citizen in your organization.
+With the Pulumi Automation API you can include Pulumi IaC into your existing software, and this for any of the Pulumi supported programming languages like TypeScript, Python, Go, or C#. This gives you a greater flexibility and control, which you will not have with other IaC tools like CloudFormation or Terraform.
 
-This means that you should be able to interact with your infrastructure in the same way that you interact with any other service in your organization. There are different ways to achieve this goal, be it through providing a self-service portal, building custom tooling, or integrating IaC into your existing workflows.
-
-This is where the Pulumi Automation API comes in and the concept of [API Economy](https://konghq.com/blog/enterprise/api-economy).
+This opens now many doors of opportunity to expose your services as an API, it could be internally to your organization or externally to your potential customers. This opportunity for innovation fuels what is known as the [API Economy](https://konghq.com/blog/enterprise/api-economy).
 
 ## What is API Economy?
 
 ![API Economy](api-economy.png)
-
-(Image [source](http://localhost:1313/blog/next-level-iac-pulumi-automation-api/api-economy.png))
 
 As a matter of fact: — APIs enable innovation.
 
@@ -39,15 +36,9 @@ As a matter of fact: — APIs enable innovation.
 
 API Economy is a term that is used to describe the way that organizations are using APIs to create new business models and revenue streams. APIs are the building blocks of modern software development, and they allow developers to build on  top of existing services and create new services that are greater than the sum of their parts.
 
-Some examples of API Economy are:
+Major international corporations leveraging the API economy through robust API strategies include Google, Amazon, Stripe, Twilio, Slack, and many other renowned brands. Google's initial Maps service, for instance, has evolved into a comprehensive platform offering Maps, Routes, and Places APIs and SDKs. These tools enable companies to incorporate both dynamic and static maps into their applications and websites, offer navigational guidance, access 360° Street View images, utilize geolocation services, and more. This transformation exemplifies the concept of value multiplication in the API economy, as described by [Gartner Vice President Kristin Moyer](https://www.gartner.com/smarterwithgartner/welcome-to-the-api-economy):
 
-- [Stripe](https://stripe.com/docs/api) - Allows companies to accept payments online
-- [Google Maps API](https://developers.google.com/maps) - Allows companies to use their maps, witout having to build their own
-- [Uber Eats API](https://developer.uber.com/docs/eats) - Allows companies to integrate with Uber Eats and offer food delivery
-
-But why is API Economy important for IaC? Because it allows you to treat your infrastructure as a service. The owner of a particular piece of infrastructure (like DNS, a database, or a Kubernetes cluster) can expose that infrastructure to the rest of the organization through an API. This API can be used to provision, update, and delete the infrastructure, as well as to query its current state. This allows developers to interact with the infrastructure in a programmatic way,  just like they would interact with any other service in the organization.
-
-At the end you can then use Gateways like [Apigee](https://cloud.google.com/apigee?hl=en), [Kong](https://konghq.com/), or [AWS API Gateway](https://aws.amazon.com/api-gateway/) to register your API and make it consumable by your organization. In whatever way they want to consume it, be it through a CLI, a web interface, or a chatbot.
+> "The API economy is an enabler for turning a business or organisation into a platform. Platforms multiply value creation because they enable business ecosystems inside and outside of the enterprise to consummate matches among users and facilitate the creation and exchange of goods, services and social currency so that all participants are able to capture value."
 
 ## What is Pulumi Automation API in a nutshell?
 
@@ -239,8 +230,8 @@ Here is an example of an OpenAPI specification for our Service API:
 ```yaml
 openapi: 3.0.0
 info:
-  title: Pulumi Infrastructure Management API
-  description: API for creating and destroying infrastructure using Pulumi.
+  title: My Organization Service API
+  description: API for creating and destroying a specific piece of infrastructure
   version: 1.0.0
 servers:
   - url: 'http://localhost:8000/'
@@ -354,4 +345,8 @@ Navigate to the [Swagger Editor](https://editor.swagger.io/) and paste the above
 
 ## Conclusion
 
-In this blog post, we have seen how you can use Pulumi Automation API to build your own Service API and expose it to your organization. This allows you to treat your infrastructure as a service and interact with it in a programmatic way. We have also seen how you can use API Economy to create new business models and revenue streams by exposing your infrastructure to the rest of the organization. I hope that this blog post has given you some ideas on how you can take your IaC to the next level and make it more accessible to your organization.
+In this blog post, we have seen how you can use Pulumi Automation API to build your own Service API and expose it to your organization.
+
+We have also seen how you can use API Economy to create new business models and revenue streams by exposing your infrastructure to the rest of the organization.
+
+I hope that this blog post has given you some ideas on how you can take your IaC to the next level and make it more accessible to your organization.
