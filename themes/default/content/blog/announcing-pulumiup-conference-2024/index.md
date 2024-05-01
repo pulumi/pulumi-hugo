@@ -1,5 +1,5 @@
 ---
-title: "Announcing Pulumiup Conference 2024"
+title: "Announcing PulumiUP Conference 2024"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
@@ -28,41 +28,51 @@ meta_image: meta.png
 # `id` properties of the team member files at /data/team/team. Create a file for
 # yourself if you don't already have one.
 authors:
-    - joe-duffy
+    - sara-huddleston
 
 # At least one tag is required. Lowercase, hyphen-delimited is recommended.
 tags:
-    - change-me
+    - pulumi-events
 
 # See the blogging docs at https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md
 # for details, and please remove these comments before submitting for review.
 ---
 
-What you put here will appear on the index page. In most cases, you'll also want to add a Read More link after this paragraph (though technically, that's optional. To do that, just add an HTML comment like the one below.
+Today we announce our annual PulumiUP virtual conference taking place on September 18, 2024. PulumiUP is our global cloud and IaC conference for anyone interested in infrastructure as code, cloud, AI, platform engineering, DevOps, and cloud culture. Every year, we strive to build a program packed with technical talks, demos, and best practices to empower you with new learnings and inspiration that you can apply in your professional life. Attend to hear from industry leaders, experts, and community peers.
 
 <!--more-->
 
-And then everything _after_ that comment will appear on the post page itself.
+## What is PulumiUP?
 
-Either way, avoid using images or code samples [in the first 70 words](https://gohugo.io/content-management/summaries/#automatic-summary-splitting) of your post, as these may not render properly in summary contexts (e.g., on the blog home page or in social-media previews).
+PulumiUP isn't just another conference, it's a global gathering of minds passionate about cloud technologies, AI, DevOps, and everything in between. Whether you're an industry veteran or just dipping your toes into the vast ocean of cloud computing, PulumiUP has something for everyone. 
 
-## Writing the Post
+You will hear keynote from Pulumi leaders, Founder/CEO Joe Duffy and CTO Luke Hoban, and from industry leaders on their experience in cloud adoption, innovation and transformation and how they are leverage Pulumi to make it happen. We will have special industry expert speakers to help you navigate the everchanging world of the cloud and hear from the community, which can be you if you have a story to tell that brings value to cloud ecosystem community. 
 
-For help assembling the content of your post, see [BLOGGING.md](https://github.com/pulumi/pulumi-hugo/blob/master/BLOGGING.md). For general formatting guidelines, see the [Style Guide](https://github.com/pulumi/pulumi-hugo/blob/master/STYLE-GUIDE.md).
+## Call for Speakers: Your Story Matters
 
-## Code Samples
+One exciting addition to this year's event is the call for speakers. We invite you, the community, to share your stories, experiences, and expertise with fellow attendees. Whether it's a deep dive into a groundbreaking project, lessons learned from failures, or innovative best practices, your voice matters at PulumiUP.
 
-```typescript
-let bucket = new aws.s3.Bucket("stuff");
-...
-```
+### Key Dates to Remember
 
-## Images
+- CFP opens: Thursday, April 25, 2024.
+- CFP closes: Monday, June 17, 2024.
+- CFP Notifications: Monday, July 22, 2024.
+  
+### Selection Criteria
 
-![Placeholder Image](meta.png)
+At PulumiUP, diversity and originality are celebrated. We welcome proposals from all corners of the tech community and prioritize fresh perspectives and solutions. Regardless on where you are in the world, we want to hear from you. Whether you're a seasoned speaker or a first-timer, we encourage you to submit your ideas. Just remember, no vendor pitches allowed!
 
-## Videos
+### Talk Formats and Themes
 
-{{< youtube "kDB-YRKFfYE?rel=0" >}}
+You can submit up to two proposals in either the Lightning Talk (15-minute) or traditional session (30-minute) formats. The conference will cover a wide array of themes, including:
 
-Note the `?rel=0` param, which tells YouTube to suggest only videos from same channel.
+- **Infrastructure as Code**: From cloud providers to kubernetes, explore the latest trends and best practices in cloud computing and IaC.
+- **Platform Engineering & DevOps**: Learn how to streamline CI/CD practices, automate infrastructure operations, build internal developer portals (IDP), and enhance developer experiences.
+- **AI / ML**: Dive into the world of AI and ML, covering topics like deploying AI application, LLM models, MLOps, and AIOps.
+- **Cloud Culture**: Discover the human side of tech, focusing on diversity, inclusivity, and collaboration within the industry.
+
+Do you have a story to tell? [Submit your proposal](https://sessionize.com/pulumiup-conference-2024).
+
+## Join Us on September 18!
+
+[Register for PulumiUP](https://www.pulumi.com/pulumi-up/). Stay tuned for more updates and announcements as we gear up for PulumiUP 2024. We can't wait to see you there!
