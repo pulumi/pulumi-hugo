@@ -60,7 +60,7 @@ One exciting addition to this year's event is the call for speakers. We invite y
   
 ### Selection Criteria
 
-At PulumiUP, diversity and originality are celebrated. We welcome proposals from all corners of the tech community and prioritize fresh perspectives and solutions. Regardless on where you are in the world, we want to hear from you. Whether you're a seasoned speaker or a first-timer, we encourage you to submit your ideas. Just remember, no vendor pitches allowed!
+At PulumiUP, diversity and originality are celebrated. We welcome proposals from all corners of the tech community and prioritize fresh perspectives and solutions. Regardless of where you are in the world, we want to hear from you. Whether you're a seasoned speaker or a first-timer, we encourage you to submit your ideas. Just remember, no vendor pitches allowed!
 
 ### Talk Formats and Themes
 
