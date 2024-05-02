@@ -67,7 +67,7 @@ At PulumiUP, diversity and originality are celebrated. We welcome proposals from
 You can submit up to two proposals in either the Lightning Talk (15-minute) or traditional session (30-minute) formats. The conference will cover a wide array of themes, including:
 
 - **Infrastructure as Code**: From cloud providers to Kubernetes, explore the latest trends and best practices in cloud computing and IaC.
-- **Platform Engineering & DevOps**: Learn how to streamline CI/CD practices, automate infrastructure operations, build internal developer portals (IDP), and enhance developer experiences.
+- **Platform Engineering & DevOps**: Learn how to streamline CI/CD practices, automate infrastructure operations, build internal developer portals (IDP), and improve developer experiences.
 - **AI / ML**: Dive into the world of AI and ML, covering topics like deploying AI application, LLM models, MLOps, and AIOps.
 - **Cloud Culture**: Discover the human side of tech, focusing on diversity, inclusivity, and collaboration within the industry.
 
