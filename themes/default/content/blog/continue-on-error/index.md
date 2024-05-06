@@ -39,9 +39,11 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-This might sound like a familiar issue: you try to set up or destroy some cloud infrastructure and a resource has errors.  Pulumi now also errors out and leaves the resources it hasn't destroyed or updated yet untouched.  Often that's what you want. There might be no point in bringing up more infrastructure if a resource fails.  Or to destroy the rest of the stack if we can't destroy everything.
+The default behavior of `pulumi up` and `pulumi destroy` is to stop the entire deployment when a resource operation fails. Any subsequent resource operations that would have been performed but had not yet started will therefore not occur. Often that's what you want -- there might be no point in bringing up more infrastructure if a resource fails.
 
-In other cases though, it can be very useful to keep going trying to bring resources that are independent from the failed one into the requested state, be that resources being created or destroyed.  To allow you to do exactly this we're introducing a new `--continue-on-error` flag for both `pulumi up` and `pulumi destroy`.
+However, in some cases it can be useful to keep going to try to bring resources that are independent from the failed one into the requested state, be that resources being created or destroyed. For example, when doing a `pulumi destroy`, you may want to have Pulumi destroy as many resources as it can, without stopping when the first error occurs.
+
+You can now do exactly that with the new `--continue-on-error` flag for `pulumi up` and pulumi destroy`.
 
 <!--more-->
 
