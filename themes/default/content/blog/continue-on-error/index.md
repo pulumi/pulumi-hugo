@@ -47,7 +47,7 @@ You can now do exactly that with the new `--continue-on-error` flag for `pulumi 
 
 <!--more-->
 
-Using this flag means that resources that are not in the same dependency tree as the failed resource will still continue to be updated or destroyed, as they would normally do.  Without it Pulumi would stop and refuse to change any more resources after it encountered errors.  To make sure dependencies are still correctly respected, resources that depend on a successful update or destroy of the failed resource will not continue to be updated.  This means that this flag is always safe to use, as Pulumi will continue to manage the failed resources, and they can be updated or destroyed in subsequent runs of Pulumi.
+Using this flag means that resources that are not in the same dependency tree as the failed resource will still continue to be updated or destroyed, as they would normally.  To make sure dependencies are still correctly respected, resources that depend on a successful update or destroy of the failed resource will not continue to be updated.  This means that this flag is always safe to use, as Pulumi will continue to manage the failed resources, and they can be updated or destroyed in subsequent runs of Pulumi.
 
 When the execution finishes, Pulumi will report the resource failures as you would currently expect from a failure, and exit with a non-zero exit code.  This indicates that even though we continued to update resources independent from the failed one, there was an error during the deployment.
 
