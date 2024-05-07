@@ -42,7 +42,7 @@ main:
     sortable_date: 2024-06-05T09:00:00.000-07:00
 
     # Duration of the webinar.
-    duration: 90 minutes
+    duration: 60 minutes
 
     # "virtual" will be shown under "show virtual events only", otherwise shown as City, State (seattle, wa)
     location: virtual
