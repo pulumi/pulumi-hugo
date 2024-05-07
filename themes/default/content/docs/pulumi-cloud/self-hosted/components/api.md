@@ -298,8 +298,8 @@ The following environment variables are needed to configure OpenTelemetry in the
 | Variable name | Description |
 | --- | --- |
 | OTEL_EXPORTER_OTLP_ENDPOINT | (Required) Used to configure the OTLP exporter. The base URL to which all telemetry will be sent. If not set, the API service will use no-op metrics and traces. |
-| OTEL_EXPORTER_OTLP_PROTOCOL | (Optional) Used to configure the OTLP exporter. Valid values are "http" or "grpc". Defaults to "grpc". |
-| PULUMI_ENABLE_DEPRECATED_METRICS | (Optional) Whether to continue emitting API service metrics in a log-based format. Defaults to true. |
+| OTEL_EXPORTER_OTLP_PROTOCOL | (Optional) Used to configure the OTLP exporter. Valid values are `http` or `grpc`. Defaults to `grpc`. |
+| PULUMI_ENABLE_DEPRECATED_METRICS | (Optional) Whether to continue emitting API service metrics in a log-based format. Defaults to `true`. |
 | METRICS_WEBHOOK_SECRET | Required to successfully authenticate to the `/metrics` endpoint. The Authorization header shoud be set as follows: `Authorization: webhook-token <METRICS_WEBHOOK_SECRET>`. |
 
 OpenTelemetry is not yet available for the node backend or console.
@@ -366,6 +366,8 @@ service:
       receivers: [otlp]
       processors: [memory_limiter, batch]
       exporters: [prometheusremotewrite]
+
+  extensions: [sigv4auth]
 ```
 
 #### Prometheus exporter
