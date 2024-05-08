@@ -300,7 +300,7 @@ The following environment variables are needed to configure OpenTelemetry in the
 | OTEL_EXPORTER_OTLP_ENDPOINT | (Required) Used to configure the OTLP exporter. The base URL to which all telemetry will be sent. If not set, the API service will use no-op metrics and traces. |
 | OTEL_EXPORTER_OTLP_PROTOCOL | (Optional) Used to configure the OTLP exporter. Valid values are `http` or `grpc`. Defaults to `grpc`. |
 | PULUMI_ENABLE_DEPRECATED_METRICS | (Optional) Whether to continue emitting API service metrics in a log-based format. Defaults to `true`. |
-| METRICS_WEBHOOK_SECRET | Required to successfully authenticate to the `/metrics` endpoint. The Authorization header shoud be set as follows: `Authorization: webhook-token <METRICS_WEBHOOK_SECRET>`. |
+| METRICS_WEBHOOK_SECRET | Required to successfully authenticate to the `/metrics` endpoint. The Authorization header should be set as follows: `Authorization: webhook-token <METRICS_WEBHOOK_SECRET>`. |
 
 OpenTelemetry is not yet available for the [console service](/docs/pulumi-cloud/self-hosted/components/console/).
 
