@@ -62,7 +62,7 @@ It's possible to split apart the HTTP Server from the Background Jobs functional
 
 The core infrastructure components to successfully run the API service are the database, object storage, and encryption services.
 Depending on your requirements, you can configure additional (optional) identity services as well as enhanced security
-between the API and the database. The API also supports exporting OpenTelemetry metrics and traces via the OpenTelemetry collector.
+between the API and the database. The API also supports [exporting OpenTelemetry metrics and traces](#opentelemetry) via the OpenTelemetry collector.
 
 | Variable Name            | Description                                                                                                                                  |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -302,11 +302,11 @@ The following environment variables are needed to configure OpenTelemetry in the
 | PULUMI_ENABLE_DEPRECATED_METRICS | (Optional) Whether to continue emitting API service metrics in a log-based format. Defaults to `true`. |
 | METRICS_WEBHOOK_SECRET | Required to successfully authenticate to the `/metrics` endpoint. The Authorization header shoud be set as follows: `Authorization: webhook-token <METRICS_WEBHOOK_SECRET>`. |
 
-OpenTelemetry is not yet available for the node backend or console.
+OpenTelemetry is not yet available for the [console service](/docs/pulumi-cloud/self-hosted/components/console/).
 
 ### Metrics endpoint
 
-The API service exposes a metrics endpoint (`https://api.pulumi.com/metrics`) that is secured by a bearer token. This token is configured using the environment variable, `METRICS_WEBHOOK_SECRET`.
+The API service exposes a metrics endpoint (`https://api.pulumi.com/metrics`) that is secured by a bearer token. This token is configured using the environment variable `METRICS_WEBHOOK_SECRET`.
 
 {{% notes type="info" %}}
 The token type is `webhook-token`, not `Bearer`.
@@ -318,7 +318,7 @@ curl -s GET https://api.pulumi.com/metrics -H 'Authorization: webhook-token <MET
 
 ### Prometheus
 
-The API service provides 2 options to get metrics into Prometheus:
+The API service provides two options to get metrics into Prometheus:
 
 1. From the OpenTelemetry collector via a [Prometheus remote write exporter](#prometheus-remote-write-exporter). This is a push-based exporter.
 1. From a [Prometheus exporter](#prometheus-exporter) by scraping the `/metrics` endpoint. This is a pull-based exporter.
@@ -372,7 +372,7 @@ service:
 
 #### Prometheus exporter
 
-This option require configuring the environment variable `METRICS_WEBHOOK_SECRET` to successfully authenticate to the [`/metrics` endpoint](#metrics-endpoint)
+This option requires configuring the environment variable `METRICS_WEBHOOK_SECRET` to successfully authenticate to the [`/metrics` endpoint](#metrics-endpoint).
 
 Example OpenTelemetry collector configuration:
 
