@@ -39,24 +39,24 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-The default behavior of `pulumi up` and `pulumi destroy` is to stop the entire deployment when a resource operation fails. Any subsequent resource operations that would have been performed but had not yet started will therefore not occur. Often that's what you want -- there might be no point in bringing up more infrastructure if a resource fails.
+When managing many resources with Pulumi, you may have noticed that when a resource operation fails during a `pulumi up` or `pulumi destroy`, the deployment stops at that point. Any subsequent resource operations that would have been performed but had not yet started will not occur. Often that's what you want -- there might be no point in bringing up more infrastructure if a resource fails.
 
 However, in some cases it can be useful to keep going to try to bring resources that are independent from the failed one into the requested state, be that resources being created or destroyed. For example, when doing a `pulumi destroy`, you may want to have Pulumi destroy as many resources as it can, without stopping when the first error occurs.
 
-You can now do exactly that with the new `--continue-on-error` flag for `pulumi up` and pulumi destroy`.
+You can now do exactly that with the new `--continue-on-error` flag for `pulumi up` and `pulumi destroy`.
 
 <!--more-->
 
-Using this flag means that resources that are not in the same dependency tree as the failed resource will still continue to be updated or destroyed, as they would normally.  To make sure dependencies are still correctly respected, resources that depend on a successful update or destroy of the failed resource will not continue to be updated.  This means that this flag is always safe to use, as Pulumi will continue to manage the failed resources, and they can be updated or destroyed in subsequent runs of Pulumi.
+Using `--continue-on-error` means that resources that are not in the same dependency tree as the failed resource will still continue to be updated or destroyed, as they would normally.  To make sure dependencies are still correctly respected, resources that depend on a successful update or destroy of the failed resource will not continue to be updated.  This means that this flag is always safe to use, as Pulumi will continue to manage the failed resources, and they can be updated or destroyed in subsequent runs of Pulumi.
 
 When the execution finishes, Pulumi will report the resource failures as you would currently expect from a failure, and exit with a non-zero exit code.  This indicates that even though we continued to update resources independent from the failed one, there was an error during the deployment.
 
 ## What do I need to do?
 
-`pulumi destroy --continue-on-error` was introduced in Pulumi v3.112.0.  After upgrading to this version you can go ahead and use this feature.
+`pulumi destroy --continue-on-error` was introduced in Pulumi v3.112.0.  After upgrading to this version or later of the Pulumi CLI you can go ahead and use this feature.
 
-`pulumi up --continue-on-error` was introduced in Pulumi v3.114.0. However, it also requires updated language SDKs to work best. Since we now have resources that fail to create, but the Pulumi program continues to execute, the SDK has to deal with the outputs of these resources.  Currently during `pulumi up` there are no "unknown" values expected by the SDK.  Since we may now have a failed resource, the outputs for that resource might still be unknown, and the SDK will have to deal with that.  This means that to fully support this feature some SDK changes were necessary.  So in addition to upgrading the Pulumi CLI to v3.114.0, you will also have to upgrade the Pulumi SDK to v3.114.0 for Go, Python and Node.js, 3.63.0 for .NET. For Pulumi YAML programs, you'll need to use v3.115.0 of the Pulumi CLI.
+`pulumi up --continue-on-error` was introduced in Pulumi v3.114.0. However, it also requires updated language SDKs to work best. Since we now have resources that fail to create, but the Pulumi program continues to execute, the SDK has to deal with the outputs of these resources.  Currently during `pulumi up` there are no "unknown" values expected by the SDK.  Since we may now have a failed resource, the outputs for that resource might still be unknown, and the SDK will have to deal with that.  This means that to fully support this feature some SDK changes were necessary.  So in addition to upgrading the Pulumi CLI to v3.114.0, you will also have to upgrade the Pulumi SDK to v3.114.0 or later for Go, Python and Node.js, and 3.63.0 or later for .NET. For Pulumi YAML programs, you'll need to use v3.115.0 or later of the Pulumi CLI.
 
-The flag still exists for older SDK versions, however the Pulumi engine will return an error to your program, which then will need to be handled, or the rest of the program might not be executed, and thus some resources may not be updated.
+When `--continue-on-error` is used with older SDK versions, the Pulumi engine will return an error to your program, which then will need to be handled, or the rest of the program might not be executed, and thus some resources may not be updated.
 
-Give it a try and let us know if you find it useful!
+Give it a try and [let us know](https://slack.pulumi.com) if you find it useful!
