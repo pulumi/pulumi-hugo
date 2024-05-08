@@ -19,43 +19,22 @@ Pulumi ESC integrates with [Docker](https://www.docker.com/) to help developers 
 To complete the steps in this tutorial, you will need to install the following prerequisites:
 
 - the [Pulumi ESC CLI](/docs/esc-cli/)
-- the [Docker CLI](https://www.docker.com/) and shell integration
+- the [Docker CLI](https://www.docker.com/)
 
 ## Manage environment variables for Docker containers
 
-### Create an ESC environment with environment variables
+### Set individual environment variables in a Docker container
 
-ESC integrates with `docker` by exporting environment variables from an opened environment. Before you can configure `docker`, you'll need to create an environment that exports environment variables. For example, the environment below fetches AWS credentials via OIDC and exports these credentials in environment variables:
+ESC integrates with `docker` by setting command-line arguments with values from an opened environment. The first step is to create an environment with your desired configuration.
 
-```yaml
-values:
-  aws:
-    login:
-      fn::open::aws-login:
-        oidc:
-          duration: 1h
-          roleArn: <your-oidc-iam-role-arn>
-          sessionName: pulumi-environments-session
-  environmentVariables:
-    AWS_ACCESS_KEY_ID: ${aws.login.accessKeyId}
-    AWS_SECRET_ACCESS_KEY: ${aws.login.secretAccessKey}
-    AWS_SESSION_TOKEN: ${aws.login.sessionToken}
-```
-
-For the purposes of this guide, we'll create a simplified environment to demonstrate your options:
+The following environment sets two values that are exported as environment variables:
 
 ```yaml
 values:
   environmentVariables:
     ESC_ORG: You are in the ${context.pulumi.organization.login} organization!
     ESC_HELLO_USER: Hello, ${context.pulumi.user.login}!
-  files:
-    DOCKER_ENVFILE: |
-      ESC_ORG="You are in the ${context.pulumi.organization.login} organization!"
-      ESC_HELLO_USER="Hello, ${context.pulumi.user.login}!"
 ```
-
-### Set individual environment variables in a Docker container
 
 You can [set environment variables for a Docker container](https://docs.docker.com/reference/cli/docker/container/run/#env) as part of a `docker run` command:
 
@@ -63,7 +42,8 @@ You can [set environment variables for a Docker container](https://docs.docker.c
 $ esc run <your-environment-name> -- docker run --rm -t -e ESC_ORG -e ESC_HELLO_USER alpine env
 ```
 
-The output should look something like this, but with your own username and organization name set in the environment variables.
+This command opens the environment you just created, sets the specified environment variables, and then uses those environment variables in the context of the `docker run`. In this case, the command
+runs an alpine container, prints the container environment, and then exits. The output should look something like this, but with your own username and organization name set in the environment variables.
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -74,15 +54,50 @@ ESC_ORG=You are in the example organization!
 HOME=/root
 ```
 
-### Set environment variables from a file
+### Set multiple environment variables in a Docker container from an env-file
 
-You can set environment variables dynamically by using an environment file as part of a `docker run` command:
+Instead of setting each environment variable explicitly, you also have the option of using an env-file to set variables in your container environment. Here, we extend the environment definition from the
+previous example to include a value in the `files` section. When the environment is opened, the value is copied to a temporary file on your system, with the path set as an environment variable with
+the key name.
+
+```yaml
+values:
+    environmentVariables:
+        ESC_ORG: You are in the ${context.pulumi.organization.login} organization!
+        ESC_HELLO_USER: Hello, ${context.pulumi.user.login}!
+    files:
+        DOCKER_ENVFILE: |
+            ESC_ORG=${environmentVariables.ESC_ORG}
+            ESC_HELLO_USER=${environmentVariables.ESC_HELLO_USER}
+```
+
+If you open this environment in a terminal, you will see something like this:
+
+```bash
+$ esc open pulumi/docker-env-test --format shell
+
+export ESC_HELLO_USER="Hello, example-user!"
+export ESC_ORG="You are in the example organization!"
+export DOCKER_ENVFILE="/var/folders/ny/f_y5fsqd235fpx5bs6ghyk4w0000gn/T/esc-1312668514"
+```
+
+The temporary file contains the value specified in your environment:
+
+```bash
+$ cat /var/folders/ny/f_y5fsqd235fpx5bs6ghyk4w0000gn/T/esc-1312668514
+
+ESC_ORG=You are in the example organization!
+ESC_HELLO_USER=Hello, example-user!
+```
+
+Now you can reference this env-file to set environment variables dynamically in a `docker run` command:
 
 ```bash
 $ esc run -i <your-environment-name> -- sh -c 'docker run --rm -t --env-file=$DOCKER_ENVFILE alpine env'
 ```
 
-The output should look something like this, but with your own username and organization name set in the environment variables.
+This command opens the environment you just created and references the path of the temporary env-file to set environment variables in the context of the `docker run`. In this case, the command
+runs an alpine container, prints the container environment, and then exits. The output should look something like this, but with your own username and organization name set in the environment variables.
 
 ```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -97,7 +112,7 @@ HOME=/root
 
 ### Create an ESC environment with your Docker registry credentials
 
-ESC integrates with `docker` by exporting environment variables from an opened environment. You can store login configuration securely with an ESC environment.
+ESC integrates with `docker` by setting command-line arguments with values from an opened environment. You can store login configuration securely with an ESC environment.
 This example stores the username and encrypted password directly in the environment, but you can also reference external secrets with [ESC providers](/docs/esc/providers/).
 
 ```yaml
@@ -107,18 +122,14 @@ values:
     password:
       fn::secret: <your-registry-password>
     registry: null # Provide a registry URL if you are not using Docker Hub
-  environmentVariables:
-    USERNAME: ${docker.username}
-    PASSWORD: ${docker.password}
-    REGISTRY: ${docker.registry}
 ```
 
 ### Log in to a Docker registry
 
-You can [log into a Docker registry](https://docs.docker.com/reference/cli/docker/login/) without needing to manage the credentials directly in your shell:
+Now, you can [log into a Docker registry](https://docs.docker.com/reference/cli/docker/login/) without needing to manage the credentials directly in your shell:
 
 ```bash
-$ esc run <your-environment-name> -- sh -c 'echo $PASSWORD | docker login --username $USERNAME --password-stdin $REGISTRY'
+$ esc run <your-environment-name> -- sh -c 'echo ${docker.password} | docker login --username ${docker.username} --password-stdin ${docker.registry}'
 
 Login Succeeded
 ```
