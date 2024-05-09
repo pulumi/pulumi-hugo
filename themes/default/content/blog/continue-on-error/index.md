@@ -1,5 +1,5 @@
 ---
-title: "Continue on Error"
+title: "Continue on Error in the Pulumi CLI"
 
 # The date represents the post's publish date, and by default corresponds with
 # the date and time this file was generated. Dates are used for display and
@@ -7,7 +7,7 @@ title: "Continue on Error"
 # published. To influence the ordering of posts published on the same date, use
 # the time portion of the date value; posts are sorted in descending order by
 # date/time.
-date: 2024-04-16T15:05:00+02:00
+date: 2024-06-09T06:00:00+02:00
 
 # The draft setting determines whether a post is published. Set it to true if
 # you want to be able to merge the post without publishing it.
