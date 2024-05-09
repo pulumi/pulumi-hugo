@@ -39,13 +39,15 @@ tags:
 # for details, and please remove these comments before submitting for review.
 ---
 
-When managing many resources with Pulumi, you may have noticed that when a resource operation fails during a `pulumi up` or `pulumi destroy`, the deployment stops at that point. Any subsequent resource operations that would have been performed but had not yet started will not occur. Often that's what you want -- there might be no point in bringing up more infrastructure if a resource fails.
+When managing many resources with Pulumi, a `pulumi up` or `pulumi destroy` can lead to a complex graph of resource operations being performed as concurrently as possible relative to the dependencies in your program. If one of those operations fails, you may have noticed that Pulumi takes the most conservative approach, letting already in-flight operations complete, but not starting any new operations. Most often, that's what you want -- there might be no point in bringing up more infrastructure if a resource fails.
 
 However, in some cases it can be useful to keep going to try to bring resources that are independent from the failed one into the requested state, be that resources being created or destroyed. For example, when doing a `pulumi destroy`, you may want to have Pulumi destroy as many resources as it can, without stopping when the first error occurs.
 
 You can now do exactly that with the new `--continue-on-error` flag for `pulumi up` and `pulumi destroy`.
 
 <!--more-->
+
+{{< video title="Using pulumi new with the new AI option" src="coe.mp4" controls="false" autoplay="true" loop="true" >}}
 
 Using `--continue-on-error` means that resources that are not in the same dependency tree as the failed resource will still continue to be updated or destroyed, as they would normally.  To make sure dependencies are still correctly respected, resources that depend on a successful update or destroy of the failed resource will not continue to be updated.  This means that this flag is always safe to use, as Pulumi will continue to manage the failed resources, and they can be updated or destroyed in subsequent runs of Pulumi.
 
@@ -59,4 +61,6 @@ When the execution finishes, Pulumi will report the resource failures as you wou
 
 When `--continue-on-error` is used with older SDK versions, the Pulumi engine will return an error to your program, which then will need to be handled, or the rest of the program might not be executed, and thus some resources may not be updated.
 
-Give it a try and [let us know](https://slack.pulumi.com) if you find it useful!
+This feature was a [highly requested feature](https://github.com/pulumi/pulumi/issues/3304) in the Pulumi open source project, and we're constantly working to address these highly requested features across the open source projects, so jump in and give features you'd like to see us add a 👍.
+
+Give `--continue-on-error` a try and [let us know](https://slack.pulumi.com) what you think!
