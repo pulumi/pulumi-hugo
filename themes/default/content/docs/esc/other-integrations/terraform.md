@@ -1,6 +1,6 @@
 ---
 title_tag: Integrate with Terraform | Pulumi ESC
-title: Direnv
+title: Terraform
 h1: "Pulumi ESC: Integrate with Terraform"
 meta_desc: This page provides an overview on how to use Pulumi ESC with Terraform.
 weight: 2
