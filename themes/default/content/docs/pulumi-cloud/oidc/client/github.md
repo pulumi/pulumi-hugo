@@ -32,7 +32,9 @@ Please note that this guide provides step-by-step instructions based on the offi
 1. Click on the issuer name
 1. Change the policy decision to `Allow`
 1. Change the token type to `Organization`
-1. Add a new rule and configure it to allow calls from your repository: `repository: octo-org/octo-repo`. For further information about Github token claims refer to the [official Github documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token).
+1. Add some rules to protect your account. 
+  1. Add a rule to allow calls only from your GH repository: `repository: octo-org/octo-repo`. For further information about Github token claims refer to the [official Github documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token).
+  1. Add a rule to ensure that the tokens are intended for your Pulumi organization: `aud: urn:pulumi:org:octo-org`.
    ![Github policy example](../github-policies.png)
 1. Click on update
 
