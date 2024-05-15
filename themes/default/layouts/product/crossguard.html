@@ -1,0 +1,198 @@
+{{ define "hero" }}
+    <header class="home-page-hero">
+        <div class="dot-background-container pointer-events-none">
+            <div class="dot-background"></div>
+        </div>
+        <div class="dot-overlay"></div>
+        <div class="home-page-hero-content pb-12">
+            <h1 class="flex flex-col items-center">
+                <span class="rainbow-text inline-block text-center">Pulumi CrossGuard</span>
+            </h1>
+            <p class="text-center leading-7">Policy as Code for Any Cloud</p>
+        </div>
+    </header>
+{{ end }}
+
+{{ define "main" }}
+    {{ $pageContext := . }}
+
+    <section id="overview" class="container mx-auto my-16 lg:mt-16 lg:mb-8 px-6">
+        <div class="flex justify-center items-center h-full">
+            <div class="text-center">
+                <h3>“Shift Left” policy enforcement and standards remediation</h3>
+                <p>
+                    Programmatic policy enforcement and remediation is key to scaling securely and efficiently because inconsistent infrastructure could lead to compromise. Pulumi CrossGuard offers centralized policy enforcement and remediation as an integrated component of Pulumi’s infrastructure as code platform. Take advantage of well-known and well-understood programming languages like TypeScript and Python to author policies, and apply them across multiple clouds, SaaS offerings, and application platforms. Pull from a library of ready-made policies that can be customized to your organization’s specific needs and goals. CrossGuard ensures consistent application of your policies, and prevents new misconfigurations or inconsistencies from being introduced into your infrastructure.
+                </p>
+                <div class="mt-8">
+                    <a class="btn-primary" href="/docs/using-pulumi/crossguard/get-started/">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshot1" class="container mx-auto my-16">
+        <div class="max-w-5xl mx-auto text-center py-8">
+            <h2>Benefits of Pulumi CrossGuard</h2>
+        </div>
+        <div class="flex flex-wrap items-stretch">
+            <div class="w-full lg:w-2/3">
+                <img src="/images/product/crossguard-screenshot.png" alt="screenshot of Pulumi CrossGuard management console" />
+            </div>
+            <div class="w-full lg:w-1/3 p-4">
+                {{ range $item := .Params.screenshot1.items }}
+                    <div class="card bg-white p-4 my-4">
+                        <div>
+                            <h5>{{ $item.title }}</h5>
+                        </div>
+                        <div class="mt-6">
+                            <p>{{ $item.description }}</p>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshot2" class="container mx-auto my-16">
+        <div class="flex flex-wrap items-stretch">
+            <div class="w-full lg:w-1/3 p-4">
+                {{ range $item := .Params.screenshot2.items }}
+                    <div class="card bg-white p-4 my-4">
+                        <div>
+                            <h5>{{ $item.title }}</h5>
+                        </div>
+                        <div class="mt-6">
+                            <p>{{ $item.description }}</p>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+            <div class="w-full lg:w-2/3">
+                <img src="/images/product/crossguard-new-policy.png" alt="screenshot of Pulumi CrossGuard management console" />
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="screenshot3" class="container mx-auto my-16">
+        <div class="flex flex-wrap items-stretch">
+            <div class="w-full lg:w-2/3">
+                <img src="/images/product/crossguard-remediation-policy.png" alt="screenshot of Pulumi CrossGuard management console" />
+            </div>
+            <div class="w-full lg:w-1/3 p-4">
+                {{ range $item := .Params.screenshot3.items }}
+                    <div class="card bg-white p-4 my-4">
+                        <div>
+                            <h5>{{ $item.title }}</h5>
+                        </div>
+                        <div class="mt-6">
+                            <p>{{ $item.description }}</p>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <section id="quotes" class="w-full my-16">
+        <div class="w-full">
+            <div class="lg:flex lg:items-stretch justify-center">
+                {{ range $item := .Params.quotes.items }}
+                    <div class="lg:w-1/3 px-4 mb-12 lg:mb-0">
+                        <div class="flex flex-col h-full card p-6 bg-white relative">
+                            <p class="text-left mt-0 italic font-semibold text-black">{{ $item.quote }}</p>
+                            <div class="flex flex-grow items-end justify-between pb-4">
+                                <div class="w-2/3 text-left">
+                                    <p class="text-black mb-0 text-sm">{{ $item.name }}</p>
+                                    <p class="mt-0 text-sm">{{ $item.name_title }}</p>
+                                </div>
+                                <div class="my-4 h-16">
+                                    {{ partial "customer-logo.html" (dict "logo" $item.company) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshot" class="container mx-auto my-16">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2>Frequently asked questions</h2>
+        </div>
+        <ul class="list-none p-0 mx-5 xl:ml-12" data-faq-type="faq-pricing">
+            <li class="accordion-item text-2xl py-3">
+                {{ partial "accordian-header" (dict "text" "What is Pulumi CrossGuard?" "large_header" true) }}
+                <div class="accordion-item-body-no-animation text-base">
+                    <p>
+                        Pulumi’s policy as code engine, <a href="/docs/using-pulumi/crossguard/">CrossGuard</a> enforces custom policies across a wide variety of use cases, including security, compliance, cost, and overall best practices. 
+                    </p>
+                    <p>
+                        {{ "CrossGuard warns or issues errors should a deployment attempt to violate a policy. CrossGuard policies are rules that run during `pulumi preview` and `pulumi update` to check that the resource state conforms to some set of criteria.  Policies can check a single resource at a time — but stack-wide policies are supported too, where an entire stack’s worth of resources can be checked at once. " | markdownify}}
+                    </p>
+                </div>
+            </li>
+            <li class="accordion-item text-2xl py-3">
+                {{ partial "accordian-header" (dict "text" "What types of policies can be enforced with Pulumi CrossGuard?" "large_header" true) }}
+                <div class="accordion-item-body-no-animation text-base">
+                    <p>
+                        With Pulumi CrossGuard, you can enforce a wide range of policies and overall best practices. Here are several common use cases:
+                    </p>
+                    <ul>
+                        <li>Best Practices Enforcement: Enforce architectural and operational best practices, such as ensuring tagging for resource tracking and cost allocation, using specific versions of cloud services, or adhering to naming conventions across your infrastructure. Take advantage of <a href="/docs/using-pulumi/crossguard/awsguard/">AWSGuard</a>, an open source library of best practices for AWS. </li>
+                        <li>Security and Compliance Policies: Pulumi <a href="https://github.com/pulumi/compliance-policies/">Compliance-Ready Policies</a> make it easy to create policy packs for enforcing common security and compliance policies (PCI DSS, ISO 27001 and CIS) across a broad range of cloud providers. You can also create your own policies to ensure encryption is enabled on storage accounts and databases.</li>
+                        <li>Cost Management Policies: Pulumi <a href="/blog/manage-infrastructure-with-pac/#controlling-cost-on-aws">Control cloud costs</a> by setting policies that limit the size and type of resources, prevent provisioning of high-cost resources, and ensure that development environments are sized correctly. </li>
+                    </p>
+                </div>
+            </li>
+            <li class="accordion-item text-2xl py-3">
+                {{ partial "accordian-header" (dict "text" "What is a policy pack and how can I create a new policy?" "large_header" true) }}
+                <div class="accordion-item-body-no-animation text-base">
+                    <p>
+                        You can use off-the-shelf policies like <a href="/docs/using-pulumi/crossguard/awsguard/">AWSGuard</a> and the new <a href="https://github.com/pulumi/compliance-policies/">Pulumi compliance-ready policies</a> or write your own “policy pack” in one of the supported languages (currently JavaScript, Python, TypeScript, or Open Policy Agent (OPA) Rego). A policy pack is a collection of policies that are just objects and functions that are given an opportunity to inspect the resource graph and report whether any policy violations have been detected. They’re packaged natively (such as NPM, PyPI, etc) and Pulumi runs the policies at the right time with the right data to enforce them.
+                    </p>
+                </div>
+            </li>
+            <li class="accordion-item text-2xl py-3">
+                {{ partial "accordian-header" (dict "text" "What are Remediation Policies?" "large_header" true) }}
+                <div class="accordion-item-body-no-animation text-base">
+                    <p>
+                        <a href="/docs/using-pulumi/crossguard/awsguard/">AWSGuard</a> Remediation Policies remediate violations to actually fix the problems they find in addition to or instead of reporting them as violations. Just like normal policies, a remediation is given a resource’s state for inspection. If the policy finds a problem, it can fix that state in place, and return it, and the engine will use the remediated state in place of the original state produced by the Pulumi program. Remediation policies are great for many use cases. Here are a few examples:
+                    </p>
+                    <ul>
+                        <li>Tagging resources with standard, organization-wide tags.</li>
+                        <li>Disabling internet access for gateways and firewall rules.</li>
+                        <li>Enabling encryption on storage or buckets.</li>
+                        <li>Down-sizing virtual machine configuration to use less expensive machine types.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="accordion-item text-2xl py-3">
+                {{ partial "accordian-header" (dict "text" "What are the differences between CrossGuard as part of Pulumi Cloud vs the Pulumi open source SDK?" "large_header" true) }}
+                <div class="accordion-item-body-no-animation text-base">
+                    <p>
+                        {{ "All features of CrossGuard, except for organizational enforcement, are available in the free Pulumi open source SDK. To get started, just run `pulumi policy new` in a directory to begin creating your new policy pack. " | markdownify}}
+                    </p>
+                    <p>
+                        Also, check out the <a href="/docs/using-pulumi/crossguard/awsguard/">CrossGuard get started guide</a>, which walks through the entire process of creating a new policy pack from scratch and running it. 
+                    </p>
+
+                    <a href="/docs/using-pulumi/crossguard/awsguard/"></a>
+                </div>
+            </li>
+    </section>
+
+    <section id="get-started" class="container px-6 lg:px-0 mx-auto my-28 px-6">
+        <div class="w-full bg-violet-600 card p-6 lg:p-16 lg:pt-24 text-center">
+            <div class="max-w-xl mx-auto">
+                <h2 class="text-white hidden lg:block px-0 lg:px-16">Get started today</h2>
+                <h4 class="text-white mt-0 lg:hidden">Get started today</h4>
+                <p class="text-white">Follow the Getting started guide to begin using Pulumi CrossGuard</p>
+                <div class="mt-16">
+                    <a class="btn-secondary" href="/docs/using-pulumi/crossguard/get-started/">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{{ end }}
