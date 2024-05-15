@@ -44,6 +44,19 @@ Agents poll Pulumi Cloud every 30 seconds to check for pending deployments and w
 If you are running the agent inside a firewall ensure to allow outbound requests to api.pulumi.com. Ensure agents have the cloud provider credentials to be able to deploy in your environments.
 {{% /notes %}}
 
+### Leveraging OpenID authentication
+
+It is possible to use OpenID authentication to fetch Pulumi Pool tokens dinamically instead of having to configure a static token for the agents. To configure it, first it is required to register the OpenID provider as a trusted OIDC issuer in your pulumi account. For more information about this, refer to the [OIDC documentation](/docs/pulumi-cloud/oidc/client).
+
+After that, there are a few configurations required by the agent:
+
+- `organization_name`: your Pulumi organization name
+- `runner_pool_id`: the pool id the instance will connect to
+- `token_expiration` (optional): the expiration for the tokens requested by the agent
+- `oidc_token_file`: the location of the file where the OIDC token will be dumped
+
+The agent will attempt to read the `oidc_token_file` for a fresh OIDC token and exchange it automatically for a Pulumi token after each time the Pulumi token expires.
+
 ## Providing Credentials to Agents
 
 There are two methods to provide cloud provider credentials to the agents:
