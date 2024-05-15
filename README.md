@@ -1,6 +1,19 @@
 # pulumi-hugo
 
-### <mark>This repository will be archived on Thursday, May 16 2024, and its contents will be moved to the [pulumi/docs](https://github.com/pulumi/docs) repository. Going forward all contributions will need to be made there.</mark>
+### <mark>This repository was archived on Thursday, May 16 2024, and its contents were moved to the [pulumi/docs](https://github.com/pulumi/docs) repository. Going forward all contributions will need to be made there in order to get published to our site.</mark>
+
+## How to migrate PRs to the pulumi/docs repo
+
+If you still have open pull requests here that you still intend to merge, here are the steps to follow in order to move them over to the docs repository. You will need to copy over your files to the docs repo and place them in the new directory location. The directory structure has a slight change, everything under `themes/default` can be found under the root dir of the docs repo. For example, if you had a blog post located here under themes/default/content/blog/my-cool-blog, you will need to relocate it under content/blog/my-cool-blog in the docs repo.
+
+### Steps:
+1. Clone the docs repo if you haven't done so already.
+2. Create a new branch in the docs repository.
+3. Copy the files you changed/added to the docs repo. The directory structure is similar to how this repo was configured, except everything under themes/default has been moved to the root. For example, if you have a blog under `themes/default/content/blog/my-cool-blog`, you will need to relocate it under `content/blog/my-cool-blog` in the docs repo.
+4. Run make ensure in the docs repo and then a make serve to verify the files have been moved correctly.
+5. Push changes to the docs repo.
+6. Open a PR in the docs repo to add the changes there.
+
 
 A [Hugo](https://gohugo.io) module containing content and layouts used on pulumi.com, including hand-authored docs, the Pulumi blog, and Learn Pulumi.
 
