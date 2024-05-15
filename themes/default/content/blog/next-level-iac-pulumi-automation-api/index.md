@@ -1,7 +1,7 @@
 ---
 title: "Next-level IaC: How Pulumi Supports Your API Economy Strategy"
 allow_long_title: true
-date: 2024-05-06
+date: 2024-05-15
 meta_desc: Learn how to use Pulumi Automation API to build your own Service API and expose it to your organization.
 meta_image: meta.png
 
@@ -24,7 +24,7 @@ When I am talking with community members, who are not using Pulumi yet, I often 
 
 With the Pulumi Automation API you can include Pulumi IaC into your existing software, and this for any of the Pulumi supported programming languages like TypeScript, Python, Go, or C#. This gives you a greater flexibility and control, which you will not have with other IaC tools like CloudFormation or Terraform.
 
-This opens now many doors of opportunity to expose your services as an API, it could be internally to your organization or externally to your potential customers. This opportunity for innovation fuels what is known as the [API Economy](https://konghq.com/blog/enterprise/api-economy).
+This opens up many doors of opportunity to expose your services as an API, whether internally to your organization or externally to your potential customers. This opportunity for innovation fuels what is known as the [API Economy](https://konghq.com/blog/enterprise/api-economy).
 
 ## What is API Economy?
 
@@ -50,7 +50,7 @@ And it is this capability that allows you to build your own Service API on top o
 
 Let's take a look at how you can build your own Service API with Pulumi Automation API.
 
-For this purpose, we will build two basic REST services writen in [TypeScript](https://www.typescriptlang.org/) and in [Python](https://www.python.org/).
+For this purpose, we will build two basic REST services written in [TypeScript](https://www.typescriptlang.org/) and in [Python](https://www.python.org/).
 
 {{< chooser language "typescript,python" />}}
 
