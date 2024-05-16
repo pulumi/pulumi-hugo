@@ -61,7 +61,7 @@ Once you have created your new application registration, you will be redirected 
 
 ### Subject claim examples
 
-Depending on the Pulumi service you are configuring OIDC for, the value of the subject claim will be different. You can learn more about configuring OIDC with Pulumi by referring to the [relevant documentation](/docs/pulumi-cloud/oidc/).
+Depending on the Pulumi service you are configuring OIDC for, the value of the subject claim will be different. You can learn more about configuring OIDC with Pulumi by referring to the [relevant documentation](/docs/pulumi-cloud/oidc/provider).
 
 The below sections show examples that correspond to each OIDC-supported service.
 
@@ -76,28 +76,7 @@ Because Azure's federated credentials require that the subject identifier exactl
 
 #### Pulumi ESC
 
-The below is an example of a valid subject claim for the `development` environment of the `contoso` organization:
-
-* `pulumi:environments:org:contoso:env:development`
-
-{{< notes type="warning" >}}
-
-If you are integrating Pulumi ESC with Pulumi IaC, the default subject identifier of the ESC environment will not work at this time. There is a [known issue](https://github.com/pulumi/pulumi/issues/14509) with the subject identifier's value sent to Azure from Pulumi.
-
-Use 'subjectAttributes' to customize the subject identifier to work with Pulumi IaC. Alternatively, you can use this syntax: `pulumi:environments:org:contoso:env:<yaml>` when configuring the subject claim in your cloud provider account. Make sure to replace `contoso` with the name of your Pulumi organization and use the literal value of `<yaml>` as shown.
-
-{{< /notes >}}
-
-##### Subject customization
-
-It is possible to customize the OIDC token subject claim by setting configuring the `subjectAttributes` setting. It expects an array of keys to include in it:
-
-* `rootEnvironment.name`: the name of the root evironment being evaluated
-* `currentEnvironment.name`: the name of the current environment being evaluated
-* `pulumi.user.login`: the login identifier of the user opening the environment
-* `pulumi.organization.login`: the login identifier of the organization
-
-The subject always contains the following prefix `pulumi:environments:pulumi.organization.login:{ORGANIZATION_NAME}` and every key configured will be appended to this prefix. For example, consider the following environment:
+Consider the following ESC definition for `development` environment opened by user `personA`:
 
 ```yaml
 values:
@@ -110,7 +89,24 @@ values:
           - pulumi.user.login
 ```
 
-The subject will be `pulumi:environments:pulumi.organization.login:contoso:currentEnvironment.name:development:pulumi.user.login:userLogin`. Note how the keys and values are appended along with the prefix.
+The OIDC subject claim for this environment would be `pulumi:environments:pulumi.organization.login:contoso:currentEnvironment.name:development:pulumi.user.login:personA`. The role may only be assumed by `development` environment and user `personA` within the `contoso` organization.
+
+The subject always contains the prefix `pulumi:environments:pulumi.organization.login:{ORGANIZATION_NAME}` and every key configured will be appended to this prefix. The list of all possible options for `subjectAttributes` are:
+
+* `rootEnvironment.name`: the name of the environment that is opened first. This root environment in turn opens other imported environments
+* `currentEnvironment.name`: the name of the environment where the ESC login provider and `subjectAttributes` are defined
+* `pulumi.user.login`: the login identifier of the user opening the environment
+* `pulumi.organization.login`: the login identifier of the organization
+
+When importing multiple environments into Pulumi IaC Stack Config, each environment is resolved separately. For example, if you import multiple environments into your Pulumi Stack with `rootEnvironment.name` attribute defined in all of them, then each `rootEnvironment.name` will resolve to the environment name where it is defined.
+
+The default format of the subject claim when subjectAttributes are not used is `pulumi:environments:org:<organization name>:env:<environment name>`
+
+{{< notes type="info" >}}
+
+If you are integrating Pulumi ESC with Pulumi IaC, the default subject identifier of the environment will be `pulumi:environments:org:contoso:env:<yaml>`.  The literal value of `<yaml>` need to be used and will be the same for all environments. Hence, for best security practices we recommend using `subjectAttributes`. If you want to set environment level or even granular permissions in your trust policy, then we recommend using `subjectAttributes` property
+
+{{< /notes >}}
 
 ## Create a Service Principal
 
@@ -126,7 +122,7 @@ To provide Pulumi services the ability to deploy, manage, and interact with Azur
 7. Enter the name of the application you created in a previous step, select it from the list, then click **Select**.
 8. Click **Next** and then **Review + assign**.
 
-## Configure OIDC in the Pulumi Console
+## Configure OIDC via the Pulumi Console
 
 ### Pulumi Deployments
 
@@ -165,6 +161,9 @@ To configure OIDC for Pulumi ESC, create a new environment in the [Pulumi Consol
             tenantId: <your-tenant-id>
             subscriptionId: /subscriptions/<your-subscription-id>
             oidc: true
+            subjectAttributes:
+                - currentEnvironment.name
+                - pulumi.user.login
       environmentVariables:
         ARM_USE_OIDC: 'true'
         ARM_CLIENT_ID: ${azure.login.clientId}
