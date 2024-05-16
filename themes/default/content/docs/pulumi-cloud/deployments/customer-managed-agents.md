@@ -50,7 +50,7 @@ It is possible to use OpenID authentication to fetch Pulumi Pool tokens dynamica
 
 After registering the provider, this other information is required by the agent:
 
-- `organization_name`: your Pulumi organization name
+- `organization_name`: your Pulumi Organization name
 - `runner_pool_id`: the pool id the instance will connect to
 - `token_expiration` (optional): the expiration for the tokens requested by the agent
 - `oidc_token_file`: the location of the file where the OIDC token will be dumped
