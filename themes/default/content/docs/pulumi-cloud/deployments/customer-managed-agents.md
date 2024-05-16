@@ -55,7 +55,7 @@ After registering the provider, this other information is required by the agent:
 - `token_expiration` (optional): the expiration for the tokens requested by the agent
 - `oidc_token_file`: the location of the file where the OIDC token will be dumped
 
-The agent will attempt to read the `oidc_token_file` for a fresh OIDC token and exchange it automatically for a Pulumi token after each time the Pulumi token expires.
+The agent will attempt to read the `oidc_token_file` for a fresh OIDC token and exchange it automatically for a Pulumi token every time the Pulumi token expires.
 
 ## Providing Credentials to Agents
 
