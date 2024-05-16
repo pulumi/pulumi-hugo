@@ -46,7 +46,7 @@ If you are running the agent inside a firewall ensure to allow outbound requests
 
 ### Leveraging OpenID Authentication
 
-It is possible to use OpenID authentication to fetch Pulumi Pool tokens dinamically instead of having to configure a static token for the agents. To configure it, first it is required to register the OpenID provider as a trusted OIDC issuer in your pulumi account. For more information about this, refer to the [OIDC documentation](/docs/pulumi-cloud/oidc/client).
+It is possible to use OpenID authentication to fetch Pulumi Pool tokens dynamically instead ofconfiguring a static token for the agents. You must first register the OpenID provider as a trusted OIDC issuer in your Pulumi account, as documented at [OIDC documentation](/docs/pulumi-cloud/oidc/client).
 
 After that, there are a few configurations required by the agent:
 
