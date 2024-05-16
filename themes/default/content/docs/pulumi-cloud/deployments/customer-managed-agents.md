@@ -53,7 +53,7 @@ After registering the provider, this other information is required by the agent:
 - `organization_name`: your Pulumi Organization name
 - `runner_pool_id`: the pool ID that the instance will connect to
 - `token_expiration` (optional): the expiration in seconds for the tokens requested by the agent
-- `oidc_token_file`: the location of the file where the OIDC token will be dumped
+- `oidc_token_file`: the location of the file where the OIDC token will be recorded
 
 The agent will attempt to read the `oidc_token_file` for a fresh OIDC token and exchange it automatically for a Pulumi token every time the Pulumi token expires.
 
