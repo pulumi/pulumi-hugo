@@ -1,6 +1,6 @@
 ---
 title_tag: "parent | Resource Options"
-meta_desc: The parent resource option establishes an explicit parent/child relationship between resources.
+meta_desc: The parent resource option establishes an explicit parent/child relationship between Pulumi resources.
 title: "parent"
 h1: "Resource option: parent"
 meta_image: /images/docs/meta-images/docs-meta.png
@@ -13,13 +13,29 @@ aliases:
 - /docs/intro/concepts/resources/options/parent/
 ---
 
-The `parent` resource option specifies a parent for a resource. It is used to associate children with the parents that encapsulate or are responsible for them. Good examples of this are [component resources](/docs/concepts/resources/components/). The default behavior is to parent each resource to the implicitly-created `pulumi:pulumi:Stack` component resource that is a root resource for all Pulumi stacks.
+The `parent` resource option specifies a parent for a resource. It is used to associate children with the parents that encapsulate or are responsible for them. This option can be used with [component resources](/docs/concepts/resources/components/). The default behavior is to parent each resource to the implicitly-created `pulumi:pulumi:Stack` component resource that is a root resource for all Pulumi stacks.
+
+The relationships between resources can be seen visually as an interactive graph view in [Pulumi Cloud](/docs/pulumi-cloud/projects-and-stacks/#stack-resources).
 
 {{% notes type="warning" %}}
 Although the `parent` resource option can be used to parent a resource to any other resource, it is strongly recommended to parent resources only to [component resources](/docs/concepts/resources/components/) when they are actually children.  Parenting a resource to another [custom resource](/docs/concepts/resources/) can in some cases result in undefined behavior.
 {{% /notes %}}
 
-For example, this code creates two resources, a parent and child, the latter of which is a child to the former:
+## Inheritance of resource options
+
+Child resources inherit default values for many other resource options from their `parent`, including:
+
+* [`provider`](/docs/concepts/options/provider):  The provider instance used to construct a resource is inherited from its parent unless explicitly overridden by the child resource. If no resource in the parent chain specified a provider instance for the corresponding provider type, the parent itself may have inherited the global [default provider](../providers/#default-provider-configuration).
+
+* [`aliases`](/docs/concepts/options/aliases):  Aliases applied to a parent are applied to all child resources, so that changing the type of a parent resource correctly changes the qualified type of a child resource, and changing the name of a parent resource correctly changes the name prefix of child resources.
+
+* [`protect`](/docs/concepts/options/protect):  A protected parent will protect all children. This ensures that if a parent is marked as protected, none of its children will be deleted before the attempt to delete the parent fails.
+
+* [`transformations`](/docs/concepts/options/transformations):  Transformations applied to a parent will run on the parent and all child resources. This allows a transformation to be applied to a component to intercept and modify any resources created by its children. As a special case, [Stack transformations](/docs/concepts/options/transformations#stack-transformations) will be applied to *all* resources (since all resources ultimately are parented directly or indirectly by the root stack resource).
+
+## Create a parent and child resource
+
+The following demonstrates how to create two resources: a parent resource and a child resource, where the child is explicitly defined as a dependent of the parent.
 
 {{< chooser language "javascript,typescript,python,go,csharp,java,yaml" >}}
 
@@ -104,12 +120,6 @@ Previewing update (dev):
 +   │  └─ awsx:x:ec2:Subnet    default-vpc-866580ff-public-0    create
 ```
 
-Child resources inherit default values for many other resource options from their `parent`, including:
+## Related blogs
 
-* [`provider`](/docs/concepts/options/provider):  The provider instance used to construct a resource is inherited from it's parent, unless explicitly overridden by the child resource. The parent itself may have inherited the global [default provider](../providers/#default-provider-configuration) if no resource in the parent chain specified a provider instance for the corresponding provider type.
-
-* [`aliases`](/docs/concepts/options/aliases):  Aliases applied to a parent are applied to all child resources, so that changing the type of a parent resource correctly changes the qualified type of a child resource, and changing the name of a parent resource correctly changes the name prefix of child resources.
-
-* [`protect`](/docs/concepts/options/protect):  A protected parent will protect all children.  This ensures that if a parent is marked as protected, none of it's children will be deleted ahead of the attempt to delete the parent failing.
-
-* [`transformations`](/docs/concepts/options/transformations):  Transformations applied to a parent will run on the parent and on all child resources. This allows a transformation to be applied to a component to intercept and modify any resources created by it's children. As a special case, [Stack transformations](/docs/concepts/options/transformations#stack-transformations) will be applied to *all* resources (since all resources ultimately are parented directly or indirectly by the root stack resource).
+* [Stack Resource Visualization - Six things you might not know about Pulumi Cloud](/blog/six-things-about-pulumi-service/)
