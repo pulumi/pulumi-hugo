@@ -119,6 +119,15 @@ $ pulumi new typescript
 
 This will auto-generate all the basic artifacts required to use TypeScript. If you prefer, you can instead run the following manual steps.
 
+To build the template with Yarn or PNPM, set the respective environment variable before running `pulumi new ...`:
+
+```bash
+# To use Yarn:
+$ PULUMI_PREFER_YARN=true pulumi new typescript
+# To use PNPM
+$ PULUMI_PREFER_PNPM=true pulumi new typescript
+```
+
 ### 1. Update package.json
 
 Update your `package.json` to look like the following (with your own values for `name`, `version`, etc.).  This
@@ -141,7 +150,7 @@ You can customize this however you'd like, such as adding test scripts, npm pack
 
 ### 2. Install dependencies
 
-Run `npm install` or `yarn install` to install the new development-time dependencies to your `node_modules` directory.
+Run `npm install`, `yarn install`, or `pnpm install` to install the new development-time dependencies to your `node_modules` directory.
 
 ### 3. Create tsconfig.json
 
@@ -204,13 +213,25 @@ runtime:
 
 ## Package Management
 
-Pulumi has official support for NPM and Yarn Classic. Pulumi does
-not support Yarn Plug'n'Play.
+Pulumi has official support for NPM, PNPM (v8.3+), and Yarn Classic. NPM is the default package manager.
+Pulumi does not support Yarn Plug'n'Play.
 
-Pulumi defaults to using NPM. However, if Pulumi detects a `yarn.lock` file
-in the project root, or the environment variable `PULUMI_PREFER_YARN=true`,
-then Pulumi will use Yarn instead of NPM if the executable is available in the
-path.
+Users can force Pulumi to use a specific package manager via environment variable.
+Pulumi will use Yarn Classic if `PULUMI_PREFER_YARN=true`, and PNPM if
+`PULUMI_PREFER_PNPM=true`. Additionally, Pulumi attempts to detect your package manager prefers by looking for
+lockfile in your program directory.
+
+The precedence order is as follows:
+
+1. Setting `PULUMI_PREFER_YARN` or `PULUMI_PREFER_PNPM` has the highest precedence.
+2. If Pulumi finds a `yarn.lock` file in the program directory, Yarn Classic will be used.
+3. If Pulumi finds `pnpm-lock.yaml` file in the program directory, PNPM will be used.
+4. Pulumi will fall back to NPM in all other cases.
+
+{{% notes type="info" %}}
+If the hinted package manager is not found in the user's PATH, then Pulumi continues
+in precedence order until a valid package manager is found.
+{{% /notes %}}
 
 ## Dependencies on Provider Packages within Component Packages
 
