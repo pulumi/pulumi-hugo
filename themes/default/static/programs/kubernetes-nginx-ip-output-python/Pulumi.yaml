@@ -1,0 +1,6 @@
+name: kubernetes-nginx-ip-output-python
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: An example that deploys NGINX on Kubernetes.

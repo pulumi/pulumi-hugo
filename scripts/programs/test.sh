@@ -86,6 +86,13 @@ pushd "$programs_dir"
             continue
         fi
 
+        # In the YAML file, we must have quickstart as the name but this will cause the test to fail so skipping them.
+        if [[ "$project" == "kubernetes-nginx-yaml" ]]; then
+                continue
+        elif [[ "$project" == "kubernetes-nginx-ip-output-yaml" ]]; then
+                continue
+        fi
+
         # Destroy any existing stacks.
         pulumi -C "$project" cancel --stack $fqsn --yes || true
         pulumi -C "$project" destroy --stack $fqsn --yes --refresh --remove || true
@@ -94,6 +101,11 @@ pushd "$programs_dir"
         pulumi -C "$project" stack select $fqsn || pulumi -C "$project" stack init $fqsn
         pulumi -C "$project" config set aws:region us-west-2 || true
 
+        # Set any additional config required for these examples.
+        if [[ "$project" == "kubernetes-nginx-"* ]]; then
+             pulumi -C "$project" config set isMinikube true || true
+        fi
+       
         # Preview or deploy.
         if [[ "$mode" == "update" ]]; then
 

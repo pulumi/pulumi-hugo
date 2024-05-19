@@ -1,0 +1,12 @@
+{
+    "name": "kubernetes-nginx-ip-output-typescript",
+    "main": "index.ts",
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@types/node": "^18"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/kubernetes": "^4.0.0"
+    }
+}

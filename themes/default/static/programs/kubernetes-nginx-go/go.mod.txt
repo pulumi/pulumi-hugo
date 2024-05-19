@@ -1,0 +1,10 @@
+module kubernetes-nginx-go
+
+go 1.21
+
+toolchain go1.21.5
+
+require (
+	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.5.6
+	github.com/pulumi/pulumi/sdk/v3 v3.100.0
+)
