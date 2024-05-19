@@ -163,7 +163,7 @@ Server=tcp:myDbServer.database.windows.net;initial catalog=myExampleDatabase;
 
 ### Using string interpolation
 
-There is an easier way to generate a concatenated string value using multiple outputs, and that is by using interpolation. Pulumi exposes interpolation helpers that enables you to create strings that contain outputs. These interpolation methods wrap [all](/docs/concepts/inputs-outputs/all/) and [apply](/docs/concepts/inputs-outputs/apply/) with an interface that resembles your language's native string formatting functions. The example below demonstrates how to create a URL from the hostname and port output values of a web server.
+There is an easier way to generate a concatenated string value using multiple outputs, and that is by using interpolation. Pulumi exposes interpolation helpers that enables you to create strings that contain outputs. These interpolation methods wrap [all](/docs/concepts/inputs-outputs/all/) and [apply](/docs/concepts/inputs-outputs/apply/) with an interface that resembles your language's native string formatting functions. The example below demonstrates how to create an S3 URL from the bucket name and object key output values of an S3 bucket and object, respectively.
 
 {{< example-program path="aws-s3bucket-bucketobject-interpolate" >}}
 
