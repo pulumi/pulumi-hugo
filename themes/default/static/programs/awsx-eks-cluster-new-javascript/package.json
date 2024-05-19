@@ -1,0 +1,8 @@
+{
+    "name": "awsx-eks-cluster-new-javascript",
+    "main": "index.js",
+    "dependencies": {
+        "@pulumi/eks": "^2.0.0",
+        "@pulumi/pulumi": "^3.99.0"
+    }
+}

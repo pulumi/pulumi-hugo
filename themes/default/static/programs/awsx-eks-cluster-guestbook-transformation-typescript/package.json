@@ -1,0 +1,10 @@
+{
+    "name": "awsx-eks-cluster-guestbook-transformation-typescript",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18"
+    },
+    "dependencies": {
+        "@pulumi/kubernetes": "^4.5.0"
+    }
+}

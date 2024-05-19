@@ -1,0 +1,11 @@
+{
+    "name": "awsx-eks-cluster-nodes-typescript",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18"
+    },
+    "dependencies": {
+        "@pulumi/eks": "^2.0.0",
+        "@pulumi/aws": "^6.0.0"
+    }
+}

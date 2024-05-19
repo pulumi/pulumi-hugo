@@ -1,0 +1,11 @@
+{
+    "name": "awsx-eks-cluster-helm-chart-typescript",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18"
+    },
+    "dependencies": {
+        "@pulumi/eks": "^2.0.0",
+        "@pulumi/kubernetes": "^3.0.0"
+    }
+}

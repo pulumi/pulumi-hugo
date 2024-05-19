@@ -1,0 +1,7 @@
+{
+    "name": "awsx-eks-cluster-change-settings-javascript",
+    "main": "index.js",
+    "dependencies": {
+        "@pulumi/eks": "^2.0.0"
+    }
+}
