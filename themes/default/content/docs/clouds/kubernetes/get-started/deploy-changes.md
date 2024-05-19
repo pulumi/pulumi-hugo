@@ -64,33 +64,17 @@ Resources:
 Duration: 12s
 ```
 
-View the `ip` [stack output](/docs/concepts/stack#outputs) from the nginx service.
+View the `ip` of the nginx service using `kubectl get services`
+
+Send a request to nginx to verify it is running by replacing `<IP_ADDRESS>` with the IP address that you find for the service under `EXTERNAL_IP`.
 
 ```bash
-$ pulumi stack output ip
+curl <IP_ADDRESS>:8080
 ```
 
-> **If using Minikube:** Minikube does not support type `LoadBalancer`. Instead, forward the nginx service:
->
->  ```bash
->  $ kubectl get service
->  NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
->  kubernetes       ClusterIP   10.96.0.1        <none>        443/TCP   44h
->  nginx-9e5d5cd4   ClusterIP   10.103.199.118   <none>        80/TCP    6m47s
->  ```
->
-> Note: The assigned name for this particular nginx service is `nginx-9e5d5cd4`; yours will be different. In a new terminal window, run:
->
-> ```bash
->  $ kubectl port-forward service/nginx-9e5d5cd4 8080:80
->  Forwarding from 127.0.0.1:8080 -> 80
->  Forwarding from [::1]:8080 -> 80
-> ```
+The output is similar to:
 
-Curl nginx to verify it is running.
-
-```bash
-$ $(pulumi config get isMinikube) && curl "http://localhost:8080" || curl $(pulumi stack output ip)
+```text
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,6 +100,6 @@ Commercial support is available at
 </html>
 ```
 
-Next, we'll destroy the stack.
+Next, destroy the stack.
 
 {{< get-started-stepper >}}
